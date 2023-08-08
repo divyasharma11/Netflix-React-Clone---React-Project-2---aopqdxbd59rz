@@ -1,0 +1,298 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/login-bg.jpg");
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 50px 0;
+    height: 110vh;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+  }
+  
+  /* Logo */
+  .logo {
+    position: absolute !important;
+    top: -15px !important;
+    width: 220px !important;
+    height: 120px !important;
+    margin-left: 5rem !important;
+  }
+  
+  /* Login Button */
+  .login-btn {
+    margin-right: 10rem;
+  }
+  
+  .login-btn button {
+    width: 80px !important;
+    border-radius: 5px;
+  }
+  
+  /* Content */
+  .content {
+    margin-top: 3rem;
+  }
+  
+  .content h1 {
+    font-size: 2.8rem;
+    padding: 10px;
+  }
+  
+  .content p {
+    font-size: 1.5rem;
+    padding: 5px;
+  }
+  
+  /* Buttons */
+  button {
+    background-color: rgb(229, 9, 20);
+    color: rgb(255, 255, 255);
+    padding: 10px 0px;
+    border: none;
+    cursor: pointer;
+    width: 300px;
+    margin: auto;
+    margin-top: 20px;
+  }
+  
+  button:hover {
+    background-color: rgb(163, 9, 17);
+  }
+  
+  /* Movie Section */
+  .movie-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: black;
+    color: #fff;
+    padding: 20px;
+    height: 90vh;
+  }
+  
+  /* Movie Poster */
+  .movie-poster {
+    width: 400px;
+    height: 450px;
+    margin: 0 auto;
+  }
+  
+  .movie-poster img {
+    height: 100%;
+    width: 100%;
+  }
+  
+  /* Movie Trailer */
+  .movie-trailer {
+    width: 560px;
+    height: 315px;
+    margin: auto 15px;
+  }
+  
+  .movie-trailer iframe {
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+  }
+  
+  /* Movie Text */
+  #movie-text {
+    line-height: 1.5;
+    padding-left: 6rem;
+  }
+  
+  /* Movie Title */
+  .movie-title {
+    font-size: 4.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Movie Description */
+  .movie-description {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+  
+  /* Cart Container */
+  .cart-Container {
+    background-color: black;
+    color: white;
+    padding: 50px 50px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .cart-Container h1 {
+    font-size: 3rem;
+    margin: 2rem;
+  }
+  
+  .cart-Container h2 {
+    margin-top: 2rem;
+  }
+  
+  .cart-content {
+    width: 80%;
+    height: 5rem;
+    background-color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    font-size: 1.5rem;
+    margin: 5px;
+  }
+  
+  .cart-content:hover {
+    background-color: #555;
+  }
+  
+  /* Footer */
+  .footer-content {
+    padding: 60px;
+    background-color: black;
+    color: white;
+    min-height: 300px;
+  }
+  
+  .footer-content p {
+    margin-left: 8rem;
+  }
+  
+  .footer {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .footer-links .foot {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    color: #fff;
+  }
+  
+  .foot-btn {
+    width: 100px;
+    margin-left: 13rem;
+    background: none;
+    border: 1px solid #333;
+  }
+  
+  .foot-btn:hover {
+    background-color: #fff;
+    color: #111;
+  }
+  
+  /* Media Queries */
+  
+  /* For screens with max-width 768px (e.g., tablets and smaller devices) */
+  @media only screen and (max-width: 768px) {
+    .hero-section {
+      padding: 30px 0;
+      height: auto;
+    }
+    
+    .logo {
+      width: 150px !important;
+      height: 80px !important;
+      margin-left: 1rem !important;
+      top: -10px !important;
+    }
+    
+    .login-btn {
+      margin-right: 3rem;
+    }
+    
+    .login-btn button {
+      width: 60px !important;
+    }
+    
+    .content h1 {
+      font-size: 2.2rem;
+      padding: 5px;
+    }
+    
+    .content p {
+      font-size: 1.2rem;
+      padding: 5px;
+    }
+    
+    .movie-section {
+      flex-direction: column;
+      height: auto;
+    }
+    
+    .movie-poster {
+      width: 80%;
+      height: auto;
+    }
+    
+    .movie-trailer {
+      width: 100%;
+      height: 240px;
+      margin: 15px 0;
+    }
+    
+    #movie-text {
+      padding-left: 0;
+      text-align: center;
+    }
+    
+    .movie-title {
+      font-size: 3rem;
+    }
+    
+    .movie-description {
+      font-size: 1.2rem;
+    }
+    
+    .cart-Container {
+      padding: 30px 30px;
+    }
+    
+    .cart-Container h1 {
+      font-size: 2rem;
+    }
+    
+    .footer-content {
+      padding: 30px;
+      font-size: 10px;
+    }
+    
+    .footer-content p {
+      margin-left: 0;
+      text-align: center;
+    }
+    
+    /* .footer {
+      flex-direction: column;
+    } */
+    
+    .footer-links .foot {
+        font: 18px;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 10px;
+    }
+    
+    .foot-btn {
+      margin-left: 1rem;
+    }
+  }
+  
