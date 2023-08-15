@@ -19,11 +19,13 @@ body {
     background-position: center;
     z-index: 1;
   }
-  
+  .login-nav{
+    position: absolute;
+  }
   /* Logo */
-  .logo {
+  .logo-img {
     position: absolute !important;
-    top: -15px !important;
+    top: 10px !important;
     width: 220px !important;
     height: 120px !important;
     margin-left: 5rem !important;
@@ -31,12 +33,15 @@ body {
   
   /* Login Button */
   .login-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-right: 10rem;
   }
   
   .login-btn button {
-    width: 80px !important;
-    border-radius: 5px;
+    width: 90px !important;
+    border-radius: 2px;
   }
   
   /* Content */
@@ -54,7 +59,7 @@ body {
     padding: 5px;
   }
   
-  /* Buttons */
+  /* Buttons*/
   button {
     background-color: rgb(229, 9, 20);
     color: rgb(255, 255, 255);
@@ -161,6 +166,44 @@ body {
   .cart-content:hover {
     background-color: #555;
   }
+  /* login code */
+  .sign-container p{
+    font-size: large;
+    text-align: center;
+    font-weight: 800;
+    padding: 10px;
+    color: #fff;
+  }
+ .login button{
+  margin: 10px 10px;
+  border-radius: 5px;
+ }
+ 
+ .inpt-txt{
+  height: 2.5rem;
+  width: 300px;
+  margin: 10px 10px;
+  padding: 0px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color:rgb(92, 86, 86);
+ }
+ .inpt-txt:focus{
+  outline: none;
+ }
+ .inpt-txt::placeholder{
+  color: #fff;
+ }
+ #new{
+  color: #ccc;
+  padding: 20px 50px;
+ }
+  .link2{
+  color: #fff;
+  font-size: large;
+  text-decoration: none;
+ }
+ 
   
   /* Footer */
   .footer-content {
@@ -170,7 +213,7 @@ body {
     min-height: 300px;
   }
   
-  .footer-content p {
+  .footer-content .tagp {
     margin-left: 8rem;
   }
   
@@ -188,16 +231,28 @@ body {
   }
   
   .foot-btn {
-    width: 100px;
+    width: 140px;
+    height: 35px;
+    display: flex;
     margin-left: 13rem;
+    margin-right: 1rem;
+    margin-top: 1.3rem;
     background: none;
-    border: 1px solid #333;
+    border: 1px solid #5e5b5b;
+  }
+  .foot-btn .language{
+    margin: 5px 15px;
+    color: #fff;
+  }
+  .foot-btn p{
+    color: #fff;
+    margin: 8px 0px;
+  }
+  .key{
+     margin-top: 5px;
+     color: #fff;
   }
   
-  .foot-btn:hover {
-    background-color: #fff;
-    color: #111;
-  }
   
   /* Media Queries */
   

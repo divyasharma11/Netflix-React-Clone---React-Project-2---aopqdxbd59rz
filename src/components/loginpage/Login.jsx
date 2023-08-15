@@ -1,21 +1,124 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../images/logo.png";
 import poster1 from "../images/poster1.png";
 import poster2 from "../images/poster2.jpg";
 import poster3 from "../images/poster3.jpg";
 import poster4 from "../images/poster4.jpg";
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AddIcon from '@mui/icons-material/Add';
+import Modal from 'react-modal'
+import LanguageIcon from '@mui/icons-material/Language';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    width:'350px',
+    height:'350px',
+    border:'none',
+    borderRadius:'10px',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    backgroundColor:'rgba(0,0,0,0.8)'
+  },
+  overlay:
+  { 
+    backgroundColor: 'rgba(0,0,0,0.4)', 
+  },
+};
 const Login = () => {
+  let subtitle;
+  const navigate = useNavigate(null);
+    const [isModalOpen,setIsModalOpen]=useState(false);
+      const[formData,setFormData]=useState({
+        name:"name",
+        password:"password"
+      });
+
+      const {email,password}=formData;
+    const handleOnChange =(e)=>{
+      const { name, value } = e.target;
+      setFormData((prevData) => ({
+        ...prevData,
+        [name]: value,
+      }));
+    }
+    // const handleClose = () => {
+    //     setIsModalOpen(false);
+    // };
+ 
+    const handleOpen = () => {
+        setIsModalOpen(true);
+    };
+    function afterOpenModal() {
+      // references are now sync'd and can be accessed.
+      subtitle.style.color = '#f00';
+    }
+  
+    function closeModal() {
+      setIsModalOpen(false);
+    }
+    const handleLogin=()=>{
+      navigate('/home');
+    }
   return (
     <>
-      <nav>
+      <nav className="login-nav">
         <div className="logo-container">
           <img src={logo} alt="Netflix Logo" className="logo" />
         </div>
         <div className="login-btn">
-          <button>Login</button>
+        <div className="foot-btn">
+          <LanguageIcon className="language" />
+          <p>English</p>
+          <ArrowDropDownIcon className="key" />
+        </div>
+        <div>
+          <button onClick={handleOpen}>Sign In</button>
+          <Modal
+        isOpen={isModalOpen}
+        onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
+        style={customStyles}
+      >
+           <div className="sign-container">
+             <p>Sign In</p>
+             <form>
+                <input 
+                className="inpt-txt"
+                type="email" 
+                id="email" 
+                name="email"
+                placeholder="email" 
+                value={email}
+                onChange={handleOnChange}
+                />
+                <input
+                className="inpt-txt"
+                 type="password"
+                  id="password" 
+                  name="password"
+                  placeholder="password" 
+                  value={password}
+                  onChange={handleOnChange}
+                  />
+                <div className="login">
+                <button onClick={handleLogin} >Login</button>
+                </div>
+                <div>
+                    {/* <input type="checkbox" />Remember me */}
+                </div>
+                <div id="new">
+                    new to Netflix? <Link to={"/signup "} className="link2">Sign up now</Link>
+                </div>
+             </form>
+           </div>
+          </Modal>
+        </div>
         </div>
       </nav>
       <div className="hero-section">
@@ -26,7 +129,8 @@ const Login = () => {
             Ready to watch? Enter your email to create or restart your
             membership.
           </p>
-          <button>Get Started</button>
+          <button onClick={()=>navigate("/signup")}>Get Started</button>
+        
         </div>
       </div>
       <hr
@@ -193,7 +297,7 @@ const Login = () => {
         }}
       />
       <div className="footer-content">
-        <p>Questions? Call 000-800-919-1694</p>
+        <p className="tagp">Questions? Call 000-800-919-1694</p>
         <div className="footer">
         <div className="footer-links">
             <Link className="foot">FAQ</Link>
@@ -217,7 +321,11 @@ const Login = () => {
             <Link  className="foot">Only on Netflix</Link>
         </div>
         </div>
-        <button className="foot-btn">English</button>
+        <div className="foot-btn">
+          <LanguageIcon className="language" />
+          <p>English</p>
+          <ArrowDropDownIcon className="key" />
+        </div>
       </div>
     </>
   );

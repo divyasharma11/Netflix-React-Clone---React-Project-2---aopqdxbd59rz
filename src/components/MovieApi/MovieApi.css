@@ -1,0 +1,23 @@
+.movie-container{
+padding: 0.1rem 1rem;
+}
+.movie-container h2{
+    font-size: 25px;
+    text-transform: uppercase;
+    color: #fff;
+}
+.poster-content{
+margin: 20px 10px;
+display: flex;
+}
+.carts{
+    margin-left: 10px ;
+ transition: transform 450ms;
+}
+.carts:hover{
+  transform: scale(1.09);
+}
+.carts img{
+  width: 200px;
+  height: 250px;
+}

@@ -1,0 +1,38 @@
+ /* header */
+   .background{
+    background-image: url("../images/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: "center center";
+    height: 480px;
+}
+
+.fade-bottom{
+  height: 6.5vh;
+  position: relative;
+  background-image: linear-gradient(180deg,
+  transparent, rgba(37, 37, 37, 5), #111);
+}
+.head-btn{
+  position: absolute;
+  top: 50%;
+    left: 5%;
+}
+.head-btn .h-btn{
+  width:100px;
+  height: fit-content;
+  margin: 10px;
+  outline: none;
+  border: none;
+  background-color:rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.head-btn .h-btn:hover{
+  background-color: #fff;
+  color: #111;
+}
+.movie-api{
+  background-color: #111;
+}
+ 
