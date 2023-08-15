@@ -14,9 +14,11 @@
   transparent, rgba(37, 37, 37, 5), #111);
 }
 .head-btn{
+  display: flex;
   position: absolute;
   top: 50%;
     left: 5%;
+    /* color: #fff; */
 }
 .head-btn .h-btn{
   width:100px;
@@ -27,11 +29,24 @@
   background-color:rgba(0, 0, 0, 0.4);
   border-radius: 5px;
   cursor: pointer;
+  padding-left: 15px;
 }
-.head-btn .h-btn:hover{
+ .h-btn:hover{
   background-color: #fff;
   color: #111;
 }
+ 
+.home-icon{
+  position: absolute;
+  top: 15px;
+  left: 18px;
+}
+.home-icon1{
+  position: absolute;
+  top: 15px;
+  right: 83px;
+}
+
 .movie-api{
   background-color: #111;
 }

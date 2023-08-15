@@ -41,7 +41,7 @@ const Movies = () => {
       {movies.length > 0 &&
         movies.map((movie) => {
           return (
-              <div className="carts">
+              <div className="poster-carts">
                 <img src={movie.thumbnail} />
               </div>           
           );

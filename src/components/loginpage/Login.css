@@ -160,11 +160,19 @@ body {
     align-items: center;
     padding: 2rem;
     font-size: 1.5rem;
-    margin: 5px;
+    margin: 3px;
   }
   
   .cart-content:hover {
     background-color: #555;
+  }
+  .cart-description{
+    width: 80%;
+    background-color: #333;
+    margin-top: 0;
+   font-size: 18px;
+   line-height: 20px;
+   padding: 20px;
   }
   /* login code */
   .sign-container p{
