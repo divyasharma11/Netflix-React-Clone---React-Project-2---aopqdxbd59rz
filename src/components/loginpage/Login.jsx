@@ -10,6 +10,11 @@ import AddIcon from "@mui/icons-material/Add";
 import Modal from "react-modal";
 import LanguageIcon from "@mui/icons-material/Language";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import { useDispatch,useSelector } from "react-redux";
+import { getLogIn } from "../../Redux/loginSlice";
+import SignOut from "../SignOut";
+
+Modal.setAppElement('#root');
 
 const customStyles = {
   content: {
@@ -31,15 +36,25 @@ const customStyles = {
 };
 const Login = () => {
   let subtitle;
+  const {isLoggedIn} = useSelector((state) => state.login)
+  const dispatch = useDispatch();
   const navigate = useNavigate(null);
   const [showDiscription,setShowDiscription]=useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({
-    name: "name",
-    password: "password",
+    email: "",
+    password: "",
   });
 
-  const { email, password } = formData;
+  const {email, password } = formData;
+
+  useEffect(()=>{
+    console.log("user is logged in",isLoggedIn)
+    if(isLoggedIn){
+      navigate("/home");
+    }
+  },[isLoggedIn]);
+
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -48,19 +63,19 @@ const Login = () => {
     }));
   };
 
+
   const handleOpen = () => {
     setIsModalOpen(true);
   };
-  function afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    subtitle.style.color = "#f00";
-  }
+  // function afterOpenModal() {
+  //   subtitle.style.color = "#f00";
+  // }
 
   function closeModal() {
     setIsModalOpen(false);
   }
   const handleLogin = () => {
-    navigate("/home");
+    dispatch(getLogIn(formData))
   };
   const toggleCard=()=>{
    setShowDiscription(true);
@@ -79,16 +94,23 @@ const Login = () => {
             <ArrowDropDownIcon className="key" />
           </div>
           <div>
+            {isLoggedIn ?
+            (
+            <button onClick={() => SignOut(navigate)}>Sign Out</button>
+            ):
+            (
             <button onClick={handleOpen}>Sign In</button>
+            )
+            }
             <Modal
               isOpen={isModalOpen}
-              onAfterOpen={afterOpenModal}
+              // onAfterOpen={afterOpenModal}
               onRequestClose={closeModal}
               style={customStyles}
             >
               <div className="sign-container">
                 <p>Sign In</p>
-                <form>
+                <div>
                   <input
                     className="inpt-txt"
                     type="email"
@@ -117,7 +139,7 @@ const Login = () => {
                       Sign up now
                     </Link>
                   </div>
-                </form>
+                </div>
               </div>
             </Modal>
           </div>
@@ -146,9 +168,9 @@ const Login = () => {
         <div className="movie-trailer">
           <iframe
             src="https://www.youtube.com/embed/ndl1W4ltcmg"
-            frameborder="0"
+            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
+            allowFullScreen
           ></iframe>
         </div>
         <div id="movie-text">
@@ -317,7 +339,7 @@ const Login = () => {
         <h2>
           Ready to watch? Enter your email to create or restart your membership.
         </h2>
-        <button>Get started</button>
+        <button onClick={() => navigate("/signup")}>Get started</button>
       </div>
       <hr
         style={{

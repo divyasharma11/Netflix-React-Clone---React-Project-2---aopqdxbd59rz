@@ -1,0 +1,69 @@
+/* header */
+.header-container{
+   position: relative;
+   top: 0;
+}
+.moviePosterContainer .moviePosterImage{
+    /* background-image: url("../images/background.jpg"); */
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: "center center";
+    height: 530px;
+}
+
+.moviePosterContent{
+    position: absolute;
+    top: 48%;
+      left: 5%;
+}
+.moviePosterTitle{
+    color: #fff;
+    text-transform: uppercase;
+   font-style: italic;
+}
+.moviePosterDescription{
+    padding: 10px 0px;
+    color: #fff;
+    font-size: medium;
+    width: 400px;
+    height: f;
+}
+.head-btn{
+  position: absolute;
+  top: 80%;
+  left: 0%;
+  margin-top: 10px;
+}
+.head-btn .h-btn{
+  width:100px;
+  height: fit-content;
+  margin: 10px;
+  outline: none;
+  border: none;
+  background-color:rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  cursor: pointer;
+  padding-left: 15px;
+}
+ .h-btn:hover{
+  background-color: #fff;
+  color: #111;
+}
+ 
+.home-icon{
+  position: absolute;
+  top: 15px;
+  left: 18px;
+}
+.home-icon1{
+  position: absolute;
+  top: 15px;
+  right: 83px;
+}
+.fade-bottom{
+    height: 6.5vh;
+    position: relative;
+    background-image: linear-gradient(180deg,
+    transparent, rgba(37, 37, 37, 5), #111);
+  }

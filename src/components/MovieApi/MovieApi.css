@@ -13,10 +13,10 @@ position: relative;
 }
 .carts{
     margin-left: 10px ;
- transition: transform 450ms;
+ /* transition: transform 450ms; */
 }
 /* .carts:hover{
-  transform: scale(1.09);
+  transform: scale(1);
 } */
 .carts img{
   width: 200px;
@@ -24,14 +24,14 @@ position: relative;
 }
 
 .cord:hover img{
-  width: 300px;
-  height: 180px;
+  width: 250px;
+  height: 280px;
 }
 .hide-container{
   visibility: hidden;
  position: absolute;
  top: 150px;
- width: 300px;
+ width: 250px;
  height: fit-content;
  margin-left: 10px;
 }
@@ -71,11 +71,13 @@ position: relative;
   margin:5px ;
 }
 .span .sm-icon{
-padding-top: 20px;
-font-size: 35px;
+
+margin-top:10px;
+font-size: 15px;
 }
+
 .third{
-  color: green;
+  color:green;
   margin-top:10px ;
 }
  .fourth{

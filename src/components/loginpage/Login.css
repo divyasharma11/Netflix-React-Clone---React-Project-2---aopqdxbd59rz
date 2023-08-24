@@ -264,7 +264,6 @@ body {
   
   /* Media Queries */
   
-  /* For screens with max-width 768px (e.g., tablets and smaller devices) */
   @media only screen and (max-width: 768px) {
     .hero-section {
       padding: 30px 0;
@@ -274,8 +273,8 @@ body {
     .logo {
       width: 150px !important;
       height: 80px !important;
-      margin-left: 1rem !important;
-      top: -10px !important;
+      margin-left: .1rem !important;
+      /* top: -10px !important; */
     }
     
     .login-btn {
@@ -343,10 +342,6 @@ body {
       text-align: center;
     }
     
-    /* .footer {
-      flex-direction: column;
-    } */
-    
     .footer-links .foot {
         font: 18px;
       flex-direction: column;
@@ -355,7 +350,21 @@ body {
     }
     
     .foot-btn {
+      width: fit-content;
+       height: fit-content;
       margin-left: 1rem;
+      font-size: 14px;
+    }
+    .foot-btn .language{
+      margin: 5px 5px;
+     font-size: medium;
+    }
+    .foot-btn p{
+      color: #fff;
+      margin: 5px 0px;
+    }
+    .key{
+       margin-top: 1px;
     }
   }
   

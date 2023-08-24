@@ -7,9 +7,13 @@ import google from "../images/google-icon.png";
 import github from "../images/github-icon.png";
 import { signInWithPopup } from "firebase/auth";
 import { auth, provider } from "../../firebase";
+import { useDispatch,useSelector } from "react-redux";
+import { getRegister } from "../../Redux/loginSlice";
 
 const Signup = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const {isRegister} = useSelector((state) => state.login)
   const [formDetails, setFormDetails] = useState({
     name: "",
     email: "",
@@ -54,7 +58,12 @@ const Signup = () => {
         console.log("ERROR", error);
       });
   };
-  
+  const signUpHandler=()=>{
+    dispatch(getRegister(formDetails));
+    if(isRegister){
+      navigate("/")
+    }
+  }
   return (
     <>
       <Navbar />
@@ -66,7 +75,7 @@ const Signup = () => {
             <br />
             Joining Netflix is easy.
           </p>
-          <form>
+          <div className="form">
             <input
               className="input-text"
               type="text"
@@ -109,7 +118,7 @@ const Signup = () => {
                 {errors.password}
               </p>
             )}
-            <button className="signup-btn" onClick={()=>navigate('/')}>Sign up</button>
+            <button className="signup-btn" onClick={signUpHandler}>Sign up</button>
             <div id="text">
               Already have an account? <Link to={"/ "}>Sign in</Link>
             </div>
@@ -121,7 +130,7 @@ const Signup = () => {
               <img src={github} />
             </div>
             </div>
-          </form>
+          </div>
         </div>
       </div>
       <Footer />

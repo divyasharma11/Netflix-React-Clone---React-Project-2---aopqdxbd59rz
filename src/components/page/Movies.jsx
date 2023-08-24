@@ -1,35 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import "./Style.css";
-import axios from 'axios';
 import Nav from './Nav';
+import { useDispatch, useSelector } from 'react-redux';
+import { getMovieShow } from '../../Redux/pageSlice';
 const Movies = () => {
-  const [movies, setMovies] = useState([]);
+  const dispatch = useDispatch();
+  const {movieshowList} = useSelector((state)=> state.page);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    const fetchMovies = async () => {
-      try {
-        setLoading(true);
-        const response = await axios.get(
-          "https://academics.newtonschool.co/api/v1/ott/show",
-          {
-            headers: {
-              projectId: "aopqdxbd59rz",
-            },
-            params: {
-              filter: JSON.stringify({ type: "tv show" }),
-            },
-          }
-        );
-        setMovies((prevTvShows) => [...prevTvShows, ...response.data.data]);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching data from the API:", error);
-        setLoading(false);
-      }
-    };
-    fetchMovies();
-  }, []);
+  useEffect(()=>{
+    setLoading(false);
+    dispatch(getMovieShow());
+  },[]);
   return (
     < div className='bg'>
     <Nav />
@@ -38,8 +20,8 @@ const Movies = () => {
     }
 
       <div className="poster">
-      {movies.length > 0 &&
-        movies.map((movie) => {
+      {movieshowList.length > 0 &&
+        movieshowList.map((movie) => {
           return (
               <div className="poster-carts">
                 <img src={movie.thumbnail} />

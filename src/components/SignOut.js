@@ -1,4 +1,5 @@
 import {auth} from '../firebase'
+
 const SignOut = (navigate) => {
     auth
       .signOut()

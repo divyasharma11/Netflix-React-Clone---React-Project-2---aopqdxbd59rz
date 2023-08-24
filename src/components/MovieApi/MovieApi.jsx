@@ -1,34 +1,33 @@
 import React, { useEffect, useState } from "react";
 import "./MovieApi.css";
-import axios from "axios";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import AddIcon from "@mui/icons-material/Add";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import VolumeUpIcon from "@mui/icons-material/VolumeUp";
+import { useDispatch, useSelector } from "react-redux";
+import { getMovieList, getMovieListById } from "../../Redux/movieApiSlice";
+import { useNavigate } from "react-router-dom";
+import VedioModel from "../page/VedioModel";
+
 const MovieApi = () => {
-  const [movieList, setMovieList] = useState([]);
-
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { movieList } = useSelector((state) => state.movie);
+  const [openModal, setOpenModal] = useState(false);
   useEffect(() => {
-    // Function to fetch data from API
-    const Api_Url = "https://academics.newtonschool.co/api/v1/ott/show";
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(Api_Url, {
-          headers: {
-            projectId: "aopqdxbd59rz",
-          },
-        });
-
-        // const jsonData = await response.json();
-        setMovieList((prevData) => [...prevData, ...response.data.data]);
-      } catch (error) {
-        console.log("error", error);
-      }
-    };
-    fetchData();
+    dispatch(getMovieList());
   }, []);
 
+  
+  const handleOpenModal = (id) => {
+    setOpenModal(true);
+    dispatch(getMovieListById(id));
+  };
+  
+  function closeModal() {
+    setOpenModal(false);
+  }
   return (
     <div className="movie-container">
       <h2>Netflix Originals</h2>
@@ -46,33 +45,34 @@ const MovieApi = () => {
                     <span>
                       <VolumeUpIcon />
                     </span>
-                  </div> 
-                  <div className="color">
-                  <div  className="second">              
-                    <div className="second-content">
-                      <span  className="spcl span">
-                        <PlayArrowIcon  className="sm-icon"/>
-                      </span>
-                      <span className="span">
-                        <AddIcon className="sm-icon"/>
-                      </span>
-                      <span  className="span">
-                        <ThumbUpOffAltIcon className="sm-icon"/>
-                      </span>
-                    </div>
-                    <div>
-                      <span  className="span">
-                        <KeyboardArrowDownIcon className="sm-icon" />
-                      </span>
-                    </div>
-                    </div>
-                  <div className="third">
-                     <p> 70% Match</p>
                   </div>
-                  <div className="fourth">
-                    <p>Action - Adventure - Science</p>
+                  <div className="color">
+                    <div className="second">
+                      <div className="second-content">
+                        <span className="spcl span">
+                          <PlayArrowIcon className="sm-icon" />
+                        </span>
+                        <span className="span">
+                          <AddIcon className="sm-icon" />
+                        </span>
+                        <span className="span">
+                          <ThumbUpOffAltIcon className="sm-icon" />
+                        </span>
+                      </div>
+                      <div>
+                        <span className="span" onClick={()=>handleOpenModal(movie._id)}>
+                          <KeyboardArrowDownIcon className="sm-icon" />
+                        </span>
+                        <VedioModel isOpen={openModal} onClose={closeModal} />
+                      </div>
                     </div>
+                    <div className="third">
+                      <p> {movie.keywords}</p>
                     </div>
+                    <div className="fourth">
+                      <p>{movie.description}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             );
@@ -94,33 +94,33 @@ const MovieApi = () => {
                     <span>
                       <VolumeUpIcon />
                     </span>
-                  </div> 
-                  <div className="color">
-                  <div  className="second">              
-                    <div className="second-content">
-                      <span  className="spcl span">
-                        <PlayArrowIcon  className="sm-icon"/>
-                      </span>
-                      <span className="span">
-                        <AddIcon className="sm-icon"/>
-                      </span>
-                      <span  className="span">
-                        <ThumbUpOffAltIcon className="sm-icon"/>
-                      </span>
-                    </div>
-                    <div>
-                      <span  className="span">
-                        <KeyboardArrowDownIcon className="sm-icon" />
-                      </span>
-                    </div>
-                    </div>
-                  <div className="third">
-                     <p> 70% Match</p>
                   </div>
-                  <div className="fourth">
-                    <p>Action - Adventure - Science</p>
+                  <div className="color">
+                    <div className="second">
+                      <div className="second-content">
+                        <span className="spcl span">
+                          <PlayArrowIcon className="sm-icon" />
+                        </span>
+                        <span className="span">
+                          <AddIcon className="sm-icon" />
+                        </span>
+                        <span className="span">
+                          <ThumbUpOffAltIcon className="sm-icon" />
+                        </span>
+                      </div>
+                      <div>
+                        <span className="span">
+                          <KeyboardArrowDownIcon className="sm-icon" />
+                        </span>
+                      </div>
                     </div>
+                    <div className="third">
+                      <p> {movie.keywords}</p>
                     </div>
+                    <div className="fourth">
+                      <p>{movie.description}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             );
@@ -141,33 +141,33 @@ const MovieApi = () => {
                     <span>
                       <VolumeUpIcon />
                     </span>
-                  </div> 
-                  <div className="color">
-                  <div  className="second">              
-                    <div className="second-content">
-                      <span  className="spcl span">
-                        <PlayArrowIcon  className="sm-icon"/>
-                      </span>
-                      <span className="span">
-                        <AddIcon className="sm-icon"/>
-                      </span>
-                      <span  className="span">
-                        <ThumbUpOffAltIcon className="sm-icon"/>
-                      </span>
-                    </div>
-                    <div>
-                      <span  className="span">
-                        <KeyboardArrowDownIcon className="sm-icon" />
-                      </span>
-                    </div>
-                    </div>
-                  <div className="third">
-                     <p> 70% Match</p>
                   </div>
-                  <div className="fourth">
-                    <p>Action - Adventure - Science</p>
+                  <div className="color">
+                    <div className="second">
+                      <div className="second-content">
+                        <span className="spcl span">
+                          <PlayArrowIcon className="sm-icon" />
+                        </span>
+                        <span className="span">
+                          <AddIcon className="sm-icon" />
+                        </span>
+                        <span className="span">
+                          <ThumbUpOffAltIcon className="sm-icon" />
+                        </span>
+                      </div>
+                      <div>
+                        <span className="span">
+                          <KeyboardArrowDownIcon className="sm-icon" />
+                        </span>
+                      </div>
                     </div>
+                    <div className="third">
+                      <p> {movie.keywords}</p>
                     </div>
+                    <div className="fourth">
+                      <p>{movie.description}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             );
@@ -188,33 +188,33 @@ const MovieApi = () => {
                     <span>
                       <VolumeUpIcon />
                     </span>
-                  </div> 
-                  <div className="color">
-                  <div  className="second">              
-                    <div className="second-content">
-                      <span  className="spcl span">
-                        <PlayArrowIcon  className="sm-icon"/>
-                      </span>
-                      <span className="span">
-                        <AddIcon className="sm-icon"/>
-                      </span>
-                      <span  className="span">
-                        <ThumbUpOffAltIcon className="sm-icon"/>
-                      </span>
-                    </div>
-                    <div>
-                      <span  className="span">
-                        <KeyboardArrowDownIcon className="sm-icon" />
-                      </span>
-                    </div>
-                    </div>
-                  <div className="third">
-                     <p> 70% Match</p>
                   </div>
-                  <div className="fourth">
-                    <p>Action - Adventure - Science</p>
+                  <div className="color">
+                    <div className="second">
+                      <div className="second-content">
+                        <span className="spcl span">
+                          <PlayArrowIcon className="sm-icon" />
+                        </span>
+                        <span className="span">
+                          <AddIcon className="sm-icon" />
+                        </span>
+                        <span className="span">
+                          <ThumbUpOffAltIcon className="sm-icon" />
+                        </span>
+                      </div>
+                      <div>
+                        <span className="span">
+                          <KeyboardArrowDownIcon className="sm-icon" />
+                        </span>
+                      </div>
                     </div>
+                    <div className="third">
+                      <p> {movie.keywords}</p>
                     </div>
+                    <div className="fourth">
+                      <p>{movie.description}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             );
@@ -226,44 +226,44 @@ const MovieApi = () => {
           movieList.slice(45, 55).map((movie) => {
             return (
               <div className="cord">
-              <div className="carts">
-                <img src={movie.thumbnail} />
-              </div>
-              <div className="hide-container">
-                <div className="first">
-                  <p>{movie.title}</p>
-                  <span>
-                    <VolumeUpIcon />
-                  </span>
-                </div> 
-                <div className="color">
-                <div  className="second">              
-                  <div className="second-content">
-                    <span  className="spcl span">
-                      <PlayArrowIcon  className="sm-icon"/>
-                    </span>
-                    <span className="span">
-                      <AddIcon className="sm-icon"/>
-                    </span>
-                    <span  className="span">
-                      <ThumbUpOffAltIcon className="sm-icon"/>
-                    </span>
-                  </div>
-                  <div>
-                    <span  className="span">
-                      <KeyboardArrowDownIcon className="sm-icon" />
-                    </span>
-                  </div>
-                  </div>
-                <div className="third">
-                   <p> 70% Match</p>
+                <div className="carts">
+                  <img src={movie.thumbnail} />
                 </div>
-                <div className="fourth">
-                  <p>Action - Adventure - Science</p>
+                <div className="hide-container">
+                  <div className="first">
+                    <p>{movie.title}</p>
+                    <span>
+                      <VolumeUpIcon />
+                    </span>
                   </div>
+                  <div className="color">
+                    <div className="second">
+                      <div className="second-content">
+                        <span className="spcl span">
+                          <PlayArrowIcon className="sm-icon" />
+                        </span>
+                        <span className="span">
+                          <AddIcon className="sm-icon" />
+                        </span>
+                        <span className="span">
+                          <ThumbUpOffAltIcon className="sm-icon" />
+                        </span>
+                      </div>
+                      <div>
+                        <span className="span">
+                          <KeyboardArrowDownIcon className="sm-icon" />
+                        </span>
+                      </div>
+                    </div>
+                    <div className="third">
+                      <p> {movie.keywords}</p>
+                    </div>
+                    <div className="fourth">
+                      <p>{movie.description}</p>
+                    </div>
                   </div>
+                </div>
               </div>
-            </div>
             );
           })}
       </div>
@@ -273,44 +273,47 @@ const MovieApi = () => {
           movieList.slice(55, 65).map((movie) => {
             return (
               <div className="cord">
-              <div className="carts">
-                <img src={movie.thumbnail} />
-              </div>
-              <div className="hide-container">
-                <div className="first">
-                  <p>{movie.title}</p>
-                  <span>
-                    <VolumeUpIcon />
-                  </span>
-                </div> 
-                <div className="color">
-                <div  className="second">              
-                  <div className="second-content">
-                    <span  className="spcl span">
-                      <PlayArrowIcon  className="sm-icon"/>
-                    </span>
-                    <span className="span">
-                      <AddIcon className="sm-icon"/>
-                    </span>
-                    <span  className="span">
-                      <ThumbUpOffAltIcon className="sm-icon"/>
-                    </span>
-                  </div>
-                  <div>
-                    <span  className="span">
-                      <KeyboardArrowDownIcon className="sm-icon" />
-                    </span>
-                  </div>
-                  </div>
-                <div className="third">
-                   <p> 70% Match</p>
+                <div className="carts">
+                  <img src={movie.thumbnail} />
                 </div>
-                <div className="fourth">
-                  <p>Action - Adventure - Science</p>
+                <div className="hide-container">
+                  <div className="first">
+                    <p>{movie.title}</p>
+                    <span>
+                      <VolumeUpIcon />
+                    </span>
                   </div>
+                  <div className="color">
+                    <div className="second">
+                      <div className="second-content">
+                        <span className="spcl span">
+                          <PlayArrowIcon className="sm-icon" />
+                        </span>
+                        <span className="span">
+                          <AddIcon className="sm-icon" />
+                        </span>
+                        <span className="span">
+                          <ThumbUpOffAltIcon className="sm-icon" />
+                        </span>
+                      </div>
+                      <div>
+                        <span className="span">
+                          <KeyboardArrowDownIcon
+                            className="sm-icon"
+                            onClick={() => navigate("/model")}
+                          />
+                        </span>
+                      </div>
+                    </div>
+                    <div className="third">
+                      <p> {movie.keywords}</p>
+                    </div>
+                    <div className="fourth">
+                      <p>{movie.description}</p>
+                    </div>
                   </div>
+                </div>
               </div>
-            </div>
             );
           })}
       </div>
@@ -330,33 +333,36 @@ const MovieApi = () => {
                     <span>
                       <VolumeUpIcon />
                     </span>
-                  </div> 
-                  <div className="color">
-                  <div  className="second">              
-                    <div className="second-content">
-                      <span  className="spcl span">
-                        <PlayArrowIcon  className="sm-icon"/>
-                      </span>
-                      <span className="span">
-                        <AddIcon className="sm-icon"/>
-                      </span>
-                      <span  className="span">
-                        <ThumbUpOffAltIcon className="sm-icon"/>
-                      </span>
-                    </div>
-                    <div>
-                      <span  className="span">
-                        <KeyboardArrowDownIcon className="sm-icon" />
-                      </span>
-                    </div>
-                    </div>
-                  <div className="third">
-                     <p> 70% Match</p>
                   </div>
-                  <div className="fourth">
-                    <p>Action - Adventure - Science</p>
+                  <div className="color">
+                    <div className="second">
+                      <div className="second-content">
+                        <span className="spcl span">
+                          <PlayArrowIcon className="sm-icon" />
+                        </span>
+                        <span className="span">
+                          <AddIcon className="sm-icon" />
+                        </span>
+                        <span className="span">
+                          <ThumbUpOffAltIcon className="sm-icon" />
+                        </span>
+                      </div>
+                      <div>
+                        <span className="span">
+                          <KeyboardArrowDownIcon
+                            className="sm-icon"
+                            onClick={() => navigate("/model")}
+                          />
+                        </span>
+                      </div>
                     </div>
+                    <div className="third">
+                      <p> {movie.keywords}</p>
                     </div>
+                    <div className="fourth">
+                      <p>{movie.description}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             );

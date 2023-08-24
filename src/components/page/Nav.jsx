@@ -81,7 +81,10 @@ const Nav = () => {
                   <StyledMenuItem className="drop-items">
                     <div className="icon-text">
                       <ModeOutlinedIcon className="drop-icons" />
-                      <p className="icontxt">Manage Profiles</p>
+                      <p className="icontxt"
+                         onClick={() => navigate("/manage-profile")}
+                      >
+                        Manage Profiles</p>
                     </div>
                   </StyledMenuItem>
                   <StyledMenuItem className="accountItems">
@@ -93,7 +96,11 @@ const Nav = () => {
                   <StyledMenuItem className="accountItems">
                     <div className="icon-text">
                       <PermIdentityOutlinedIcon className="drop-icons" />
-                      <p className="icontxt">Account</p>
+                      <p className="icontxt"
+                       onClick={() => navigate("/account")}
+                      >
+                        Account
+                        </p>
                     </div>
                   </StyledMenuItem>
                   <StyledMenuItem className="accountItems">

@@ -10,8 +10,10 @@ import TvShows from './components/page/TvShows'
 import Subscription from './components/SubscriptionPage/Subscription'
 import SubscriptionStep from './components/SubscriptionPage/SubscriptionStep'
 import Payment from './components/SubscriptionPage/Payment'
-
-
+import Account from './components/page/Account'
+import Password from './components/page/Password'
+import Header from './components/header/Header'
+import ManageProfile from './components/page/ManageProfile'
 
 function App() {
  
@@ -27,6 +29,10 @@ function App() {
         <Route path='/subscription' element={<Subscription />} />
         <Route path='/subscription-step2' element={<SubscriptionStep />} />
         <Route path='/payment-page' element={<Payment />} />
+        <Route path='/account' element={<Account />} />
+        <Route path='/password' element={<Password />} />
+        <Route path='/header' element={<Header />} />
+        <Route path='/manage-profile' element={<ManageProfile />} />
      </Routes>
      </BrowserRouter> 
   )
