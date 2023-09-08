@@ -21,18 +21,12 @@ nav{
   justify-content:center;
 }
 
-.logo-container {
-  width: auto;
-  height: auto;
-  margin-left: 3rem;
-  margin-top: 1.5rem;
-}
-
-.logo-container img {
+.logo-containers .logoimg {
   width: 120px;
   height: 70px;
+  margin-left: 3rem;
+  margin-top: 1.3rem;
 }
-
 .nav-link {
   margin-top: 20px;
 }
@@ -43,13 +37,9 @@ nav{
   padding: 10px;
   font-weight: bold;
 }
-
-.nav-right {
+.search-container{
   display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
-
 .search {
   display: flex;
   justify-content: center;
@@ -57,40 +47,32 @@ nav{
   cursor: pointer;
   margin-top: 1rem;
 }
-
 .srch {
   position: absolute;
   top: 1.6rem;
   right: 12rem;
   color: #fff;
   font-size: 1.5rem;
+  cursor: pointer;
+}
+.close-srch{
+  cursor: pointer;
 }
 .srch-input-field {
-  width: 0;
-  opacity: 0;
-  visibility: hidden;
-  transition: 0.3s ease-in-out;
-  background-color: transparent;
-  border: none;
-  color: white;
+  position: absolute;
+  top: 1rem;
+  right: 12rem;
+  min-width: 320px;
+    height: 40px;
+    padding: 10px;
+    border: none;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.6);
 }
 .srch-input-field:focus {
-  outline: none;
+  border: 1px solid #fff;
 }
-.show-search {
-  width: 300px;
-  height: 40px;
-  border-radius: 5px;
-  border: 1px solid white;
-  background-color: rgba(0, 0, 0, 0.6);
-}
-.show-search input {
-  width: 100%;
-  height: 5px;
-  opacity: 1;
-  visibility: visible;
-  padding: 0.5rem;
-}
+
 /* drop-down */
 .avatar {
   width: 30px;
@@ -200,8 +182,20 @@ nav{
     height: 25px;
   }
 } 
-
 /* navbar-end */
+
+/* seacrch  */
+.search-container{
+  background-color: #111;
+/* padding-top: 5rem; */
+padding-left: 3rem;
+}
+.movies-container{
+  display: flex;
+  flex-wrap: wrap;
+ 
+}
+/* seacrch end */
 
 /* movie section */
 .bg {
@@ -359,19 +353,21 @@ h2{
   display: flex;
   width: 100%;
   height: 50px;
-  margin-top: 50px;
+  margin-top: 35px;
   padding: 5px;
   border: 1px solid gray;
 }
 .typecheck{
   display: flex;
-  margin-top: 40px;
-  margin-bottom: 20px;
+  margin-top: 20px;
 }
 .typecheck p{
-  padding-left: 20px;
+  padding-left: 10px;
 }
-
+.pass-ref{
+  color: red;
+  display: none;
+}
 .save{
   display: flex;
 }
@@ -389,7 +385,8 @@ h2{
   margin-top: 1rem;
   display: flex;
   justify-content: space-between;
-  color: #5c5858;
+  color:#fff;
+  font-size: 13px;
 }
 .vdo-dis{
   width: 300px;
@@ -403,11 +400,27 @@ h2{
   padding: 5px;
 }
 .span .vd-icon{
- font-size: medium;
+ font-size:medium;
 }
 .buton{
-margin-right: 10px;
-
+  width: 100px;
+  background-color: #fff;
+  color: #111;
+  padding: 4px ;
+  margin-right: 10px;
+}
+ .vd-icons{
+  padding-top: 8px;
+  /* margin-top: 5px; */
+}
+.vdo-more-container{
+  position: absolute;
+  display: flex;
+  justify-content: start;
+}
+.extra-movie{
+  display: flex;
+  flex-wrap: wrap;
 }
 /* manage profile  */
 .profile-container{
@@ -435,6 +448,20 @@ margin-right: 10px;
 }
 .profile-content  img{
   width: 100px;
+}
+
+.edit-proimg input{
+  position: absolute;
+ display: none;
+}
+.edit-proimg .edit-icon{
+  position: absolute;
+  margin: 1rem 2rem;
+  /* display: none; */
+}
+.edit-icons{
+  color: #fff;
+  
 }
 .profile-content .right{
   margin-left: 1.5rem;
@@ -508,4 +535,94 @@ hr{
     width: 100%;
   }
   
+}
+/* my list add and remove */
+.mylist-container{
+  background-color: #111;
+  width: 100%;
+  height: 100vh;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+.mylist-container h2{
+  padding: 70px 30px;
+ color: #111;
+}
+.mylist-content{
+  display: flex;
+  position: relative;
+}
+/* footer code start */
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 80px 10%;
+  padding-bottom: 20px;
+  background-color: #111;
+  color: grey;
+}
+
+.footer-section{
+  display: flex;
+  gap: 20px;
+}
+
+.footer-icon {
+  color: #fff !important;
+  font-size: 28px !important;
+  cursor: pointer;
+}
+
+.footer-sectionlist {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.footer-items {
+  color: grey;
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.footer-items:hover {
+  text-decoration: underline;
+}
+
+.service{
+  border: 1px solid grey;
+  color: grey;
+  font-size: 14px;
+  width: fit-content;
+  padding: 10px;
+}
+
+.copy-text {
+  color: #fff;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 550px) {
+  .footerIcons {
+      font-size: 22px !important;
+  }
+
+  .copyrightText,
+  .serviceCode,
+  .footerSectionItem {
+      font-size: 10px;
+  }
+
+  .footerSectionContainer {
+      padding: 80px 5%;
+  }
+
+  .footerSectionListContainer {
+      gap: 20px
+  }
+
 }

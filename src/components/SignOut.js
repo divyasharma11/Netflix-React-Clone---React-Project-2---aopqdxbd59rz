@@ -1,14 +1,11 @@
-import {auth} from '../firebase'
 
-const SignOut = (navigate) => {
-    auth
-      .signOut()
-      .then(() => {
-        window.location.reload();
-        navigate("/");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+ const SignOut = (navigate) => {
+  if (window.confirm("Leaving So Soon?")) {
+    localStorage.removeItem("Token");
+    localStorage.removeItem("userDetails");
+    localStorage.removeItem("updatedProfile");
+    navigate("/");
+  }
+};
+
   export default SignOut;

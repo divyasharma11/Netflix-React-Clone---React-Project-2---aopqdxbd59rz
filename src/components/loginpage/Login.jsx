@@ -10,10 +10,9 @@ import AddIcon from "@mui/icons-material/Add";
 import Modal from "react-modal";
 import LanguageIcon from "@mui/icons-material/Language";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import { useDispatch,useSelector } from "react-redux";
-import { getLogIn } from "../../Redux/loginSlice";
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import SignOut from "../SignOut";
-
+import axios from "axios";
 Modal.setAppElement('#root');
 
 const customStyles = {
@@ -35,23 +34,25 @@ const customStyles = {
   },
 };
 const Login = () => {
-  let subtitle;
-  const {isLoggedIn} = useSelector((state) => state.login)
-  const dispatch = useDispatch();
   const navigate = useNavigate(null);
-  const [showDiscription,setShowDiscription]=useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+  const [errors, setErrors] = useState({
+    email: '',
+    password: '',
+  });
+const [isLoggedIn,setIsLoggedIn]=useState(false);
 
-  const {email, password } = formData;
-
+  // const {email, password } = formData;
+  
   useEffect(()=>{
-    console.log("user is logged in",isLoggedIn)
-    if(isLoggedIn){
-      navigate("/home");
+    if (isLoggedIn) {
+      setTimeout(() => {
+        navigate("/home");
+      }, 2200);
     }
   },[isLoggedIn]);
 
@@ -67,19 +68,85 @@ const Login = () => {
   const handleOpen = () => {
     setIsModalOpen(true);
   };
-  // function afterOpenModal() {
-  //   subtitle.style.color = "#f00";
-  // }
-
+  
   function closeModal() {
     setIsModalOpen(false);
   }
-  const handleLogin = () => {
-    dispatch(getLogIn(formData))
+  const handleLogin = async(e) => {
+    e.preventDefault();
+    const formErrors = {};
+    const emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+    if (!formData.email.match(emailPattern)) {
+      formErrors.email = 'email is invalid.';
+    }
+    if (formData.password.length<3 ) {
+      formErrors.password = 'Password must be at least 6 characters long.';
+    }
+   
+    try{ 
+       const response = await axios.post(
+        "https://academics.newtonschool.co/api/v1/user/login",
+        {
+          email:formData.email,
+          password:formData.password,
+          appType: "ott",
+        },
+        {
+          headers: {
+            projectId: "aopqdxbd59rz",
+          },
+       }
+      );
+
+      const token = response.data.token;
+
+      const name = response.data.data.name;
+      const email = response.data.data.email;
+      const password = response.data.data.password;
+      const img = response.data.data.profileImage;
+    // console.log("line 106",token)
+      const userInfo = {
+        userName: name,
+        userEmail: email,
+        userPassword: password,
+      };
+
+      localStorage.setItem("Token", token);
+
+      localStorage.setItem("userDetails", JSON.stringify(userInfo));
+
+      localStorage.setItem("updatedProfile",img);
+
+      setIsLoggedIn( true);
+      alert("login successfully!!")
+     
+    } catch (error) {
+      console.error("Login Error:", error);
+      if (
+        error.response &&
+        error.response.data &&
+        error.response.data.message === "User not found"
+      ){
+        setIsLoggedIn(false)
+      } else {
+        setIsLoggedIn(false)
+      }
+    }
+    if (Object.keys(formErrors).length > 0) {
+      setErrors(formErrors);
+    } else {
+      navigate('/home');
+      setFormData({
+        email: '',
+        password: '',
+      });
+      setErrors({
+        email: '',
+        password: '',
+      });
+    }
+    setIsLoggedIn(true);
   };
-  const toggleCard=()=>{
-   setShowDiscription(true);
-  }
  
   return (
     <>
@@ -104,7 +171,6 @@ const Login = () => {
             }
             <Modal
               isOpen={isModalOpen}
-              // onAfterOpen={afterOpenModal}
               onRequestClose={closeModal}
               style={customStyles}
             >
@@ -117,18 +183,24 @@ const Login = () => {
                     id="email"
                     name="email"
                     placeholder="email"
-                    value={email}
+                    value={formData.email}
                     onChange={handleOnChange}
                   />
+                  <div className="errors">
+             {errors.email && <p  className="error-message">{errors.email}</p>}
+            </div>
                   <input
                     className="inpt-txt"
                     type="password"
                     id="password"
                     name="password"
                     placeholder="password"
-                    value={password}
+                    value={formData.password}
                     onChange={handleOnChange}
                   />
+                   <div className="errors">
+             {errors.password && <p  className="error-message">{errors.password}</p>}
+            </div>
                   <div className="login">
                     <button onClick={handleLogin}>Login</button>
                   </div>
@@ -153,7 +225,10 @@ const Login = () => {
             Ready to watch? Enter your email to create or restart your
             membership.
           </p>
-          <button onClick={() => navigate("/signup")}>Get Started</button>
+          <div className="div">
+          <button className="start-btn" onClick={() => navigate("/signup")}>Get Started</button>
+          <ChevronRightIcon className="ChevronRightIcon" />
+          </div>
         </div>
       </div>
       <hr
@@ -296,16 +371,6 @@ const Login = () => {
             <AddIcon />
           </div>
           </div>
-          {showDiscription &&
-          <div className="cart-description">
-            Netflix is a streaming service that offers a wide variety of
-            award-winning TV shows, movies, anime, documentaries and more - on
-            thousands of internet-connected devices. You can watch as much as
-            you want, whenever you want, without a single ad - all for one low
-            monthly price. There's always something new to discover, and new TV
-            shows and movies are added every week!
-          </div>
-           }
         <div className="cart-content">
           <div>How much does Netflix cost?</div>
           <div>
@@ -339,7 +404,10 @@ const Login = () => {
         <h2>
           Ready to watch? Enter your email to create or restart your membership.
         </h2>
-        <button onClick={() => navigate("/signup")}>Get started</button>
+        <div className="div">
+        <button className="start-btn" onClick={() => navigate("/signup")}>Get started</button>
+        <ChevronRightIcon className="ChevronRightIcon" />
+      </div>
       </div>
       <hr
         style={{

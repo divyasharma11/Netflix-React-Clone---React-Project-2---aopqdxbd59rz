@@ -7,6 +7,9 @@ import { useNavigate } from "react-router-dom";
 import Footer from "../footer/Footer";
 const Account = () => {
   const navigate=useNavigate();
+  const logoutHandler =()=>{
+    
+  }
   return (
     <>
       <Nav/>
@@ -62,7 +65,7 @@ const Account = () => {
           </p>
             <div className="tag-p">
             <p>Manage access and devices</p> 
-            <p>Sign out of all devices</p>
+            <p onClick={() => logoutHandler(navigate)}>Sign out of all devices</p>
             </div>
         </div>
         <hr/>

@@ -6,34 +6,41 @@ padding: 0.1rem 1rem;
     text-transform: uppercase;
     color: #fff;
 }
+
 .poster-content{
-margin: 20px 10px;
+margin: 20px 60px;
 display: flex;
-position: relative;
+/* position: absolute; */
 }
+
 .carts{
-    margin-left: 10px ;
- /* transition: transform 450ms; */
+  width: 202px;
+    margin: 20px ;
+    border-radius: 8px;
+    border: 1px solid gray;
+ /* transition: transform 400ms; */
 }
 /* .carts:hover{
   transform: scale(1);
 } */
 .carts img{
   width: 200px;
-  height: 250px;
+  height: 230px;
+  border-radius: 8px;
 }
 
 .cord:hover img{
-  width: 250px;
-  height: 280px;
+  width: 230px;
+  height: 200px;
 }
+
 .hide-container{
   visibility: hidden;
  position: absolute;
- top: 150px;
- width: 250px;
+ width: 231px;
  height: fit-content;
- margin-left: 10px;
+ margin: 0px 20px;
+ border-radius: 8px;
 }
 .hide-container span{
   width: 30px;
@@ -45,6 +52,7 @@ position: relative;
   text-align: center;
 }
 .color{
+  margin-top: -40px;
   background-color: #333;
   padding: 20px;
 }
@@ -71,20 +79,57 @@ position: relative;
   margin:5px ;
 }
 .span .sm-icon{
-
 margin-top:10px;
 font-size: 15px;
 }
 
 .third{
   color:green;
-  margin-top:10px ;
+  margin-top:8px ;
 }
  .fourth{
   color: #fff;
-  margin-top:10px ;
+  margin-top:6px ;
 }
 .cord:hover .hide-container{
   visibility: visible;
 }
- 
+ .paginationButtons{
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  margin: 0px 20px;
+ }
+ .paginationButtons .arrowIcon{
+  color: white;
+  position: absolute;
+  margin-top: 10rem;
+ }
+ @media (max-width: 568px) {
+  .poster-content {
+    margin: 20px 10px;
+  overflow: scroll;
+  }
+
+  .carts {
+    margin: 10px;
+  }
+
+  .cord:hover img {
+    width: 180px;
+    height: 210px; 
+  }
+
+  .hide-container {
+    top: 100px; 
+    width: 200px;
+    margin: 10px;
+  }
+  .paginationButtons {
+    margin: 0px 10px; 
+  }
+
+  .paginationButtons .arrowIcon {
+    margin-top: 10rem; 
+  }
+}

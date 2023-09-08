@@ -7,6 +7,12 @@ import { useNavigate } from "react-router-dom";
 
 const SubscriptionStep = () => {
   const navigate = useNavigate();
+  // const [card, setCard] = useState(null);
+
+ 
+  const handleCard = (plan) => {
+    setCard(plan);
+  };
   return (
     <>
       <Navbar />
@@ -14,7 +20,9 @@ const SubscriptionStep = () => {
         <h5 style={{ color: "gray" }}>STEP 2 OF 3</h5>
         <h1>Choose the plan that’s right for you</h1>
         <div className="cartss">
-          <div className="cart">
+          <div 
+          className="cart"
+          >
             <div className="premium">
               <h2>Premium</h2>
               <h3>4K + HDR</h3>

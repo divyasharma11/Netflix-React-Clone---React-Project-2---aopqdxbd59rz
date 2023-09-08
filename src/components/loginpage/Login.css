@@ -18,17 +18,18 @@ body {
     background-size: cover;
     background-position: center;
     z-index: 1;
+    opacity: 1;
   }
   .login-nav{
     position: absolute;
   }
   /* Logo */
-  .logo-img {
-    position: absolute !important;
-    top: 10px !important;
-    width: 220px !important;
-    height: 120px !important;
-    margin-left: 5rem !important;
+  .logo-container .logo {
+    position: absolute;
+    top: 0px !important;
+    width: 250px !important;
+    height: 100px !important;
+    left: 5rem ;
   }
   
   /* Login Button */
@@ -36,6 +37,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 0.5rem;
     margin-right: 10rem;
   }
   
@@ -60,19 +62,41 @@ body {
   }
   
   /* Buttons*/
-  button {
+  button{
     background-color: rgb(229, 9, 20);
     color: rgb(255, 255, 255);
-    padding: 10px 0px;
-    border: none;
+    padding: 8px 0px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    border:none;
     cursor: pointer;
     width: 300px;
     margin: auto;
     margin-top: 20px;
   }
+  .start-btn {
+    background-color: rgb(229, 9, 20);
+    color: rgb(255, 255, 255);
+    padding: 10px 0px;
+    border: none;
+    cursor: pointer;
+    width: 500px;
+    height: 50px;
+    margin: auto;
+    margin-top: 20px;
+    font-weight:700;
+    letter-spacing: 1px;
+    font-size: x-large;
+  }
   
-  button:hover {
+  .start-btn:hover {
     background-color: rgb(163, 9, 17);
+  }
+  .div .ChevronRightIcon{
+    position: relative;
+   right: 11rem;
+   top: 8px;
+   font-size: xx-large;
   }
   
   /* Movie Section */
@@ -246,7 +270,9 @@ body {
     margin-right: 1rem;
     margin-top: 1.3rem;
     background: none;
-    border: 1px solid #5e5b5b;
+    border: 1px solid gray;
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 5px;
   }
   .foot-btn .language{
     margin: 5px 15px;
@@ -269,20 +295,27 @@ body {
       padding: 30px 0;
       height: auto;
     }
-    
-    .logo {
-      width: 150px !important;
+    .logo-container .logo{
+      width: 100px !important;
       height: 80px !important;
-      margin-left: .1rem !important;
-      /* top: -10px !important; */
+      margin-left: -5rem !important;
     }
-    
+
     .login-btn {
-      margin-right: 3rem;
+      margin-right: 2rem;
     }
-    
-    .login-btn button {
+    .login-btn button{
       width: 60px !important;
+      height: 30px !important;
+      font-size: small !important;
+      font-weight: 100;
+    }
+    .start-btn {
+      width: 130px ;
+      font-size: small;
+    }
+    .div .ChevronRightIcon{
+     display: none;
     }
     
     .content h1 {
@@ -350,21 +383,22 @@ body {
     }
     
     .foot-btn {
-      width: fit-content;
+      width: 80px;
        height: fit-content;
       margin-left: 1rem;
-      font-size: 14px;
+      font-size: 12px;
+      padding: 0px 2px;
     }
     .foot-btn .language{
       margin: 5px 5px;
-     font-size: medium;
+     font-size: small;
     }
     .foot-btn p{
       color: #fff;
       margin: 5px 0px;
     }
-    .key{
-       margin-top: 1px;
+    .foot-btn .key{
+     display: none;
     }
   }
   

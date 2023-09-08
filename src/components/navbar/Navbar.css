@@ -8,7 +8,10 @@
   font-family: "lato", sans-serif;
   padding: 0 2rem; 
 }
-
+.logo-container .logoimg {
+  width: 100px;
+  margin-top: 10px;
+}
 .sign-link {
   font-size: 1.2rem; 
 }

@@ -9,7 +9,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: "center center";
-    height: 530px;
+    height: 80vh;
 }
 
 .moviePosterContent{
@@ -31,12 +31,12 @@
 }
 .head-btn{
   position: absolute;
-  top: 80%;
-  left: 0%;
+  top: 65%;
+  left: 8%;
   margin-top: 10px;
 }
 .head-btn .h-btn{
-  width:100px;
+  width:120px;
   height: fit-content;
   margin: 10px;
   outline: none;
@@ -51,15 +51,17 @@
   color: #111;
 }
  
-.home-icon{
+.h-btn .home-icon{
   position: absolute;
-  top: 15px;
-  left: 18px;
+  top: 16px;
+  left: 30px;
+  font-size:x-large;
 }
-.home-icon1{
+.h-btn .home-icon1{
   position: absolute;
-  top: 15px;
-  right: 83px;
+  top: 16px;
+  right: 88px;
+  font-size:x-large;
 }
 .fade-bottom{
     height: 6.5vh;
