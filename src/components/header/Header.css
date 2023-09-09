@@ -4,7 +4,6 @@
    top: 0;
 }
 .moviePosterContainer .moviePosterImage{
-    /* background-image: url("../images/background.jpg"); */
     width: 100%;
     background-size: cover;
     background-repeat: no-repeat;
@@ -76,4 +75,9 @@
     position: relative;
     background-image: linear-gradient(180deg,
     transparent, rgba(37, 37, 37, 5), #111);
+  }
+  @media (max-width: 568px) {
+    .moviePosterContainer .moviePosterImage{
+      height: 50vh;
+  }
   }

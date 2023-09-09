@@ -229,31 +229,34 @@
     display: none;
   }
   .logo-containers .logoimg {
-    width: 90px;
+    width: 120px;
     height: auto;
     margin-left: 0.1rem;
     margin-top: 1.3rem;
   }
   .srch {
     top: 1.4rem;
-    left: 20rem;
+    left: 15rem;
     font-size: 1.2rem;
   }
   .srch-input-field {
     top: 4rem;
-    left: 3rem;
+    left: 1rem;
     width: 100px;
   }
   .avatar {
-    width: 22px;
-    height: 22px;
+    width: 25px;
+    height: 25px;
   }
   .dropdown {
     display: block;
     margin-top: 0.1rem;
   }
+ .dropdown .dropbtn .menu-icon{
+    font-size: 1.5rem;
+  }
   .nav-Dropdown .avatar {
-    margin-left: 15rem !important;
+    margin-left: 7rem !important;
     /* width: 10px !important; */
   }
 }

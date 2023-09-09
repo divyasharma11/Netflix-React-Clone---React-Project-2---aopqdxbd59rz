@@ -104,7 +104,7 @@ const [isLoggedIn,setIsLoggedIn]=useState(false);
       const email = response.data.data.email;
       const password = response.data.data.password;
       const img = response.data.data.profileImage;
-    // console.log("line 106",token)
+  
       const userInfo = {
         userName: name,
         userEmail: email,
@@ -118,7 +118,7 @@ const [isLoggedIn,setIsLoggedIn]=useState(false);
       localStorage.setItem("updatedProfile",img);
 
       setIsLoggedIn( true);
-      alert("login successfully!!")
+      // alert("login successfully!!")
      
     } catch (error) {
       console.error("Login Error:", error);

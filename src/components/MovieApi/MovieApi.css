@@ -12,6 +12,7 @@ padding: 0.1rem 1rem;
 margin: 20px 60px;
 display: flex;
 overflow: scroll;
+overflow-x: hidden;
 }
 
 .carts{
@@ -37,7 +38,6 @@ overflow: scroll;
 
 .hide-container{
   display: none;
-  /* visibility: hidden; */
  position: absolute;
  width: 231px;
  height: fit-content;
