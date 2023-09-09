@@ -13,6 +13,7 @@ margin: 20px 60px;
 display: flex;
 overflow: scroll;
 overflow-x: hidden;
+overflow-y: hidden;
 }
 
 .carts{
