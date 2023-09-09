@@ -1,6 +1,6 @@
 import React from 'react'
 import "./ComingSoon.css"
-import comingsoon from '../images/Transfer.jpg';
+import comingsoon from '../images/transfer.jpg';
 import Navbar from '../navbar/Navbar';
 import Footer from '../footer/Footer';
 const ComingSoon = () => {
