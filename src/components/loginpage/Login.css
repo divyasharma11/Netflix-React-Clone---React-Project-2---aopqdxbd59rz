@@ -303,7 +303,7 @@ body {
       height: auto;
     }
     .logo-container .logo{
-      width: 100px !important;
+      width: 150px !important;
       height: 80px !important;
       margin-left: -5rem !important;
     }
@@ -312,13 +312,14 @@ body {
       margin-right: 2rem;
     }
     .login-btn button{
-      width: 60px !important;
+      width: 80px !important;
       height: 30px !important;
       font-size: small !important;
       font-weight: 100;
     }
     .start-btn {
-      width: 130px ;
+      width: 200px ;
+      height: 40px;
       font-size: small;
     }
     .div .ChevronRightIcon{
@@ -390,7 +391,7 @@ body {
     }
     
     .foot-btn {
-      width: 80px;
+      width: 100px;
        height: fit-content;
       margin-left: 1rem;
       font-size: 12px;
@@ -398,14 +399,15 @@ body {
     }
     .foot-btn .language{
       margin: 5px 5px;
-     font-size: small;
+     font-size: medium;
     }
     .foot-btn p{
       color: #fff;
       margin: 5px 0px;
     }
     .foot-btn .key{
-     display: none;
+    margin-top: 1px;
+    font-size: 1.5rem;
     }
   }
   
