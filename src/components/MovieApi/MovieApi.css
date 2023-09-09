@@ -1,3 +1,4 @@
+
 .movie-container{
 padding: 0.1rem 1rem;
 }
@@ -10,7 +11,7 @@ padding: 0.1rem 1rem;
 .poster-content{
 margin: 20px 60px;
 display: flex;
-/* position: absolute; */
+overflow: scroll;
 }
 
 .carts{
@@ -35,7 +36,8 @@ display: flex;
 }
 
 .hide-container{
-  visibility: hidden;
+  display: none;
+  /* visibility: hidden; */
  position: absolute;
  width: 231px;
  height: fit-content;
@@ -92,7 +94,7 @@ font-size: 15px;
   margin-top:6px ;
 }
 .cord:hover .hide-container{
-  visibility: visible;
+  display: block;
 }
  .paginationButtons{
   display: flex;
@@ -112,12 +114,14 @@ font-size: 15px;
   }
 
   .carts {
+    width: 150px;
+    height: 140px;
     margin: 10px;
   }
-
-  .cord:hover img {
-    width: 180px;
-    height: 210px; 
+   
+  .carts img{
+    width: 148px;
+    height: 138px;
   }
 
   .hide-container {
@@ -130,6 +134,6 @@ font-size: 15px;
   }
 
   .paginationButtons .arrowIcon {
-    margin-top: 10rem; 
+    margin-top: 5rem; 
   }
 }

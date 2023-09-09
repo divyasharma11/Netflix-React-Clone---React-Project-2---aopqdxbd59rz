@@ -176,12 +176,10 @@
 
 @media only screen and (max-width: 768px) {
   .navbar {
-    width: fit-content;
+    width: 100%;
     justify-content: start;
   }
-  .nav__black {
-    width: fit-content;
-  }
+  
   .nav-link {
     display: none;
   }
@@ -227,9 +225,6 @@
     width: 100%;
     justify-content: start;
   }
-  .nav__black {
-    width: 100%;
-  }
   .nav-link {
     display: none;
   }
@@ -249,10 +244,6 @@
     left: 3rem;
     width: 100px;
   }
-  /* .close-srch {
-    margin-top: 3.4rem;
-    margin-left: 5rem;
-  } */
   .avatar {
     width: 22px;
     height: 22px;
