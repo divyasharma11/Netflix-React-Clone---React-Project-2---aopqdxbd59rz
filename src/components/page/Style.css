@@ -235,7 +235,7 @@
     margin-top: 1.3rem;
   }
   .srch {
-    top: 2rem;
+    top: 1.7rem;
     left: 15rem;
     font-size: 1.2rem;
   }
@@ -451,7 +451,13 @@ h2 {
 }
 @media screen and (max-width: 768px) {
   .password-container {
-    margin-top: 3rem; 
+    margin-top: 4rem;
+    margin-left: 20px; 
+    margin-right: 20px;
+  }
+  .password-container h1 {
+    font-size: 18px;
+    margin-bottom: 10px;
   }
 
   .pass-container .pas-input {
@@ -464,7 +470,7 @@ h2 {
   }
 
   .pass-ref {
-    display: block; 
+    display: none; 
   }
 
   .save {
@@ -477,8 +483,8 @@ h2 {
   height: 400px;
 }
 .vedio-container {
-  left: 20px;
-  top: 50px;
+ margin-left:20px;
+  margin-top: 5px;
   color: #fff;
 }
 .vdo-contents {
@@ -522,49 +528,34 @@ h2 {
   flex-wrap: wrap;
 }
 @media screen and (max-width: 768px) {
-  vdo {
+  .vdo {
     height: auto; 
   }
 
-  .vedio-container {
-    left: 10px; 
-    top: 30px; 
+  .vedio-container h3 {
+ text-align: center;
   }
 
   .vdo-contents {
-    flex-direction: column; 
+   padding: 10px;
+    justify-content: center;
     align-items: center; 
     font-size: 16px; 
     margin-top: 0; 
   }
 
-  .vdo-dis {
-    width: 100%; 
+ .vdo-dis  {
+    text-align: center;
+    padding: 0px 20px;
   }
 
-  .span {
-    width: 40px; 
-    height: 40px; 
-    font-size: small; 
-  }
-
-  .buton {
-    width: 80px; 
-    margin-right: 0; 
-    margin-top: 10px; 
-  }
-
-  .vd-icons {
-    padding-top: 10px; 
-  }
-
-  .vdo-more-container {
-    flex-direction: column; 
-    margin-top: 20px; 
+  .vdo-more-container{
+    margin-top: 20px;
   }
 
   .extra-movie {
-    flex-direction: column; 
+    padding:0px 10px;
+     overflow-x: scroll; 
   }
 }
 /* manage profile  */

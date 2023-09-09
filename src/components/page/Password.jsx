@@ -46,7 +46,6 @@ const Password = () => {
       [name]: value,
     }));
 
-    // Hide error messages when input changes
     if (name === 'email') {
       emailRef.current.style.display = 'none';
     } else if (name === 'currentPassword') {
@@ -60,12 +59,12 @@ const Password = () => {
 
   const handleUpdatePassword = async () => {
     const emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
-    const isPasswordValid = await bcrypt.compare(
+    const matchPassword = await bcrypt.compare(
       currentPassword,
       userData?.userPassword
     );
 
-    if (!isPasswordValid) {
+    if (!matchPassword) {
       passRef.current.style.display = 'block';
       return;
     }
@@ -93,7 +92,7 @@ const Password = () => {
     }
 
     if (
-      isPasswordValid &&
+      matchPassword &&
       (newPassword === reNewPassword || reNewPassword !== '' || newPassword !== '')
     ) {
       try {
@@ -128,7 +127,6 @@ const Password = () => {
           })
         );
 
-        // Clear the input fields
         setPassDetails({
           email: '',
           currentPassword: '',
@@ -149,7 +147,6 @@ const Password = () => {
       timeoutId = setTimeout(() => {
         localStorage.removeItem('Token');
         localStorage.removeItem('userDetails');
-        // Redirect to the desired page after the update is complete
         navigate('/');
       }, 1000);
     }

@@ -1,9 +1,16 @@
-.coming-img {
-    margin-top: 30px;
- }
+
  .coming-img img{
      width: 50rem;
      height: 35rem;
+ }
+ .coming-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+ }
+ .coming-container .coming-img{
+    margin-top: 80px;
  }
  @media only screen and (max-width: 768px) {
     .coming-img {

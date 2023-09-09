@@ -122,7 +122,7 @@ const VedioModel = ({ isOpen,onClose , myListItem,showId,onClick,}) => {
                 </span>
               </div>
             </div>
-            <div className="vdo-contents">
+            <div className="vdo-contents two">
               <div className="vdo-dis">
                 <p>{videoContent.description}</p>
               </div>
