@@ -107,15 +107,15 @@ const Nav = () => {
               <MenuIcon className="menu-icon" />
             </div>
             <div class="dropdown-content">
-              <a href="/my-list" title="my list">
-                My List
-              </a>
-              <a href="/movies" title="movies">
-                Movies
-              </a>
-              <a href="/tv-shows" title="tv shows">
-                TV Shows
-              </a>
+            <Link to="/my-list" className="mobile" title="my list">
+              My List
+            </Link>
+            <Link to="/movies" className="mobile" title="movies">
+              Movies
+            </Link>
+            <Link to="/tv-shows" className="mobile" title="tv shows">
+              TV Shows
+            </Link>
             </div>
           </div>
         </div>
