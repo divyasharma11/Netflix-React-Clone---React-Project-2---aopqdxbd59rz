@@ -18,7 +18,7 @@ body {
     background-size: cover;
     background-position: center;
     z-index: 1;
-    opacity: 1;
+    opacity: 0.9;
   }
   .login-nav{
     position: absolute;
@@ -317,6 +317,7 @@ body {
       height: 30px !important;
       font-size: small !important;
       font-weight: bold;
+      margin-top: .1rem;
     }
     .start-btn {
       width: 200px ;
@@ -393,10 +394,11 @@ body {
     
     .foot-btn {
       width: 80px;
-       height: fit-content;
+      height: fit-content;
       margin-left: 1rem;
       font-size: 12px;
       padding: 0px 2px;
+      margin-top: .1rem;
     }
     .foot-btn .language{
       margin: 5px 5px;
