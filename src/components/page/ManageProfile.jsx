@@ -57,7 +57,7 @@ const ManageProfile = () => {
       localStorage.setItem("updateImg", updateImgUrl);
       alert("update image successfully !!");
     } catch (error) {
-      console.error("Error uploading image:", error);
+      console.error("Error in image uploading :", error);
       alert("not update !!")
     }
   };

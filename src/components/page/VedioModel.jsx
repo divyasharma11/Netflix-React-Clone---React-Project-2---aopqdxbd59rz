@@ -51,7 +51,7 @@ const VedioModel = ({ isOpen,onClose , myListItem,showId,onClick,}) => {
       setVideoContent(response.data.data);
       console.log("content: ", videoContent);
     } catch (error) {
-      console.error("Error in Movie Content API:", error);
+      console.error("Error in Movie extra data API:", error);
     }
   };
 
@@ -69,7 +69,7 @@ const VedioModel = ({ isOpen,onClose , myListItem,showId,onClick,}) => {
       setMovies(response.data.data);
       setLoading(false);
     } catch (error) {
-      console.error("Error fetching more like this:", error);
+      console.error("Error fetching extra data:", error);
       setLoading(false);
     }
   };

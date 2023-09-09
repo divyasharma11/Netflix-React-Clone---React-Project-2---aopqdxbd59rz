@@ -82,12 +82,12 @@ const Password = () => {
     }
 
     if (currentPassword === newPassword && currentPassword !== '') {
-      alert('Old password and new password should be different.');
+      alert('current  password and new password should be different.');
       return;
     }
 
     if (currentPassword === '' || newPassword === '' || reNewPassword === '') {
-      alert('Each field is required.');
+      alert('All fields are mandatory.');
       return;
     }
 

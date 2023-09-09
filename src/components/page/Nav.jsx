@@ -28,9 +28,9 @@ const Nav = () => {
   const [inputSearch, setInputSearch] = useState("");
   const [inputVisible, setInputVisible] = useState(false);
   const searchRef = useRef(null);
-  const searchContainerRef = useRef(null);
-  const [searchedMovies, setSearchedMovies] = useState([]);
-  const searchMoviesRef = useRef([]);
+  const searchContentRef = useRef(null);
+  const [searching, setSearching] = useState([]);
+  const searchingRef = useRef([]);
 
   const { setData } = useContext(DataContext);
   useEffect(() => {
@@ -54,12 +54,12 @@ const Nav = () => {
           },
         }
       );
-      searchMoviesRef.current = response.data.data;
-      const searchResult = searchMoviesRef.current.filter((movie) =>
+      searchingRef.current = response.data.data;
+      const searchData = searchingRef.current.filter((movie) =>
         movie.title.toLowerCase().includes(inputSearch.toLowerCase())
       );
 
-      setSearchedMovies(searchResult);
+      setSearching(searchData);
     } catch (error) {
       console.error("Error fetching data from search:", error);
     }
@@ -69,11 +69,11 @@ const Nav = () => {
     setInputSearch(e.target.value);
     if (e.target.value) {
       fetchSearchMovie();
-      searchContainerRef.current.style.display = "block";
+      searchContentRef.current.style.display = "block";
       setData(false);
     } else {
-      searchContainerRef.current.style.display = "none";
-      searchMoviesRef.current = [];
+      searchContentRef.current.style.display = "none";
+      searchingRef.current = [];
       setData(true);
     }
   };
@@ -135,7 +135,7 @@ const Nav = () => {
                 onClick={() => {
                   setInputVisible(false);
                   searchRef.current.style.display = "block";
-                  searchContainerRef.current.style.display = "none";
+                  searchContentRef.current.style.display = "none";
                   setInputSearch("");
                   setData(true);
                 }}
@@ -223,9 +223,9 @@ const Nav = () => {
           </div>
         </div>
       </nav>
-      <div className="search-container" ref={searchContainerRef}>
+      <div className="search-container" ref={searchContentRef}>
         <div className="movies-container">
-          {searchedMovies.map((movie, index) => (
+          {searching.map((movie, index) => (
             <MovieCard
               thumbnail={movie.thumbnail}
               title={movie.title}

@@ -28,7 +28,7 @@ const Movies = () => {
         setMovies(response.data.data);
         setLoading(false);
       } catch (error) {
-        console.error("Error fetching data from the API:", error);
+        console.error("Error in fetching API:", error);
         setLoading(false);
       }
     };

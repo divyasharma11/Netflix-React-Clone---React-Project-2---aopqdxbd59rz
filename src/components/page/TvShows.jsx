@@ -29,7 +29,7 @@ const TvShows = () => {
         setTvShow(response.data.data);
         setLoading(false);
       } catch (error) {
-        console.error("Error fetching data from the API:", error);
+        console.error("Error fetching  API:", error);
         setLoading(false);
       }
     };

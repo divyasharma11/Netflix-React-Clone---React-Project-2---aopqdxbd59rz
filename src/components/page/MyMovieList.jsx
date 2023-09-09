@@ -28,7 +28,7 @@ const MyMovieList = () => {
       setListData(response.data.data.shows);
       setLoading(false);
     } catch (error) {
-      console.error("Error fetching myList data from the API:", error);
+      console.error("Error in fetching myList API:", error);
       setLoading(false);
     }
   };
