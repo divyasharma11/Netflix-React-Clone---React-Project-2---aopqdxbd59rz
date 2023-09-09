@@ -33,7 +33,6 @@ const Header = () => {
               More 
             </button>
           </div>
-        {/* </div> */}
         <img
           src={imgList[currentIndex]?.src}
           alt="Movie"

@@ -168,7 +168,7 @@ const MovieApi = () => {
               <div className="paginationButtons">
                 <div
                   onClick={() => {
-                    handlSliceChange("original", -1); // Previous page
+                    handlSliceChange("original", -1); 
                   }}
                   disabled={originalSlice === 1}
                 >
@@ -176,7 +176,7 @@ const MovieApi = () => {
                 </div>
                 <div
                   onClick={() => {
-                    handlSliceChange("original", 1); // Next page
+                    handlSliceChange("original", 1); 
                   }}
                 >
                   <ArrowForwardIosIcon className="arrowIcon" />
@@ -205,7 +205,7 @@ const MovieApi = () => {
               <div className="paginationButtons">
                 <div
                   onClick={() => {
-                    handlSliceChange("trending", -1); // Previous page
+                    handlSliceChange("trending", -1); 
                   }}
                   disabled={trendingSlice === 1}
                 >
@@ -213,7 +213,7 @@ const MovieApi = () => {
                 </div>
                 <div
                   onClick={() => {
-                    handlSliceChange("trending", 1); // Next page
+                    handlSliceChange("trending", 1); 
                   }}
                 >
                   <ArrowForwardIosIcon className="arrowIcon" />
@@ -242,7 +242,7 @@ const MovieApi = () => {
               <div className="paginationButtons">
                 <div
                   onClick={() => {
-                    handlSliceChange("top", -1); // Previous page
+                    handlSliceChange("top", -1); 
                   }}
                   disabled={topRatedSlice === 1}
                 >
@@ -250,7 +250,7 @@ const MovieApi = () => {
                 </div>
                 <div
                   onClick={() => {
-                    handlSliceChange("top", 1); // Next page
+                    handlSliceChange("top", 1); 
                   }}
                 >
                   <ArrowForwardIosIcon className="arrowIcon" />
@@ -279,7 +279,7 @@ const MovieApi = () => {
               <div className="paginationButtons">
                 <div
                   onClick={() => {
-                    handlSliceChange("action", -1); // Previous page
+                    handlSliceChange("action", -1); 
                   }}
                   disabled={actionSlice === 1}
                 >
@@ -287,7 +287,7 @@ const MovieApi = () => {
                 </div>
                 <div
                   onClick={() => {
-                    handlSliceChange("action", 1); // Next page
+                    handlSliceChange("action", 1); 
                   }}
                 >
                   <ArrowForwardIosIcon className="arrowIcon" />
@@ -316,7 +316,7 @@ const MovieApi = () => {
               <div className="paginationButtons">
                 <div
                   onClick={() => {
-                    handlSliceChange("horror", -1); // Previous page
+                    handlSliceChange("horror", -1);
                   }}
                   disabled={horrorSlice === 1}
                 >
@@ -324,7 +324,7 @@ const MovieApi = () => {
                 </div>
                 <div
                   onClick={() => {
-                    handlSliceChange("horror", 1); // Next page
+                    handlSliceChange("horror", 1); 
                   }}
                 >
                   <ArrowForwardIosIcon className="arrowIcon" />
@@ -353,7 +353,7 @@ const MovieApi = () => {
               <div className="paginationButtons">
                 <div
                   onClick={() => {
-                    handlSliceChange("romance", -1); // Previous page
+                    handlSliceChange("romance", -1); 
                   }}
                   disabled={romanceSlice === 1}
                 >
@@ -361,7 +361,7 @@ const MovieApi = () => {
                 </div>
                 <div
                   onClick={() => {
-                    handlSliceChange("romance", 1); // Next page
+                    handlSliceChange("romance", 1); 
                   }}
                 >
                   <ArrowForwardIosIcon className="arrowIcon" />
@@ -390,7 +390,7 @@ const MovieApi = () => {
               <div className="paginationButtons">
                 <div
                   onClick={() => {
-                    handlSliceChange("documentary", -1); // Previous page
+                    handlSliceChange("documentary", -1); 
                   }}
                   disabled={documentarySlice === 1}
                 >
@@ -398,7 +398,7 @@ const MovieApi = () => {
                 </div>
                 <div
                   onClick={() => {
-                    handlSliceChange("documentary", 1); // Next page
+                    handlSliceChange("documentary", 1);
                   }}
                 >
                   <ArrowForwardIosIcon className="arrowIcon" />
