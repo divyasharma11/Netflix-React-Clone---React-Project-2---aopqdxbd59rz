@@ -24,7 +24,7 @@ const Header = () => {
     <div className="header-container">
        <div className="moviePosterContainer"> 
           <div className="head-btn">
-            <button className="h-btn" onClick={() => navigate("/movies")} >
+            <button className="h-btn one" onClick={() => navigate("/movies")} >
               <PlayArrowIcon className="home-icon" />
               Play
             </button>

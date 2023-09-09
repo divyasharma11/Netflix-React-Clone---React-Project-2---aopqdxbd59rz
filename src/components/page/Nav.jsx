@@ -16,10 +16,11 @@ import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import SubscriptionsOutlinedIcon from "@mui/icons-material/SubscriptionsOutlined";
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import SignOut from "../SignOut";
-import MovieCard from "../MovieApi/MovieCard"
+import MovieCard from "../MovieApi/MovieCard";
 import axios from "axios";
 import { useContext } from "react";
 import DataContext from "../DataContextProvider";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const Nav = () => {
   const navigate = useNavigate();
@@ -30,8 +31,8 @@ const Nav = () => {
   const searchContainerRef = useRef(null);
   const [searchedMovies, setSearchedMovies] = useState([]);
   const searchMoviesRef = useRef([]);
-  
-  const {setData}=useContext(DataContext);
+
+  const { setData } = useContext(DataContext);
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 100) {
@@ -55,15 +56,14 @@ const Nav = () => {
       );
       searchMoviesRef.current = response.data.data;
       const searchResult = searchMoviesRef.current.filter((movie) =>
-  movie.title.toLowerCase().includes(inputSearch.toLowerCase())
-);
+        movie.title.toLowerCase().includes(inputSearch.toLowerCase())
+      );
 
       setSearchedMovies(searchResult);
     } catch (error) {
       console.error("Error fetching data from search:", error);
     }
   };
-
 
   const inputHandler = (e) => {
     setInputSearch(e.target.value);
@@ -78,127 +78,152 @@ const Nav = () => {
     }
   };
 
-  const visibleInputHandler=()=>{
+  const visibleInputHandler = () => {
     setInputVisible(!inputVisible);
-    searchRef.current.style.display="none";
+    searchRef.current.style.display = "none";
   };
-  
+
   return (
     <>
-    <nav className={`navbar ${show && "nav__black"} `}>
-      <div className="nav-left">
-        <div className="logo-containers" onClick={() => navigate("/home")}>
-          <img src={logo} alt="Netflix Logo" className="logoimg" />
-        </div>
-        <div className="nav-link">
-          <Link to="/my-list" className="link" title="my list">
-            My List
-          </Link>
-          <Link to="/movies" className="link" title="movies">
-            Movies
-          </Link>
-          <Link to="/tv-shows" className="link" title="tv shows">
-            TV Shows
-          </Link>
-        </div>
-      </div>
-
-      <div className="nav-right">
-        {inputVisible && (
-          <div search-container>
-            <input
-              type="text"
-              value={inputSearch}
-              className="srch-input-field"
-              onChange={inputHandler}
-              placeholder="Search"
-            />
-            <CloseIcon
-              className="srch close-srch"
-              onClick={() => {
-                setInputVisible(false);
-                searchRef.current.style.display = "block";
-                searchContainerRef.current.style.display = "none";
-                setInputSearch("");
-                setData(true);
-              }}
-            />
+      <nav className={`navbar ${show && "nav__black"} `}>
+        <div className="nav-left">
+          <div className="logo-containers" onClick={() => navigate("/home")}>
+            <img src={logo} alt="Netflix Logo" className="logoimg" />
           </div>
-        )}
-        <SearchIcon
-          className="srch"
-          onClick={visibleInputHandler}
-          ref={searchRef}
-        />
-        <div>
-          <Dropdown>
-            <TriggerButton className="nav-Dropdown">
-              <img src={avatar} alt="Avatar" className="avatar" />
-            </TriggerButton>
-            <Menu slots={{ listbox: StyledListbox }} className="menu-list">
-              <StyledMenuItem className="accountItems">
-                <div className="icon-text">
-                  <img src={avatar} alt="Avatar" className="AvatarImg" />
-                  <p className="icontxt">Username</p>
-                </div>
-              </StyledMenuItem>
-              <StyledMenuItem className="drop-items">
-                <div className="icon-text">
-                  <ModeOutlinedIcon className="drop-icons" />
-                  <p
-                    className="icontxt"
-                    onClick={() => navigate("/manage-profile")}
-                  >
-                    Manage Profiles
-                  </p>
-                </div>
-              </StyledMenuItem>
-              <StyledMenuItem className="accountItems">
-                <div className="icon-text">
-                  <AdminPanelSettingsOutlinedIcon className="drop-icons" />
-                  <p className="icontxt" onClick={() => navigate("/coming-soon")} >
-                    Transfer Profile</p>
-                </div>
-              </StyledMenuItem>
-              <StyledMenuItem className="accountItems">
-                <div className="icon-text">
-                  <PermIdentityOutlinedIcon className="drop-icons" />
-                  <p className="icontxt" onClick={() => navigate("/account")}>
-                    Account
-                  </p>
-                </div>
-              </StyledMenuItem>
-              <StyledMenuItem className="accountItems">
-                <div className="icon-text">
-                  <HelpOutlineOutlinedIcon className="drop-icons" />
-                  <p className="icontxt" onClick={() => navigate("/coming-soon")}>
-                    Help Center</p>
-                </div>
-              </StyledMenuItem>
-              <StyledMenuItem className="accountItems">
-                <div className="icon-text">
-                  <SubscriptionsOutlinedIcon className="drop-icons" />
-                  <p
-                    className="icontxt"
-                    onClick={() => navigate("/subscription")}
-                  >
-                    My Subscription
-                  </p>
-                </div>
-              </StyledMenuItem>
-              <StyledMenuItem className="accountItems">
-                <div className="last-Icon">
-                  <p className="icontxt" onClick={() => SignOut(navigate)}>
-                    Sign out of Netflix
-                  </p>
-                </div>
-              </StyledMenuItem>
-            </Menu>
-          </Dropdown>
+          <div className="nav-link">
+            <Link to="/my-list" className="link" title="my list">
+              My List
+            </Link>
+            <Link to="/movies" className="link" title="movies">
+              Movies
+            </Link>
+            <Link to="/tv-shows" className="link" title="tv shows">
+              TV Shows
+            </Link>
+          </div>
+          <div class="dropdown">
+            <div class="dropbtn">
+              {" "}
+              <MenuIcon className="menu-icon" />
+            </div>
+            <div class="dropdown-content">
+              <a href="/my-list" title="my list">
+                My List
+              </a>
+              <a href="/movies" title="movies">
+                Movies
+              </a>
+              <a href="/tv-shows" title="tv shows">
+                TV Shows
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
-    </nav>
-    <div className="search-container" ref={searchContainerRef}>
+
+        <div className="nav-right">
+          {inputVisible && (
+            <div search-container>
+              <input
+                type="text"
+                value={inputSearch}
+                className="srch-input-field"
+                onChange={inputHandler}
+                placeholder="Search"
+              />
+              <CloseIcon
+                className="srch close-srch"
+                onClick={() => {
+                  setInputVisible(false);
+                  searchRef.current.style.display = "block";
+                  searchContainerRef.current.style.display = "none";
+                  setInputSearch("");
+                  setData(true);
+                }}
+              />
+            </div>
+          )}
+          <SearchIcon
+            className="srch"
+            onClick={visibleInputHandler}
+            ref={searchRef}
+          />
+          <div>
+            <Dropdown>
+              <TriggerButton className="nav-Dropdown">
+                <img src={avatar} alt="Avatar" className="avatar" />
+              </TriggerButton>
+              <Menu slots={{ listbox: StyledListbox }} className="menu-list">
+                <StyledMenuItem className="accountItems">
+                  <div className="icon-text">
+                    <img src={avatar} alt="Avatar" className="AvatarImg" />
+                    <p className="icontxt">Username</p>
+                  </div>
+                </StyledMenuItem>
+                <StyledMenuItem className="drop-items">
+                  <div className="icon-text">
+                    <ModeOutlinedIcon className="drop-icons" />
+                    <p
+                      className="icontxt"
+                      onClick={() => navigate("/manage-profile")}
+                    >
+                      Manage Profiles
+                    </p>
+                  </div>
+                </StyledMenuItem>
+                <StyledMenuItem className="accountItems">
+                  <div className="icon-text">
+                    <AdminPanelSettingsOutlinedIcon className="drop-icons" />
+                    <p
+                      className="icontxt"
+                      onClick={() => navigate("/coming-soon")}
+                    >
+                      Transfer Profile
+                    </p>
+                  </div>
+                </StyledMenuItem>
+                <StyledMenuItem className="accountItems">
+                  <div className="icon-text">
+                    <PermIdentityOutlinedIcon className="drop-icons" />
+                    <p className="icontxt" onClick={() => navigate("/account")}>
+                      Account
+                    </p>
+                  </div>
+                </StyledMenuItem>
+                <StyledMenuItem className="accountItems">
+                  <div className="icon-text">
+                    <HelpOutlineOutlinedIcon className="drop-icons" />
+                    <p
+                      className="icontxt"
+                      onClick={() => navigate("/coming-soon")}
+                    >
+                      Help Center
+                    </p>
+                  </div>
+                </StyledMenuItem>
+                <StyledMenuItem className="accountItems">
+                  <div className="icon-text">
+                    <SubscriptionsOutlinedIcon className="drop-icons" />
+                    <p
+                      className="icontxt"
+                      onClick={() => navigate("/subscription")}
+                    >
+                      My Subscription
+                    </p>
+                  </div>
+                </StyledMenuItem>
+                <StyledMenuItem className="accountItems">
+                  <div className="last-Icon">
+                    <p className="icontxt" onClick={() => SignOut(navigate)}>
+                      Sign out of Netflix
+                    </p>
+                  </div>
+                </StyledMenuItem>
+              </Menu>
+            </Dropdown>
+          </div>
+        </div>
+      </nav>
+      <div className="search-container" ref={searchContainerRef}>
         <div className="movies-container">
           {searchedMovies.map((movie, index) => (
             <MovieCard

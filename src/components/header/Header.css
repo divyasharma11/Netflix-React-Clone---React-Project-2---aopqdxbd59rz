@@ -41,14 +41,22 @@
   margin: 10px;
   outline: none;
   border: none;
-  background-color:rgba(0, 0, 0, 0.4);
+  background-color:rgba(0, 0, 0, 0.7);
   border-radius: 5px;
   cursor: pointer;
   padding-left: 15px;
 }
- .h-btn:hover{
+.head-btn .one{
   background-color: #fff;
   color: #111;
+}
+.one{
+  background-color:rgba(0, 0, 0, 0.4);
+  color: #fff;
+}
+ .h-btn:hover{
+  background-color:rgba(0, 0, 0, 0.4);
+  color: #fff;
 }
  
 .h-btn .home-icon{
