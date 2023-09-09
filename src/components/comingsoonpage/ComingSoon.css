@@ -5,3 +5,13 @@
      width: 50rem;
      height: 35rem;
  }
+ @media only screen and (max-width: 768px) {
+    .coming-img {
+      margin-top: 20px; 
+    }
+  
+    .coming-img img {
+      width: 100%; 
+      height: auto; 
+    }
+  }

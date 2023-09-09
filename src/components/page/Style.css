@@ -449,6 +449,28 @@ h2 {
 .save {
   display: flex;
 }
+@media screen and (max-width: 768px) {
+  .password-container {
+    margin-top: 3rem; 
+  }
+
+  .pass-container .pas-input {
+    height: 40px; 
+    margin-top: 25px; 
+  }
+
+  .typecheck {
+    margin-top: 15px; 
+  }
+
+  .pass-ref {
+    display: block; 
+  }
+
+  .save {
+    flex-direction: column; 
+  }
+}
 /* vedio model */
 .vdo {
   width: 100%;
@@ -489,7 +511,6 @@ h2 {
 }
 .vd-icons {
   padding-top: 8px;
-  /* margin-top: 5px; */
 }
 .vdo-more-container {
   position: absolute;
@@ -499,6 +520,52 @@ h2 {
 .extra-movie {
   display: flex;
   flex-wrap: wrap;
+}
+@media screen and (max-width: 768px) {
+  vdo {
+    height: auto; 
+  }
+
+  .vedio-container {
+    left: 10px; 
+    top: 30px; 
+  }
+
+  .vdo-contents {
+    flex-direction: column; 
+    align-items: center; 
+    font-size: 16px; 
+    margin-top: 0; 
+  }
+
+  .vdo-dis {
+    width: 100%; 
+  }
+
+  .span {
+    width: 40px; 
+    height: 40px; 
+    font-size: small; 
+  }
+
+  .buton {
+    width: 80px; 
+    margin-right: 0; 
+    margin-top: 10px; 
+  }
+
+  .vd-icons {
+    padding-top: 10px; 
+  }
+
+  .vdo-more-container {
+    flex-direction: column; 
+    margin-top: 20px; 
+  }
+
+  .extra-movie {
+    flex-direction: column; 
+  }
 }
 /* manage profile  */
 .profile-container {
