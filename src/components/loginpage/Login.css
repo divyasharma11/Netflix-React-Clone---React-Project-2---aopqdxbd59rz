@@ -305,6 +305,7 @@ body {
     .logo-container .logo{
       width: 150px !important;
       height: 80px !important;
+      margin-top: .2rem !important;
       margin-left: -5rem !important;
     }
 
@@ -312,10 +313,10 @@ body {
       margin-right: 2rem;
     }
     .login-btn button{
-      width: 80px !important;
+      width: 60px !important;
       height: 30px !important;
       font-size: small !important;
-      font-weight: 100;
+      font-weight: bold;
     }
     .start-btn {
       width: 200px ;
@@ -391,7 +392,7 @@ body {
     }
     
     .foot-btn {
-      width: 100px;
+      width: 80px;
        height: fit-content;
       margin-left: 1rem;
       font-size: 12px;
@@ -399,15 +400,15 @@ body {
     }
     .foot-btn .language{
       margin: 5px 5px;
-     font-size: medium;
+     font-size: small;
     }
     .foot-btn p{
       color: #fff;
       margin: 5px 0px;
     }
     .foot-btn .key{
-    margin-top: 1px;
-    font-size: 1.5rem;
+    margin-top: 3px;
+    font-size: 1.2rem;
     }
   }
   
