@@ -134,6 +134,7 @@ font-size: 15px;
     margin: 10px;
   }
   .paginationButtons {
+    display: none;
     margin: 0px 5px; 
   }
 
