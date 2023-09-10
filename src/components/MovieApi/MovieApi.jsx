@@ -129,25 +129,25 @@ const MovieApi = () => {
   const handlSliceChange = (category, increment) => {
     switch (category) {
       case "original":
-        setOriginalSlice((prevPage) => prevPage + increment);
+        setOriginalSlice((prev) => prev + increment);
         break;
       case "trending":
-        setTrendingSlice((prevPage) => prevPage + increment);
+        setTrendingSlice((prev) => prev + increment);
         break;
       case "top":
-        setTopRated((prevPage) => prevPage + increment);
+        setTopRated((prev) => prev + increment);
         break;
       case "action":
-        setActionSlice((prevPage) => prevPage + increment);
+        setActionSlice((prev) => prev + increment);
         break;
       case "horror":
-        setHorrorSlice((prevPage) => prevPage + increment);
+        setHorrorSlice((prev) => prev + increment);
         break;
       case "romance":
-        setRomanceSlice((prevPage) => prevPage + increment);
+        setRomanceSlice((prev) => prev + increment);
         break;
       case "documentary":
-        setDocumentarySlice((prevPage) => prevPage + increment);
+        setDocumentarySlice((prev) => prev + increment);
         break;
       default:
         break;
@@ -157,12 +157,6 @@ const MovieApi = () => {
     <>
       {data && (
         <>
-          {loading ? (
-            <div className="loaderContainer">
-              <div className="loader"></div>
-            </div>
-          ) : (
-            <>
             <div className="movie-container">
               <h2>Netflix Originals</h2>
               <div className="paginationButtons">
@@ -422,8 +416,6 @@ const MovieApi = () => {
                   ))}
                   </div>
             </div>
-     </>
-          )}
         </>
       )}
     </>

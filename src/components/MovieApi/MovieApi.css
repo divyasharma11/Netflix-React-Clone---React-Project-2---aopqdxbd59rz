@@ -109,6 +109,9 @@ font-size: 15px;
   margin-top: 10rem;
  }
  @media (max-width: 568px) {
+  .movie-container h2{
+    font-size: 18px;
+  }
   .poster-content {
     margin: 20px 10px;
   overflow: scroll;
@@ -131,7 +134,7 @@ font-size: 15px;
     margin: 10px;
   }
   .paginationButtons {
-    margin: 0px 10px; 
+    margin: 0px 5px; 
   }
 
   .paginationButtons .arrowIcon {
