@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../navbar/Navbar";
+import Nav from "../page/Nav"
 import CheckIcon from "@mui/icons-material/Check";
 import "./Subscription.css";
 import Footer from "../footer/Footer";
@@ -7,15 +7,11 @@ import { useNavigate } from "react-router-dom";
 
 const SubscriptionStep = () => {
   const navigate = useNavigate();
-  // const [card, setCard] = useState(null);
 
- 
-  const handleCard = (plan) => {
-    setCard(plan);
-  };
+
   return (
     <>
-      <Navbar />
+      <Nav />
       <div className="sub-container">
         <h5 style={{ color: "gray" }}>STEP 2 OF 3</h5>
         <h1>Choose the plan that’s right for you</h1>

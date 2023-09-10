@@ -1,6 +1,6 @@
 import React from 'react'
 import './Subscription.css'
-import Navbar from '../navbar/Navbar'
+import Nav from "../page/Nav"
 import Footer from '../footer/Footer';
 import CheckIcon from '@mui/icons-material/Check';
 import { useNavigate } from 'react-router-dom';
@@ -8,8 +8,8 @@ const Subscription = () => {
  const navigate=useNavigate();
   return (
     <>
-       <Navbar/> 
-       <div className="signup-container">
+       <Nav/> 
+       <div className="subscription-container">
        <div className="content2">
        <div className='check-icon'>
         <CheckIcon className='check' />

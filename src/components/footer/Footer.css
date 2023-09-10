@@ -38,22 +38,23 @@
   @media screen and (max-width: 768px) {
     .footer-content1 {
       width: 100%;
-      margin-top: 3rem; 
+      height: fit-content;
+      margin-top: 4rem; 
+      padding: 5px;
     }
   
     .footer-content1 p {
       margin-left: 0; 
-      text-align: center; 
+      font-size: 15px;
+      /* text-align: center;  */
     }
   
     .footerr {
-      /* display: flex; */
-      flex-direction: row;
+      flex-direction:row;
       margin-top: 1rem;
     }
-  
-    .footer-link {
-      justify-content: center; 
+    .footer-link .footr{
+      font-size: 15px;
     }
   }
   
