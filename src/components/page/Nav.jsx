@@ -82,7 +82,14 @@ const Nav = () => {
     setInputVisible(!inputVisible);
     searchRef.current.style.display = "none";
   };
-
+  
+ const closeIconHandler=()=>{
+  setInputVisible(false);
+  searchRef.current.style.display = "block";
+  searchContentRef.current.style.display = "none";
+  setInputSearch("");
+  setData(true);
+ }
   return (
     <>
       <nav className={`navbar ${show && "nav__black"} `}>
@@ -132,13 +139,7 @@ const Nav = () => {
               />
               <CloseIcon
                 className="srch close-srch"
-                onClick={() => {
-                  setInputVisible(false);
-                  searchRef.current.style.display = "block";
-                  searchContentRef.current.style.display = "none";
-                  setInputSearch("");
-                  setData(true);
-                }}
+                onClick={closeIconHandler}
               />
             </div>
           )}

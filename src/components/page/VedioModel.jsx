@@ -135,7 +135,7 @@ const VedioModel = ({ isOpen,onClose , myListItem,showId,onClick,}) => {
           </div>
           <div className="vdo-more-container">
                 {loading ? (
-                  <div className="loaderContainer">
+                  <div className="loader-container">
                     <div className="loader"></div>
                   </div>
                 ) : (
@@ -148,7 +148,6 @@ const VedioModel = ({ isOpen,onClose , myListItem,showId,onClick,}) => {
                         keywords={movie.keywords}
                         key={index}
                         videoUrl={movie.video_url}
-                        className="categoriesCard"
                       />
                     ))}
                   </div>
