@@ -67,6 +67,7 @@ const VedioModel = ({ isOpen,onClose , myListItem,showId,onClick,}) => {
         }
       );
       setMovies(response.data.data);
+      console.log("movies-content: ", movies);
       setLoading(false);
     } catch (error) {
       console.error("Error fetching extra data:", error);
@@ -140,7 +141,7 @@ const VedioModel = ({ isOpen,onClose , myListItem,showId,onClick,}) => {
                   </div>
                 ) : (
                   <div className="extra-movie">
-                    {movies.slice(50,76).map((movie, index) => (
+                    {movies.slice(10,30).map((movie, index) => (
                       <MovieCard
                         thumbnail={movie.thumbnail}
                         title={movie.title}

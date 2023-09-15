@@ -36,6 +36,9 @@
   padding: 10px;
   font-weight: bold;
 }
+.nav-right{
+  margin-right: 5rem;
+}
 .search-container {
   display: flex;
 }
@@ -179,7 +182,9 @@
     width: 100%;
     justify-content: start;
   }
-  
+  .nav-right{
+    margin-right: 0;
+  }
   .nav-link {
     display: none;
   }
@@ -201,10 +206,7 @@
     left: 3rem;
     width: 100px;
   }
-  /* .close-srch {
-    margin-top: 3.4rem;
-    margin-left: 5rem;
-  } */
+  
   .avatar {
     width: 25px;
     height: 25px;
@@ -224,6 +226,9 @@
   .navbar {
     width: 100%;
     justify-content: start;
+  }
+  .nav-right{
+    margin-right: 0;
   }
   .nav-link {
     display: none;

@@ -18,29 +18,28 @@ overflow-y: hidden;
 
 .carts{
   width: 202px;
-    margin: 20px ;
+  margin: 20px ;
     border-radius: 8px;
     border: 1px solid gray;
- /* transition: transform 400ms; */
 }
-/* .carts:hover{
-  transform: scale(1);
-} */
+
 .carts img{
   width: 200px;
   height: 230px;
   border-radius: 8px;
 }
-
-.cord:hover img{
-  width: 230px;
-  height: 200px;
+.cord{
+  transition: transform 0.4s;
+}
+.cord:hover{
+  transition: ease-in 0.3s;
+  transform: scale(1.1) translate(0,-35%);
 }
 
 .hide-container{
   display: none;
- position: absolute;
- width: 231px;
+ position:absolute;
+ width: 202px;
  height: fit-content;
  margin: 0px 20px;
  border-radius: 8px;
