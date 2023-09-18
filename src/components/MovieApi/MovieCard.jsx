@@ -13,6 +13,7 @@ const MovieCard = ({thumbnail,keywords,showId,inMyList = false,onMyListChange,})
   const [myListItem, setIsInMyListItem] = useState(inMyList);
   const [list, setList] = useState([]);
   const [openModal, setOpenModal] = useState(false);
+  const [like,setLike]=useState(false);
   const navigate = useNavigate();
 
   const handleOpenModal = (id) => {
@@ -73,8 +74,15 @@ const MovieCard = ({thumbnail,keywords,showId,inMyList = false,onMyListChange,})
                       <AddIcon className="sm-icon" />
                   )}
                 </span>
-                <span className="span">
-                  <ThumbUpOffAltIcon className="sm-icon" />
+                <span 
+                // className="span" 
+                className={`span ${like && "like-span"}`}
+                onClick={() => setLike(!like)}
+                >
+                  <ThumbUpOffAltIcon
+                  //  className="sm-icon"
+                   className={`sm-icon ${like && "like-btn"}`}
+                    />
                 </span>
               </div>
               <div>

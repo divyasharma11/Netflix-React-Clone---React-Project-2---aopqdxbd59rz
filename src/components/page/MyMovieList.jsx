@@ -4,6 +4,7 @@ import Nav from "./Nav";
 import MovieCard from "../MovieApi/MovieCard";
 import axios from "axios";
 import DataContext from "../DataContextProvider"
+
 const MyMovieList = () => {
   const [listData, setListData] = useState([]);
   const [loading, setLoading] = useState(false);

@@ -80,6 +80,12 @@ overflow-y: hidden;
 .span{
   margin:5px ;
 }
+.hide-container .like-span{
+  border: 1px solid rgb(161, 31, 31);
+}
+.like-btn{
+  color: rgb(161, 31, 31);
+}
 .span .sm-icon{
 margin-top:10px;
 font-size: 15px;
