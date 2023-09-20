@@ -690,6 +690,7 @@ hr {
 }
 .mylist-content {
   display: flex;
+  flex-wrap: wrap;
   position: relative;
 }
 /* footer code start */
