@@ -1,12 +1,12 @@
 import React from 'react'
 import "./Subscription.css";
 import comingsoon from '../images/coming-soon.png';
-import Navbar from '../navbar/Navbar';
 import Footer from '../footer/Footer';
+import Nav from '../page/Nav';
 const Payment = () => {
   return (
     <>
-    <Navbar />
+    <Nav />
     <div className="signup-container">
       <div className='payment-img'>
           <img src={comingsoon} alt='payment' />
