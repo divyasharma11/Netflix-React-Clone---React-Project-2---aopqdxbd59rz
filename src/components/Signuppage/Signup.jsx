@@ -161,7 +161,7 @@ const Signup = () => {
               Sign up
               </button>
             <div id="text">
-              Already have an account? <Link to={"/ "}>Sign in</Link>
+              Already have an account? <Link to={"/signin "}>Sign in</Link>
             </div>
             {/* <div className="authentication">
             <div className="google" onClick={googleLogin}>

@@ -1,7 +1,6 @@
 import React from 'react'
 import { createBrowserRouter } from 'react-router-dom'
 import Home from './components/home/Home'
-import Login from './components/loginpage/Login'
 import Signup from './components/Signuppage/Signup'
 import MyMovieList from './components/page/MyMovieList'
 import Movies from './components/page/Movies'
@@ -15,15 +14,21 @@ import Header from './components/header/Header'
 import ManageProfile from './components/page/ManageProfile'
 import ComingSoon from './components/comingsoonpage/ComingSoon'
 import RouterProtector from "./components/RouterProtector"
+import MainPage from './components/Mainpage/MainPage'
+import Signin from './components/Signinpage/Signin'
 
  const Router = createBrowserRouter([
    {
      path: "/",
-     element: <Login />,
+     element: <MainPage />,
    },
    {
      path: "/signup",
      element: <Signup />,
+   },
+   {
+     path: "/signin",
+     element: <Signin />,
    },
    {
      path: "/home",

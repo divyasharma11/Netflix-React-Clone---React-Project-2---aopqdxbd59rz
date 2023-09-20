@@ -11,7 +11,7 @@ const Navbar = () => {
           <img src={logo} alt="Netflix Logo" className="logoimg" onClick={()=>navigate('/')} />
         </div>
         <div className="sign-link">
-            <Link to={"/"}  className="link">Sign out</Link>
+            <Link to={"/signin"}  className="link">Sign In</Link>
         </div>
       </div>
   );

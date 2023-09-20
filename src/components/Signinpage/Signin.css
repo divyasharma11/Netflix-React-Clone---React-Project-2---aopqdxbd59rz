@@ -1,0 +1,136 @@
+.hero-section {
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/login-bg.jpg");
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 50px 0;
+    height: 110vh;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    box-shadow: inset 0px 0px 250px 75px black;
+  }
+  
+  .login-nav{
+position: absolute;
+  top: 0;
+  width: 100%;
+  height: 10vh;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  }
+
+  .logo-container .logo {
+    position: absolute;
+    top: 0px !important;
+    width: 250px !important;
+    height: 100px !important;
+    left: 5rem ;
+  }
+  
+
+.sign-container{
+    width: 420px;
+    height: 500px;
+    background-color: rgba(0,0,0,0.8);
+  }
+  .sign-container h2{
+    font-size:x-large;
+    text-align: center;
+    font-weight: 800;
+    padding: 10px;
+    color: #fff;
+    padding-top: 50px;
+  }
+ .login button{
+  margin: 10px 10px;
+  border-radius: 5px;
+ }
+ 
+ .inpt-txt{
+  height: 3rem;
+  width: 300px;
+  margin: 10px 10px;
+  padding: 0px 20px;
+  border: none;
+  border-radius: 3px;
+  border-bottom: 2px solid red;
+  /* background-color:rgb(92, 86, 86); */
+ }
+ .inpt-txt:focus{
+  outline: none;
+ }
+ .inpt-txt::placeholder{
+  color:#494848 ;
+ }
+ .remember{
+ margin: 20px;
+  display: flex;
+  justify-content: space-around;
+  color: #494848;
+ }
+ #new{
+  margin-top: 30px;
+  color: #494848;
+  float: left;
+  font-size: medium;
+  padding: 10px 70px;
+ }
+  .link2{
+  color: #fff;
+  font-size: medium;
+  text-decoration: none;
+ }
+ .link2:hover{
+  text-decoration: underline;
+ }
+ .end p{
+  margin-top: 40px;
+  font-size: small;
+  color: #494848;
+  padding: 10px 30px;
+ }
+ .learn-more{
+  color: blue;
+ }
+ @media only screen and (max-width: 568px) {
+    .logo-container .logo{
+        width: 150px !important;
+        height: 80px !important;
+        margin-top: .2rem !important;
+        margin-left: -5rem !important;
+    }
+      .login button{
+      width: 80%;
+        height: 40px;
+        font-size: small;
+        font-weight: bold;
+        margin-top: .1rem;
+      }
+    .hero-section {
+      padding: 30px 0;
+      height: 100vh;
+    }
+    .sign-container{
+        /* margin-top: 50px; */
+        width: fit-content;
+        margin:100px 30px 50px 30px;
+        height: fit-content;
+        background-color: rgba(0,0,0,0.8);
+    }
+    .sign-container h2{
+        font-size: large;
+    }
+    .inpt-txt{
+        height: 3rem;
+        width: 80%;
+    }
+    #new{
+        margin-top: 0px;
+    }
+}

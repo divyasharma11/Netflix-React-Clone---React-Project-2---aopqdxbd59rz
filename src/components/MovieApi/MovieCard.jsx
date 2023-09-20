@@ -75,12 +75,10 @@ const MovieCard = ({thumbnail,keywords,showId,inMyList = false,onMyListChange,})
                   )}
                 </span>
                 <span 
-                // className="span" 
                 className={`span ${like && "like-span"}`}
                 onClick={() => setLike(!like)}
                 >
                   <ThumbUpOffAltIcon
-                  //  className="sm-icon"
                    className={`sm-icon ${like && "like-btn"}`}
                     />
                 </span>

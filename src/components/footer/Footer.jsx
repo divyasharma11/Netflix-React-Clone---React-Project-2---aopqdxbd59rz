@@ -2,8 +2,9 @@ import React from 'react'
 import "./Footer.css"
 import { Link } from 'react-router-dom';
 const Footer = () => {
+
   return (
-    <div className="footer-content1">
+    <div className="footer-content1" >
         <p>Questions? Call 000-800-919-1694</p>
         <div className="footerr">
         <div className="footer-link">

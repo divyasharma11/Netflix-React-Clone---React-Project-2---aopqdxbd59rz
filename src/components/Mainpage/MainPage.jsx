@@ -4,150 +4,22 @@ import poster1 from "../images/poster1.png";
 import poster2 from "../images/poster2.jpg";
 import poster3 from "../images/poster3.jpg";
 import poster4 from "../images/poster4.jpg";
-import "./Login.css";
+import "./MainPage.css";
 import { Link, useNavigate } from "react-router-dom";
 import AddIcon from "@mui/icons-material/Add";
 import Modal from "react-modal";
 import LanguageIcon from "@mui/icons-material/Language";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import SignOut from "../SignOut";
-import axios from "axios";
-Modal.setAppElement('#root');
 
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    width: "350px",
-    height: "350px",
-    border: "none",
-    borderRadius: "10px",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-    backgroundColor: "rgba(0,0,0,0.8)",
-  },
-  overlay: {
-    backgroundColor: "rgba(0,0,0,0.4)",
-  },
-};
-const Login = () => {
+
+const MainPage = () => {
   const navigate = useNavigate(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-  const [errors, setErrors] = useState({
-    email: '',
-    password: '',
-  });
-const [isLoggedIn,setIsLoggedIn]=useState(false);
 
-  // const {email, password } = formData;
-  
-  useEffect(()=>{
-    if (isLoggedIn) {
-      setTimeout(() => {
-        navigate("/home");
-      }, 2200);
-    }
-  },[isLoggedIn]);
-
-  const handleOnChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-
-  const handleOpen = () => {
-    setIsModalOpen(true);
+  const handleSignIn = () => {
+   navigate("/signin");
   };
   
-  function closeModal() {
-    setIsModalOpen(false);
-  }
-  const handleLogin = async(e) => {
-    e.preventDefault();
-    const formErrors = {};
-    const emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
-    if (!formData.email.match(emailPattern)) {
-      formErrors.email = 'email is invalid.';
-    }
-    if (formData.password.length<3 ) {
-      formErrors.password = 'Password must be at least 6 characters long.';
-    }
-   
-    try{ 
-       const response = await axios.post(
-        "https://academics.newtonschool.co/api/v1/user/login",
-        {
-          email:formData.email,
-          password:formData.password,
-          appType: "ott",
-        },
-        {
-          headers: {
-            projectId: "aopqdxbd59rz",
-          },
-       }
-      );
-
-      const token = response.data.token;
-
-      const name = response.data.data.name;
-      const email = response.data.data.email;
-      const password = response.data.data.password;
-      const img = response.data.data.profileImage;
-  
-      const userInfo = {
-        userName: name,
-        userEmail: email,
-        userPassword: password,
-      };
-
-      localStorage.setItem("Token", token);
-
-      localStorage.setItem("userDetails", JSON.stringify(userInfo));
-
-      localStorage.setItem("updatedProfile",img);
-
-      setIsLoggedIn( true);
-      // alert("login successfully!!")
-     
-    } catch (error) {
-      console.error("Login Error:", error);
-      if (
-        error.response &&
-        error.response.data &&
-        error.response.data.message === "User not found"
-      ){
-        setIsLoggedIn(false)
-      } else {
-        setIsLoggedIn(false)
-      }
-    }
-    if (Object.keys(formErrors).length > 0) {
-      setErrors(formErrors);
-    } else {
-      navigate('/home');
-      setFormData({
-        email: '',
-        password: '',
-      });
-      setErrors({
-        email: '',
-        password: '',
-      });
-    }
-    setIsLoggedIn(true);
-  };
- 
   return (
     <>
       <nav className="login-nav">
@@ -161,59 +33,7 @@ const [isLoggedIn,setIsLoggedIn]=useState(false);
             <ArrowDropDownIcon className="key" />
           </div>
           <div>
-            {isLoggedIn ?
-            (
-            <button onClick={() => SignOut(navigate)}>Sign Out</button>
-            ):
-            (
-            <button onClick={handleOpen}>Sign In</button>
-            )
-            }
-            <Modal
-              isOpen={isModalOpen}
-              onRequestClose={closeModal}
-              style={customStyles}
-            >
-              <div className="sign-container">
-                <p>Sign In</p>
-                <div>
-                  <input
-                    className="inpt-txt"
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="email"
-                    value={formData.email}
-                    onChange={handleOnChange}
-                  />
-                  <div className="errors">
-             {errors.email && <p  className="error-message">{errors.email}</p>}
-            </div>
-                  <input
-                    className="inpt-txt"
-                    type="password"
-                    id="password"
-                    name="password"
-                    placeholder="password"
-                    value={formData.password}
-                    onChange={handleOnChange}
-                  />
-                   <div className="errors">
-             {errors.password && <p  className="error-message">{errors.password}</p>}
-            </div>
-                  <div className="login">
-                    <button onClick={handleLogin}>Login</button>
-                  </div>
-                  <div>{/* <input type="checkbox" />Remember me */}</div>
-                  <div id="new">
-                    new to Netflix?{" "}
-                    <Link to={"/signup "} className="link2">
-                      Sign up now
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </Modal>
+            <button onClick={handleSignIn}>Sign In</button>
           </div>
         </div>
       </nav>
@@ -452,4 +272,4 @@ const [isLoggedIn,setIsLoggedIn]=useState(false);
   );
 };
 
-export default Login;
+export default MainPage;
