@@ -224,7 +224,7 @@ const Password = () => {
             <p className="pass-ref" ref={passRef}>
               Password didn't match.
             </p>
-
+            
             <input
               className='pas-input'
               type='password'
