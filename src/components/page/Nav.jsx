@@ -171,7 +171,7 @@ const Nav = () => {
                     </p>
                   </div>
                 </StyledMenuItem>
-                <StyledMenuItem className="accountItems">
+                {/* <StyledMenuItem className="accountItems">
                   <div className="icon-text">
                     <AdminPanelSettingsOutlinedIcon className="drop-icons" />
                     <p
@@ -181,16 +181,16 @@ const Nav = () => {
                       Transfer Profile
                     </p>
                   </div>
-                </StyledMenuItem>
+                </StyledMenuItem> */}
                 <StyledMenuItem className="accountItems">
                   <div className="icon-text">
                     <PermIdentityOutlinedIcon className="drop-icons" />
-                    <p className="icontxt" onClick={() => navigate("/account")}>
-                      Account
+                    <p className="icontxt" onClick={() => navigate("/password")}>
+                     Update Password
                     </p>
                   </div>
                 </StyledMenuItem>
-                <StyledMenuItem className="accountItems">
+                {/* <StyledMenuItem className="accountItems">
                   <div className="icon-text">
                     <HelpOutlineOutlinedIcon className="drop-icons" />
                     <p
@@ -200,7 +200,7 @@ const Nav = () => {
                       Help Center
                     </p>
                   </div>
-                </StyledMenuItem>
+                </StyledMenuItem> */}
                 <StyledMenuItem className="accountItems">
                   <div className="icon-text">
                     <SubscriptionsOutlinedIcon className="drop-icons" />

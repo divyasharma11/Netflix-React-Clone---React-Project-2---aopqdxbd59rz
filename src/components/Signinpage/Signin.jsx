@@ -1,28 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Signin.css";
 import logo from "../images/logo.png";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Signin = () => {
   const navigate = useNavigate(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
-  const [errors, setErrors] = useState({
-    email: "",
-    password: "",
-  });
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  // const {email, password } = formData;
+  
+  const emailErrorRef = useRef(null);
+  const passwordErrorRef = useRef(null);
 
   useEffect(() => {
     if (isLoggedIn) {
       setTimeout(() => {
         navigate("/home");
-      }, 2200);
+      }, 3000);
     }
   }, [isLoggedIn]);
 
@@ -36,13 +35,12 @@ const Signin = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    const formErrors = {};
     const emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
     if (!formData.email.match(emailPattern)) {
-      formErrors.email = "email is invalid.";
+      emailErrorRef.current.style.display = "block";
     }
-    if (formData.password.length < 3) {
-      formErrors.password = "Password must be at least 6 characters long.";
+    if (formData.password.length < 3 || password.length > 60) {
+      passwordErrorRef.current.style.display = "block";
     }
 
     try {
@@ -80,7 +78,16 @@ const Signin = () => {
       localStorage.setItem("updatedProfile", img);
 
       setIsLoggedIn(true);
-      // alert("login successfully!!")
+      toast.success("Signin Successfull.", {
+        position: "top-left",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     } catch (error) {
       console.error("Login Error:", error);
       if (
@@ -89,24 +96,31 @@ const Signin = () => {
         error.response.data.message === "User not found"
       ) {
         setIsLoggedIn(false);
+        toast.error("User with this email is not registered.", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       } else {
         setIsLoggedIn(false);
+        toast.error("Email or password is incorrect", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       }
     }
-    if (Object.keys(formErrors).length > 0) {
-      setErrors(formErrors);
-    } else {
-      navigate("/home");
-      setFormData({
-        email: "",
-        password: "",
-      });
-      setErrors({
-        email: "",
-        password: "",
-      });
-    }
-    setIsLoggedIn(true);
+   setIsLoggedIn(true);
   };
 
   return (
@@ -129,11 +143,9 @@ const Signin = () => {
                 value={formData.email}
                 onChange={handleOnChange}
               />
-              <div className="errors">
-                {errors.email && (
-                  <p className="error-message">{errors.email}</p>
-                )}
-              </div>
+               <div className="errors" ref={emailErrorRef}>
+              Please enter a valid email id.
+            </div>
               <input
                 className="inpt-txt"
                 type="password"
@@ -143,14 +155,13 @@ const Signin = () => {
                 value={formData.password}
                 onChange={handleOnChange}
               />
-              <div className="errors">
-                {errors.password && (
-                  <p className="error-message">{errors.password}</p>
-                )}
-              </div>
+               <div className="errors" ref={passwordErrorRef}>
+               Password must be at least 6 characters long.
+            </div>
               <div className="login">
                 <button onClick={handleLogin}>Login</button>
               </div>
+              <ToastContainer />
               <div className="remember">
                 <span>
                 <input type="checkbox" />

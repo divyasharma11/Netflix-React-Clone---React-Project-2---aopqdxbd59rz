@@ -29,9 +29,11 @@
     max-width: 500px; 
     text-align: center;
   }
-  .errors p{
-    font-size: medium;
+  .errors{
+    display: none;
+    /* font-size: medium; */
     color: red;
+    margin-bottom: 5px;
   }
   .input-text {
     height: 3rem;

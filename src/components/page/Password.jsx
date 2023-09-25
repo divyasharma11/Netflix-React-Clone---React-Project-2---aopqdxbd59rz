@@ -5,6 +5,8 @@ import Footer from '../footer/Footer';
 import axios from 'axios';
 import bcrypt from 'bcryptjs';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const token = localStorage.getItem('Token');
 
@@ -29,7 +31,6 @@ const Password = () => {
 
   useEffect(() => {
     const userInfo = localStorage.getItem('userDetails');
-
     if (userInfo) {
       setUserData(JSON.parse(userInfo));
     }
@@ -72,7 +73,7 @@ const Password = () => {
       emailRef.current.style.display = 'block';
       return;
     }
-    if (newPassword.length < 6 || newPassword.length > 60 || newPassword === '') {
+    if (newPassword.length < 3 || newPassword.length > 60 || newPassword === '') {
       newPassRef.current.style.display = 'block';
       return;
     }
@@ -82,12 +83,30 @@ const Password = () => {
     }
 
     if (currentPassword === newPassword && currentPassword !== '') {
-      alert('current  password and new password should be different.');
+      toast.info("Current password & new password should be different!.", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       return;
     }
 
     if (currentPassword === '' || newPassword === '' || reNewPassword === '') {
-      alert('All fields are mandatory.');
+      toast.info("All fields are mandatory.", {
+        position: "top-right",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       return;
     }
 
@@ -126,7 +145,16 @@ const Password = () => {
             userPassword: newPassword,
           })
         );
-
+        toast.success("Update password Successfull.", {
+          position: "top-right",
+          autoClose: 1500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
         setPassDetails({
           email: '',
           currentPassword: '',
@@ -137,6 +165,16 @@ const Password = () => {
         setUpdate(true);
       } catch (error) {
         console.error('Update password error:', error);
+        toast.error("Failed to update password.", {
+          position: "top-right",
+          autoClose: 1500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       }
     }
   };
@@ -159,6 +197,7 @@ const Password = () => {
     <>
       <Nav />
       <div className="password-container">
+      <ToastContainer />
         <div>
           <h1>Change your password</h1>
           <p>Protect your account with a unique password at least 6 characters long.</p>
@@ -195,7 +234,7 @@ const Password = () => {
               placeholder='New Password (6-60 characters)'
             />
             <p className="pass-ref" ref={newPassRef}>
-              Password should be between 6 and 60 characters long.
+              Password should be between 3 and 60 characters long.
             </p>
             <input
               className='pas-input'

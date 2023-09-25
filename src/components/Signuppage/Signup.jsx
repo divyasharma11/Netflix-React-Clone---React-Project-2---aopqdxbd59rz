@@ -6,23 +6,23 @@ import Footer from "../footer/Footer";
 import google from "../images/google-icon.png";
 import github from "../images/github-icon.png";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Signup = () => {
   const navigate = useNavigate();
-  
   const [formDetails, setFormDetails] = useState({
     name: "",
     email: "",
     password: "",
   });
-  const [errors, setErrors] = useState({
-    name: '',
-    email: '',
-    password: '',
-  });
-
   const { name, email, password } = formDetails;
   const [registered, setRegistered] = useState(false);
+  
+  const nameErrorRef = useRef(null);
+  const emailErrorRef = useRef(null);
+  const passwordErrorRef = useRef(null);
+  
   const handleSignup = (e) => {
     const { name, value } = e.target;
     setFormDetails((prevData) => ({
@@ -30,22 +30,19 @@ const Signup = () => {
       [name]: value,
     }));
   };
-   
-  
 
-  const signUpHandler=async (e)=>{
+  const signUpHandler = async (e) => {
     e.preventDefault();
-    const formErrors = {};
     const emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
-    
+
     if (name.length < 3) {
-      formErrors.name = 'name must be at least 3 characters.';
+      nameErrorRef.current.style.display = "block";
     }
     if (!email.match(emailPattern)) {
-      formErrors.email = 'email is invalid.';
+      emailErrorRef.current.style.display = "block";
     }
-    if (password.length<3 ) {
-      formErrors.password = 'Password must be at least 6 characters long.';
+    if (password.length < 4 || password.length > 60) {
+      passwordErrorRef.current.style.display = "block";
     }
     try {
       const response = await axios.post(
@@ -64,7 +61,16 @@ const Signup = () => {
       );
       // console.log("Signup successful:", response);
       setRegistered(true);
-      alert("register successfully!!");
+      toast.success("Account successfully Registered!", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     } catch (error) {
       // console.log("Signup Error:", error);
       if (
@@ -73,39 +79,41 @@ const Signup = () => {
         error.response.data.message === "User already exists"
       ) {
         setRegistered(false);
-       
+        toast.error("User with this email is already registered.", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       } else {
         setRegistered(false);
+        toast.error("Error in signing up. Please try again.", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       }
     }
-  
-
-
-    if (Object.keys(formErrors).length > 0) {
-      setErrors(formErrors);
-    } else {
-      navigate('/');
-      setFormDetails({
-        name: '',
-        email: '',
-        password: '',
-      });
-      setErrors({
-        name: '',
-        email: '',
-        password: '',
-      });
-    }
     setRegistered(true);
-  }
+  };
   useEffect(() => {
     if (registered) {
       setTimeout(() => {
-        navigate("/");
-      }, 1000);
+        navigate("/signin");
+      }, 3500);
     }
   }, [registered]);
 
+ 
   return (
     <>
       <Navbar />
@@ -128,8 +136,8 @@ const Signup = () => {
               onChange={handleSignup}
               required
             />
-            <div className="errors">
-            {errors.name && <p  className="error-message">{errors.name}</p>}
+            <div className="errors" ref={nameErrorRef}>
+            name must be at least 3 characters.
             </div>
             <input
               className="input-text"
@@ -140,8 +148,8 @@ const Signup = () => {
               value={email}
               onChange={handleSignup}
             />
-            <div className="errors">
-             {errors.email && <p  className="error-message">{errors.email}</p>}
+            <div className="errors" ref={emailErrorRef}>
+              Please enter a valid email address.
             </div>
             <input
               className="input-text"
@@ -152,14 +160,13 @@ const Signup = () => {
               value={password}
               onChange={handleSignup}
             />
-            <div className="errors">
-             {errors.password && <p  className="error-message">{errors.password}</p>}
-            </div>          
-            <button 
-            className="signup-btn"
-             onClick={signUpHandler}>
+             <div className="errors" ref={passwordErrorRef}>
+             Password must be at least 6 characters long.
+            </div>
+            <button className="signup-btn" onClick={signUpHandler}>
               Sign up
-              </button>
+            </button>
+            <ToastContainer />
             <div id="text">
               Already have an account? <Link to={"/signin "}>Sign in</Link>
             </div>
@@ -174,6 +181,7 @@ const Signup = () => {
           </div>
         </div>
       </div>
+
       <Footer />
     </>
   );
