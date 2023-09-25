@@ -4,7 +4,7 @@
     localStorage.removeItem("Token");
     localStorage.removeItem("userDetails");
     localStorage.removeItem("updatedProfile");
-    navigate("/");
+    navigate("/signin");
   }
 };
 
