@@ -4,7 +4,14 @@
     align-items: center;
     padding: 2rem;
   }
-  
+  .Toastify__toast-container{
+    width: fit-content !important;
+  }
+  .Toastify__close-button{
+    width: fit-content !important;
+    padding-left: 10px !important;
+      padding-bottom: 15px !important;
+  }
   .content1 {
     margin-top: 30px;
   }

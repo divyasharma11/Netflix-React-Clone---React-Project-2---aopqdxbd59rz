@@ -5,6 +5,8 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import profile from "../images/profile.jpg";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const token = localStorage.getItem("Token");
 
@@ -51,19 +53,40 @@ const ManageProfile = () => {
           },
         }
       );
-      console.log(response);
+      // console.log(response);
       const updateImgUrl = response.data.data.user.profileImage;
       setUpdateImg(updateImgUrl);
+
       localStorage.setItem("updateImg", updateImgUrl);
-      alert("update image successfully !!");
+      toast.success("Image updated successfully.", {
+        position: "top-right",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     } catch (error) {
       console.error("Error in image uploading :", error);
-      alert("not update !!")
+      toast.error("Failed to update image.", {
+        position: "top-right",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     }
   };
 
   return (
+  
     <div className='profile-container'>
+       <ToastContainer />
       <div className='profile-contents'>
         <div className='profile-content'>
           <h1>Edit Profile</h1>
@@ -103,7 +126,7 @@ const ManageProfile = () => {
               <h3>Maturity settings:</h3>
               <span className='pro-span'>All Maturity Ratings</span>
               <p>Show titles of all maturity ratings for this profile.</p>
-              <span className='pro-span'>Edit</span>
+              {/* <span className='pro-span'>Edit</span> */}
               <hr />
               <h3>Autoplay controls</h3>
               <div className='proinput'>

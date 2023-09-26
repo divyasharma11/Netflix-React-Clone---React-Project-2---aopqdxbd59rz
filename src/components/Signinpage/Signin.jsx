@@ -3,28 +3,21 @@ import "./Signin.css";
 import logo from "../images/logo.png";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Signin = () => {
-  const [success,setSuccess]=useState(false);
-  const [error,setError]=useState(false);
   const navigate = useNavigate(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
-  
+  const [isLoggedIn, setIsLoggedIn] = useState({
+    success: false,
+  });
+
   const emailErrorRef = useRef(null);
   const passwordErrorRef = useRef(null);
-
-  useEffect(() => {
-    if ( success) {
-      setTimeout(() => {
-        navigate("/home");
-      }, 3000);
-    }
-  }, [success]);
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -36,6 +29,7 @@ const Signin = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+
     const emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
     if (!formData.email.match(emailPattern)) {
       emailErrorRef.current.style.display = "block";
@@ -78,8 +72,17 @@ const Signin = () => {
 
       localStorage.setItem("updatedProfile", img);
 
-      setIsLoggedIn(true);
-     setSuccess(true)
+      setIsLoggedIn({success:true,});
+      toast.success("Signin Successfull.", {
+        position: "top-right",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     } catch (error) {
       console.error("Login Error:", error);
       if (
@@ -87,32 +90,43 @@ const Signin = () => {
         error.response.data &&
         error.response.data.message === "User not found"
       ) {
-        setIsLoggedIn(false);
-       setError(true)
+        toast.error("User with this email is not registered.", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       } else {
-        setIsLoggedIn(false);
-        setError(true)
+        setIsLoggedIn({
+          success: false,
+        });
+        toast.error("Email or password is incorrect", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       }
-   setIsLoggedIn(true);
     }
   };
-const  onClosePopup1=()=>{
-  setSuccess(false);
-}
-const  onClosePopup2=()=>{
-   setError(false)
-   window.location.reload();
-}
-  
+
+  useEffect(() => {
+    if ( isLoggedIn.success) {
+      setTimeout(() => {
+        navigate("/home");
+      }, 2500);
+    }
+  }, [isLoggedIn]);
   return (
     <>
-     {success && <div className="success-container">Successfully loggedin
-     <CloseOutlinedIcon className="cross"  onClick={onClosePopup1}/>
-     </div>}
-     {error && <div className="error-container">
-      Email or password is incorrect
-      <CloseOutlinedIcon className="cross" onClick={onClosePopup2}/>
-      </div>}
       <nav className="login-nav">
         <div className="logo-container" onClick={()=>navigate("/")}>
           <img src={logo} alt="Netflix Logo" className="logo" />
@@ -120,6 +134,7 @@ const  onClosePopup2=()=>{
       </nav>
       <div className="hero-section">
           <div className="sign-container">
+          <ToastContainer />
             <h2>Sign In</h2>
             <div>
               <input

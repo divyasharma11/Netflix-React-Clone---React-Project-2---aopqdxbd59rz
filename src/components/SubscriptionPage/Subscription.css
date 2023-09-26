@@ -140,6 +140,18 @@ h4 {
     display: flex;
 }
 
+.cart.selected .premium {
+    background: rgb(68, 54, 140);
+    background: linear-gradient(90deg,
+            rgba(68, 54, 140, 1) 0%,
+            rgba(122, 36, 104, 1) 35%,
+            rgba(201, 15, 46, 1) 100%);
+    color: white;
+}
+.cart.selected .check-box {
+    background-color: red;
+}
+
 .payment-img {
    margin-top: 30px;
 }

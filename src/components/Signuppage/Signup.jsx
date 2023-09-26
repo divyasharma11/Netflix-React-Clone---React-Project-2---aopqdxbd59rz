@@ -17,7 +17,10 @@ const Signup = () => {
     password: "",
   });
   const { name, email, password } = formDetails;
-  const [registered, setRegistered] = useState(false);
+
+  const [registered, setRegistered] = useState({
+    success: false,
+  });
   
   const nameErrorRef = useRef(null);
   const emailErrorRef = useRef(null);
@@ -41,7 +44,7 @@ const Signup = () => {
     if (!email.match(emailPattern)) {
       emailErrorRef.current.style.display = "block";
     }
-    if (password.length < 4 || password.length > 60) {
+    if (password.length < 3 || password.length > 60) {
       passwordErrorRef.current.style.display = "block";
     }
     try {
@@ -59,8 +62,10 @@ const Signup = () => {
           },
         }
       );
-      // console.log("Signup successful:", response);
-      setRegistered(true);
+    
+      setRegistered({
+        success : true,
+      });
       toast.success("Account successfully Registered!", {
         position: "top-right",
         autoClose: 2000,
@@ -72,13 +77,14 @@ const Signup = () => {
         theme: "light",
       });
     } catch (error) {
-      // console.log("Signup Error:", error);
       if (
         error.response &&
         error.response.data &&
         error.response.data.message === "User already exists"
       ) {
-        setRegistered(false);
+        setRegistered({
+          success : false,
+        });
         toast.error("User with this email is already registered.", {
           position: "top-right",
           autoClose: 2000,
@@ -90,7 +96,9 @@ const Signup = () => {
           theme: "light",
         });
       } else {
-        setRegistered(false);
+        setRegistered({
+          success : false,
+        });
         toast.error("Error in signing up. Please try again.", {
           position: "top-right",
           autoClose: 2000,
@@ -103,19 +111,20 @@ const Signup = () => {
         });
       }
     }
-    setRegistered(true);
   };
+
   useEffect(() => {
-    if (registered) {
+    if (registered.success) {
       setTimeout(() => {
         navigate("/signin");
-      }, 3500);
+      }, 3000);
     }
   }, [registered]);
 
  
   return (
     <>
+    <ToastContainer />
       <Navbar />
       <div className="signup-container">
         <div className="content1">
@@ -166,7 +175,6 @@ const Signup = () => {
             <button className="signup-btn" onClick={signUpHandler}>
               Sign up
             </button>
-            <ToastContainer />
             <div id="text">
               Already have an account? <Link to={"/signin "}>Sign in</Link>
             </div>
