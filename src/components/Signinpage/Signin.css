@@ -99,7 +99,33 @@ position: absolute;
  .learn-more{
   color: blue;
  }
- 
+ .success-container{
+  position: absolute;
+  top: 4rem;
+  right: 4rem;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  width: 260px;
+  height: 50px;
+  font-size: 1.2rem;
+  border-bottom: 5px solid green;
+ }
+ .error-container{
+  position: absolute;
+  top: 4rem;
+  right: 4rem;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  width: 300px;
+  height: 50px;
+  border-bottom: 4px solid red;
+ }
+ .cross{
+  position: absolute;
+ right: 4px;
+ }
  @media only screen and (max-width: 568px) {
     .logo-container .logo{
         width: 150px !important;

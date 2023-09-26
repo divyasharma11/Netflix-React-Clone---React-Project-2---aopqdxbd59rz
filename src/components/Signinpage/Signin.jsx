@@ -3,11 +3,11 @@ import "./Signin.css";
 import logo from "../images/logo.png";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import Footer from "../footer/Footer";
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 
 const Signin = () => {
+  const [success,setSuccess]=useState(false);
+  const [error,setError]=useState(false);
   const navigate = useNavigate(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [formData, setFormData] = useState({
@@ -19,12 +19,12 @@ const Signin = () => {
   const passwordErrorRef = useRef(null);
 
   useEffect(() => {
-    if (isLoggedIn) {
+    if ( success) {
       setTimeout(() => {
         navigate("/home");
       }, 3000);
     }
-  }, [isLoggedIn]);
+  }, [success]);
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -79,18 +79,7 @@ const Signin = () => {
       localStorage.setItem("updatedProfile", img);
 
       setIsLoggedIn(true);
-      toast.success("Successfull."
-      , {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      }
-      );
+     setSuccess(true)
     } catch (error) {
       console.error("Login Error:", error);
       if (
@@ -99,36 +88,31 @@ const Signin = () => {
         error.response.data.message === "User not found"
       ) {
         setIsLoggedIn(false);
-        toast.error("User with this email is not registered.", {
-          position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+       setError(true)
       } else {
         setIsLoggedIn(false);
-        toast.error("Email or password is incorrect", {
-          position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+        setError(true)
       }
-    }
    setIsLoggedIn(true);
+    }
   };
-
+const  onClosePopup1=()=>{
+  setSuccess(false);
+}
+const  onClosePopup2=()=>{
+   setError(false)
+   window.location.reload();
+}
+  
   return (
     <>
-     <ToastContainer />
+     {success && <div className="success-container">Successfully loggedin
+     <CloseOutlinedIcon className="cross"  onClick={onClosePopup1}/>
+     </div>}
+     {error && <div className="error-container">
+      Email or password is incorrect
+      <CloseOutlinedIcon className="cross" onClick={onClosePopup2}/>
+      </div>}
       <nav className="login-nav">
         <div className="logo-container" onClick={()=>navigate("/")}>
           <img src={logo} alt="Netflix Logo" className="logo" />
@@ -164,7 +148,7 @@ const Signin = () => {
             </div>
               <div className="login">
                 <button onClick={handleLogin}>Login</button>
-              </div>
+               </div>
               <div className="remember">
                 <span>
                 <input type="checkbox" />
