@@ -81,7 +81,8 @@
   @media screen and (max-width: 568px) {
     .signup-container {
       padding: 1rem; 
-      margin-top: 5rem;
+      margin-top: 6rem;
+      margin-bottom: 5rem;
     }
     .content1{
       text-align: center;
