@@ -79,18 +79,18 @@ const Signin = () => {
       localStorage.setItem("updatedProfile", img);
 
       setIsLoggedIn(true);
-      toast.success("Successfull.")
-      // , {
-      //   position: "top-right",
-      //   autoClose: 1500,
-      //   hideProgressBar: false,
-      //   closeOnClick: true,
-      //   pauseOnHover: true,
-      //   draggable: true,
-      //   progress: undefined,
-      //   theme: "light",
-      // }
-      //);
+      toast.success("Successfull."
+      , {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      }
+      );
     } catch (error) {
       console.error("Login Error:", error);
       if (
