@@ -5,6 +5,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Footer from "../footer/Footer";
 
 const Signin = () => {
   const navigate = useNavigate(null);
@@ -78,16 +79,18 @@ const Signin = () => {
       localStorage.setItem("updatedProfile", img);
 
       setIsLoggedIn(true);
-      toast.success("Signin Successfull.", {
-        position: "top-left",
-        autoClose: 1500,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+      toast.success("Successfull.")
+      // , {
+      //   position: "top-right",
+      //   autoClose: 1500,
+      //   hideProgressBar: false,
+      //   closeOnClick: true,
+      //   pauseOnHover: true,
+      //   draggable: true,
+      //   progress: undefined,
+      //   theme: "light",
+      // }
+      //);
     } catch (error) {
       console.error("Login Error:", error);
       if (
@@ -125,6 +128,7 @@ const Signin = () => {
 
   return (
     <>
+     <ToastContainer />
       <nav className="login-nav">
         <div className="logo-container" onClick={()=>navigate("/")}>
           <img src={logo} alt="Netflix Logo" className="logo" />
@@ -161,7 +165,6 @@ const Signin = () => {
               <div className="login">
                 <button onClick={handleLogin}>Login</button>
               </div>
-              <ToastContainer />
               <div className="remember">
                 <span>
                 <input type="checkbox" />

@@ -4,7 +4,8 @@
     color: #333;
     min-height: 200px;
     border-top: 1px solid rgb(221, 215, 215);
-    margin-top: 5rem;
+    /* margin-top: 5rem; */
+    background-color: rgba(0,0,0,0.6) !important;
   }
   
   .footer-content1 p {
@@ -33,6 +34,7 @@
   .footer-link .footr:hover {
     color: black;
   }
+  
   
   /* Media Query for Responsive Design */
   @media screen and (max-width: 768px) {

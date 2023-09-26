@@ -9,7 +9,8 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import VedioModel from "../page/VedioModel";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-const MovieCard = ({thumbnail,keywords,showId,inMyList = false,onMyListChange,}) => {
+import { Tooltip } from "@mui/material";
+const MovieCard = ({videoUrl,thumbnail,keywords,showId,inMyList = false,onMyListChange,}) => {
   const [myListItem, setIsInMyListItem] = useState(inMyList);
   const [list, setList] = useState([]);
   const [openModal, setOpenModal] = useState(false);
@@ -38,35 +39,37 @@ const MovieCard = ({thumbnail,keywords,showId,inMyList = false,onMyListChange,})
         }
       );
 
-      setList((prevState) => !prevState);
+      setIsInMyListItem((prevState) => !prevState);
       onMyListChange();
     } catch (error) {
       console.error("Error in Add/Remove API:", error);
     }
   };
  
+const handlePlayMovie=()=>{
+  navigate("/playmovie", {
+    state: { videoUrl },
+  });
+   }
   return (
     <>
       <div className="cord">
-        <div className="carts" onClick={() => handleOpenModal(showId)}>
+        <div className="carts"  onClick={handlePlayMovie} >
           <img src={thumbnail} alt="img" />
         </div>
         <div className="hide-container">
-          {/* <div className="first">
-            <p>{title}</p>
-            <span>
-              <VolumeUpIcon />
-            </span>
-          </div> */}
           <div className="color">
             <div className="second">
               <div className="second-content">
-                <span
-                  className="spcl span"
-                  onClick={() => handleOpenModal(showId)}
-                >
+              <Tooltip title="Play" placement="top">
+                <span className="spcl span"  onClick={handlePlayMovie}  >
                   <PlayArrowIcon className="sm-icon" />
                 </span>
+                </Tooltip>
+                <Tooltip
+              title={myListItem ? "Remove from MyList" : "Add to MyList"}
+              placement="top"
+            >
                 <span className="span" onClick={addToWatchlist}>
                   {myListItem ? (
                     <RemoveIcon className="sm-icon" />
@@ -74,6 +77,8 @@ const MovieCard = ({thumbnail,keywords,showId,inMyList = false,onMyListChange,})
                       <AddIcon className="sm-icon" />
                   )}
                 </span>
+                </Tooltip>
+                <Tooltip title={like ? "Dislike" : "Like"} placement="top">
                 <span 
                 className={`span ${like && "like-span"}`}
                 onClick={() => setLike(!like)}
@@ -82,14 +87,17 @@ const MovieCard = ({thumbnail,keywords,showId,inMyList = false,onMyListChange,})
                    className={`sm-icon ${like && "like-btn"}`}
                     />
                 </span>
+                </Tooltip>
               </div>
               <div>
+              <Tooltip title="More Info" placement="top">
                 <span
                   className="span"
                   onClick={() => handleOpenModal(showId)}
                 >
                   <KeyboardArrowDownIcon className="sm-icon" />
                 </span>
+                </Tooltip>
                 {openModal && (
                   <VedioModel 
                   isOpen={openModal} 

@@ -1,9 +1,10 @@
 import React from 'react'
 import "./Footer.css"
 import { Link } from 'react-router-dom';
-const Footer = () => {
-
+const Footer = (props) => {
+const {styledFooter}=props;
   return (
+    <footer className={styledFooter}>
     <div className="footer-content1" >
         <p>Questions? Call 000-800-919-1694</p>
         <div className="footerr">
@@ -23,6 +24,7 @@ const Footer = () => {
         </div>
         </div>
       </div>
+      </footer>
   )
 }
 

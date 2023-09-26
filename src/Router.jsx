@@ -16,6 +16,7 @@ import ComingSoon from './components/comingsoonpage/ComingSoon'
 import RouterProtector from "./components/RouterProtector"
 import MainPage from './components/Mainpage/MainPage'
 import Signin from './components/Signinpage/Signin'
+import PlayMovie from './components/playmovie/PlayMovie'
 
  const Router = createBrowserRouter([
    {
@@ -78,6 +79,10 @@ import Signin from './components/Signinpage/Signin'
    {
      path: "/tv-shows",
      element: <RouterProtector element={<TvShows />} />,
+   },
+   {
+     path: "/playmovie",
+     element: <RouterProtector element={<PlayMovie />} />,
    },
  ]);
  export default Router;

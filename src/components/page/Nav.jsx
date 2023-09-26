@@ -4,23 +4,25 @@ import logo from "../images/logo.png";
 import CloseIcon from "@mui/icons-material/Close";
 import { Link, useNavigate } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
-import { Dropdown } from "@mui/base/Dropdown";
-import { Menu } from "@mui/base/Menu";
-import { MenuButton } from "@mui/base/MenuButton";
-import { MenuItem, menuItemClasses } from "@mui/base/MenuItem";
-import { styled } from "@mui/system";
-import avatar from "../images/avatar.jpg";
-import ModeOutlinedIcon from "@mui/icons-material/ModeOutlined";
-import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
-import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
-import SubscriptionsOutlinedIcon from "@mui/icons-material/SubscriptionsOutlined";
-import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
-import SignOut from "../SignOut";
+// import { Dropdown } from "@mui/base/Dropdown";
+// import { Menu } from "@mui/base/Menu";
+// import { MenuButton } from "@mui/base/MenuButton";
+// import { MenuItem, menuItemClasses } from "@mui/base/MenuItem";
+// import { styled } from "@mui/system";
+// import avatar from "../images/avatar.jpg";
+// import ModeOutlinedIcon from "@mui/icons-material/ModeOutlined";
+// import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
+// import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
+// import SubscriptionsOutlinedIcon from "@mui/icons-material/SubscriptionsOutlined";
+// import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
+// import SignOut from "../SignOut";
 import MovieCard from "../MovieApi/MovieCard";
 import axios from "axios";
 import { useContext } from "react";
 import DataContext from "../DataContextProvider";
 import MenuIcon from "@mui/icons-material/Menu";
+import DropdownMenu from "../DropdownMenu";
+
 
 const Nav = () => {
   const navigate = useNavigate();
@@ -37,7 +39,9 @@ const Nav = () => {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 100) {
         handleShow(true);
-      } else handleShow(false);
+      } else {
+        handleShow(false);
+      }
     });
 
     return () => {
@@ -148,7 +152,8 @@ const Nav = () => {
             onClick={visibleInputHandler}
             ref={searchRef}
           />
-          <div>
+          <DropdownMenu />
+          {/* <div>
             <Dropdown>
               <TriggerButton className="nav-Dropdown">
                 <img src={avatar} alt="Avatar" className="avatar" />
@@ -157,7 +162,7 @@ const Nav = () => {
                 <StyledMenuItem className="accountItems">
                   <div className="icon-text">
                     <img src={avatar} alt="Avatar" className="AvatarImg" />
-                    <p className="icontxt">Username</p>
+                    <p className="icontxt">{userInfo?.userName}</p>
                   </div>
                 </StyledMenuItem>
                 <StyledMenuItem className="drop-items">
@@ -171,7 +176,7 @@ const Nav = () => {
                     </p>
                   </div>
                 </StyledMenuItem>
-                {/* <StyledMenuItem className="accountItems">
+                <StyledMenuItem className="accountItems">
                   <div className="icon-text">
                     <AdminPanelSettingsOutlinedIcon className="drop-icons" />
                     <p
@@ -181,7 +186,7 @@ const Nav = () => {
                       Transfer Profile
                     </p>
                   </div>
-                </StyledMenuItem> */}
+                </StyledMenuItem>
                 <StyledMenuItem className="accountItems">
                   <div className="icon-text">
                     <PermIdentityOutlinedIcon className="drop-icons" />
@@ -190,7 +195,7 @@ const Nav = () => {
                     </p>
                   </div>
                 </StyledMenuItem>
-                {/* <StyledMenuItem className="accountItems">
+                <StyledMenuItem className="accountItems">
                   <div className="icon-text">
                     <HelpOutlineOutlinedIcon className="drop-icons" />
                     <p
@@ -200,7 +205,7 @@ const Nav = () => {
                       Help Center
                     </p>
                   </div>
-                </StyledMenuItem> */}
+                </StyledMenuItem>
                 <StyledMenuItem className="accountItems">
                   <div className="icon-text">
                     <SubscriptionsOutlinedIcon className="drop-icons" />
@@ -221,7 +226,7 @@ const Nav = () => {
                 </StyledMenuItem>
               </Menu>
             </Dropdown>
-          </div>
+          </div> */}
         </div>
       </nav>
       <div className="search-container" ref={searchContentRef}>
@@ -242,91 +247,91 @@ const Nav = () => {
     </>
   );
 };
-const blue = {
-  100: "#DAECFF",
-  200: "#99CCF3",
-  400: "#3399FF",
-  500: "#007FFF",
-  600: "#0072E5",
-  900: "#003A75",
-};
+// const blue = {
+//   100: "#DAECFF",
+//   200: "#99CCF3",
+//   400: "#3399FF",
+//   500: "#007FFF",
+//   600: "#0072E5",
+//   900: "#003A75",
+// };
 
-const grey = {
-  50: "#f6f8fa",
-  100: "#eaeef2",
-  200: "#d0d7de",
-  300: "#afb8c1",
-  400: "#8c959f",
-  500: "#6e7781",
-  600: "#57606a",
-  700: "#424a53",
-  800: "#32383f",
-  900: "#24292f",
-};
+// const grey = {
+//   50: "#f6f8fa",
+//   100: "#eaeef2",
+//   200: "#d0d7de",
+//   300: "#afb8c1",
+//   400: "#8c959f",
+//   500: "#6e7781",
+//   600: "#57606a",
+//   700: "#424a53",
+//   800: "#32383f",
+//   900: "#24292f",
+// };
 
-const StyledListbox = styled("ul")(
-  ({ theme }) => `
-  font-family: IBM Plex Sans, sans-serif;
-  font-size: 0.875rem;
-  box-sizing: border-box;
-  min-width: 200px;
-  overflow: auto;
-  outline: 0px;
-  z-index: 1;
-  `
-);
+// const StyledListbox = styled("ul")(
+//   ({ theme }) => `
+//   font-family: IBM Plex Sans, sans-serif;
+//   font-size: 0.875rem;
+//   box-sizing: border-box;
+//   min-width: 200px;
+//   overflow: auto;
+//   outline: 0px;
+//   z-index: 1;
+//   `
+// );
 
-const StyledMenuItem = styled(MenuItem)(
-  ({ theme }) => `
-  list-style: none;
-  padding: 8px;
-  border-radius: 8px;
-  cursor: default;
-  user-select: none;
+// const StyledMenuItem = styled(MenuItem)(
+//   ({ theme }) => `
+//   list-style: none;
+//   padding: 8px;
+//   border-radius: 8px;
+//   cursor: default;
+//   user-select: none;
 
-  &:last-of-type {
-    border-bottom: none;
-  }
+//   &:last-of-type {
+//     border-bottom: none;
+//   }
 
-  &.${menuItemClasses.focusVisible} {
-    outline: 3px solid ${theme.palette.mode === "dark" ? blue[600] : blue[200]};
-    background-color: ${theme.palette.mode === "dark" ? grey[800] : grey[100]};
-    color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};
-  }
+//   &.${menuItemClasses.focusVisible} {
+//     outline: 3px solid ${theme.palette.mode === "dark" ? blue[600] : blue[200]};
+//     background-color: ${theme.palette.mode === "dark" ? grey[800] : grey[100]};
+//     color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};
+//   }
 
-  &.${menuItemClasses.disabled} {
-    color: ${theme.palette.mode === "dark" ? grey[700] : grey[400]};
-  }
-  `
-);
+//   &.${menuItemClasses.disabled} {
+//     color: ${theme.palette.mode === "dark" ? grey[700] : grey[400]};
+//   }
+//   `
+// );
 
-const TriggerButton = styled(MenuButton)(
-  ({ theme }) => `
-  font-family: IBM Plex Sans, sans-serif;
-  font-size: 0.875rem;
-  font-weight: 600;
-  box-sizing: border-box;
-  min-height: calc(1.5em + 22px);
-  border-radius: 12px;
-  padding: 8px 14px;
-  line-height: 1.5;
-  background: ${theme.palette.mode === "dark" ? grey[900] : "#fff"};
-  border: 1px solid ${theme.palette.mode === "dark" ? grey[700] : grey[200]};
-  color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};
+// const TriggerButton = styled(MenuButton)(
+//   ({ theme }) => `
+//   font-family: IBM Plex Sans, sans-serif;
+//   font-size: 0.875rem;
+//   font-weight: 600;
+//   box-sizing: border-box;
+//   min-height: calc(1.5em + 22px);
+//   border-radius: 12px;
+//   padding: 8px 14px;
+//   line-height: 1.5;
+//   background: ${theme.palette.mode === "dark" ? grey[900] : "#fff"};
+//   border: 1px solid ${theme.palette.mode === "dark" ? grey[700] : grey[200]};
+//   color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};
 
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 120ms;
+//   transition-property: all;
+//   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+//   transition-duration: 120ms;
 
-  &:hover {
-    background: ${theme.palette.mode === "dark" ? grey[800] : grey[50]};
-    border-color: ${theme.palette.mode === "dark" ? grey[600] : grey[300]};
-  }
+//   &:hover {
+//     background: ${theme.palette.mode === "dark" ? grey[800] : grey[50]};
+//     border-color: ${theme.palette.mode === "dark" ? grey[600] : grey[300]};
+//   }
 
-  &:focus-visible {
-    border-color: ${blue[400]};
-    outline: 3px solid ${theme.palette.mode === "dark" ? blue[500] : blue[200]};
-  }
-  `
-);
+//   &:focus-visible {
+//     border-color: ${blue[400]};
+//     outline: 3px solid ${theme.palette.mode === "dark" ? blue[500] : blue[200]};
+//   }
+//   `
+// );
 export default Nav;
