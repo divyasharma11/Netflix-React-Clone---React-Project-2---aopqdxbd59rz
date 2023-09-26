@@ -4,8 +4,7 @@
     color: #333;
     min-height: 200px;
     border-top: 1px solid rgb(221, 215, 215);
-    /* margin-top: 5rem; */
-    background-color: rgba(0,0,0,0.6) !important;
+    margin-top: 5rem;
   }
   
   .footer-content1 p {

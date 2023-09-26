@@ -133,7 +133,7 @@ const Nav = () => {
 
         <div className="nav-right">
           {inputVisible && (
-            <div search-container>
+            <div class="search_Container">
               <input
                 type="text"
                 value={inputSearch}
@@ -153,80 +153,6 @@ const Nav = () => {
             ref={searchRef}
           />
           <DropdownMenu />
-          {/* <div>
-            <Dropdown>
-              <TriggerButton className="nav-Dropdown">
-                <img src={avatar} alt="Avatar" className="avatar" />
-              </TriggerButton>
-              <Menu slots={{ listbox: StyledListbox }} className="menu-list">
-                <StyledMenuItem className="accountItems">
-                  <div className="icon-text">
-                    <img src={avatar} alt="Avatar" className="AvatarImg" />
-                    <p className="icontxt">{userInfo?.userName}</p>
-                  </div>
-                </StyledMenuItem>
-                <StyledMenuItem className="drop-items">
-                  <div className="icon-text">
-                    <ModeOutlinedIcon className="drop-icons" />
-                    <p
-                      className="icontxt"
-                      onClick={() => navigate("/manage-profile")}
-                    >
-                      Manage Profiles
-                    </p>
-                  </div>
-                </StyledMenuItem>
-                <StyledMenuItem className="accountItems">
-                  <div className="icon-text">
-                    <AdminPanelSettingsOutlinedIcon className="drop-icons" />
-                    <p
-                      className="icontxt"
-                      onClick={() => navigate("/coming-soon")}
-                    >
-                      Transfer Profile
-                    </p>
-                  </div>
-                </StyledMenuItem>
-                <StyledMenuItem className="accountItems">
-                  <div className="icon-text">
-                    <PermIdentityOutlinedIcon className="drop-icons" />
-                    <p className="icontxt" onClick={() => navigate("/password")}>
-                     Update Password
-                    </p>
-                  </div>
-                </StyledMenuItem>
-                <StyledMenuItem className="accountItems">
-                  <div className="icon-text">
-                    <HelpOutlineOutlinedIcon className="drop-icons" />
-                    <p
-                      className="icontxt"
-                      onClick={() => navigate("/coming-soon")}
-                    >
-                      Help Center
-                    </p>
-                  </div>
-                </StyledMenuItem>
-                <StyledMenuItem className="accountItems">
-                  <div className="icon-text">
-                    <SubscriptionsOutlinedIcon className="drop-icons" />
-                    <p
-                      className="icontxt"
-                      onClick={() => navigate("/subscription")}
-                    >
-                      My Subscription
-                    </p>
-                  </div>
-                </StyledMenuItem>
-                <StyledMenuItem className="accountItems">
-                  <div className="last-Icon">
-                    <p className="icontxt" onClick={() => SignOut(navigate)}>
-                      Sign out of Netflix
-                    </p>
-                  </div>
-                </StyledMenuItem>
-              </Menu>
-            </Dropdown>
-          </div> */}
         </div>
       </nav>
       <div className="search-container" ref={searchContentRef}>

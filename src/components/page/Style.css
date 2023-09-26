@@ -20,6 +20,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .logo-containers .logoimg {
   width: 120px;
   height: 70px;
@@ -39,7 +40,7 @@
 .nav-right{
   margin-right: 5rem;
 }
-.search-container {
+.search_Container {
   display: flex;
 }
 
@@ -183,6 +184,10 @@
     width: 100%;
     justify-content: start;
   }
+  .nav-left {
+  display: flex;
+  justify-content: space-between;
+  }
   .nav-right{
     margin-right: 0;
   }
@@ -191,21 +196,23 @@
   }
 
   .logo-containers .logoimg {
-    width: 80px;
+    width: 100px;
     height: auto;
     margin-left: 0.1rem;
     margin-top: 1.3rem;
   }
 
   .srch {
-    top: 1.4rem;
-    left: 25rem;
+    top: 1.5rem;
+    left: 30rem;
     font-size: 1.3rem;
   }
   .srch-input-field {
-    top: 4rem;
-    left: 3rem;
-    width: 100px;
+    top: 1.3rem;
+    left: 20rem;
+    height: 40px;
+    min-width: 200px;
+    border: 1px solid #fff;
   }
   
   .avatar {
@@ -226,11 +233,12 @@
 @media only screen and (max-width: 568px) {
   .navbar {
     width: 100%;
-    justify-content: start;
+    justify-content: flex-start;
   }
-  .nav-right{
-    margin-right: 0;
-  }
+  .nav-left {
+    justify-content: space-between;
+    }
+  
   .nav-link {
     display: none;
   }
@@ -241,18 +249,20 @@
     margin-top: 1.3rem;
   }
   .srch {
-    top: 1.8rem;
-    left: 15rem;
+    left: 17rem;
     font-size: 1.2rem;
   }
   .srch-input-field {
-    top: 4rem;
-    left: 1rem;
-    width: 100px;
+    top: 1.3rem;
+    left: 6rem;
+    height: 30px;
+    min-width: 200px;
+    border: 1px solid #fff;
   }
   .avatar {
     width: 25px;
     height: 25px;
+    
   }
   .dropdown {
     display: block;
@@ -272,13 +282,15 @@
 /* seacrch  */
 .search-container {
   background-color: #111;
-  /* padding-top: 5rem; */
   padding-left: 3rem;
 }
 .movies-container {
   display: flex;
+  position: relative;
+ top: 100px;
   flex-wrap: wrap;
 }
+
 /* seacrch end */
 
 /* movie section */

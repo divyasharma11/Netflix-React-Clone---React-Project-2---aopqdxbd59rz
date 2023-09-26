@@ -255,6 +255,7 @@ body {
   .key{
      margin-top: 5px;
      color: #fff;
+    
   }
   
   
@@ -358,12 +359,12 @@ body {
     }
     
     .foot-btn {
-      width: 80px;
+      width: 90px;
       height: fit-content;
       margin-left: 1rem;
       font-size: 12px;
       padding: 0px 2px;
-      margin-top: .1rem;
+      margin-top: .2rem;
     }
     .foot-btn .language{
       margin: 5px 5px;
