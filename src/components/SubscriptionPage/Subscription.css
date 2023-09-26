@@ -171,6 +171,9 @@ h4 {
 
 /* Media Query for Mobile Devices */
 @media (max-width: 480px) {
+    .sub-container {
+        margin-top: 2rem;
+    }
       .sub-container h5{
         margin-top: 100px;
       }

@@ -203,15 +203,15 @@
   }
 
   .srch {
-    top: 1.5rem;
+    top: 1.7rem;
     left: 30rem;
     font-size: 1.3rem;
   }
   .srch-input-field {
     top: 1.3rem;
     left: 20rem;
-    height: 40px;
-    min-width: 200px;
+    height: 50px;
+    min-width: 300px;
     border: 1px solid #fff;
   }
   
@@ -249,14 +249,15 @@
     margin-top: 1.3rem;
   }
   .srch {
+    top: 1.7rem;
     left: 17rem;
     font-size: 1.2rem;
   }
   .srch-input-field {
     top: 1.3rem;
     left: 6rem;
-    height: 30px;
-    min-width: 200px;
+    height: 50px;
+    min-width: 300px;
     border: 1px solid #fff;
   }
   .avatar {
