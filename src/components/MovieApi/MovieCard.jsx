@@ -12,7 +12,6 @@ import axios from "axios";
 import { Tooltip } from "@mui/material";
 const MovieCard = ({videoUrl,thumbnail,keywords,showId,inMyList = false,onMyListChange,}) => {
   const [myListItem, setIsInMyListItem] = useState(inMyList);
-  const [list, setList] = useState([]);
   const [openModal, setOpenModal] = useState(false);
   const [like,setLike]=useState(false);
   const navigate = useNavigate();
@@ -21,7 +20,7 @@ const MovieCard = ({videoUrl,thumbnail,keywords,showId,inMyList = false,onMyList
     setOpenModal(true);
   };
 
-  function closeModal() {
+  function closeModal(id) {
     setOpenModal(false);
   }
   const token = localStorage.getItem("Token");
@@ -101,7 +100,7 @@ const handlePlayMovie=()=>{
                 {openModal && (
                   <VedioModel 
                   isOpen={openModal} 
-                  onClose={closeModal}
+                   onClose={closeModal}
                     keywords={keywords}
                     showId={showId}
                     myListItem={myListItem}
