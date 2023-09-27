@@ -20,7 +20,7 @@ overflow-y: hidden;
   width: 202px;
   margin: 20px ;
     border-radius: 8px;
-    border: 1px solid gray;
+  border: 1px solid gray;
 }
 
 .carts img{
@@ -130,7 +130,7 @@ font-size: 15px;
    
   .carts img{
     width: 148px;
-    height: 138px;
+    height: 158px;
   }
 
   .hide-container {
