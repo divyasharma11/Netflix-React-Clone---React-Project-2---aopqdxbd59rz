@@ -10,10 +10,17 @@ import VedioModel from "../page/VedioModel";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Tooltip } from "@mui/material";
-const MovieCard = ({videoUrl,thumbnail,keywords,showId,inMyList = false,onMyListChange,}) => {
+const MovieCard = ({
+  videoUrl,
+  thumbnail,
+  keywords,
+  showId,
+  inMyList = false,
+  onMyListChange,
+}) => {
   const [myListItem, setIsInMyListItem] = useState(inMyList);
   const [openModal, setOpenModal] = useState(false);
-  const [like,setLike]=useState(false);
+  const [like, setLike] = useState(false);
   const navigate = useNavigate();
 
   const handleOpenModal = (id) => {
@@ -44,63 +51,63 @@ const MovieCard = ({videoUrl,thumbnail,keywords,showId,inMyList = false,onMyList
       console.error("Error in Add/Remove API:", error);
     }
   };
- 
-const handlePlayMovie=()=>{
-  navigate("/playmovie", {
-    state: { videoUrl },
-  });
-   }
+
+  const handlePlayMovie = () => {
+    navigate("/playmovie", {
+      state: { videoUrl },
+    });
+  };
   return (
     <>
       <div className="cord">
-        <div className="carts"  onClick={handlePlayMovie} >
+        <div className="carts" onClick={handlePlayMovie}>
           <img src={thumbnail} alt="img" />
         </div>
         <div className="hide-container">
           <div className="color">
             <div className="second">
               <div className="second-content">
-              <Tooltip title="Play" placement="top">
-                <span className="spcl span"  onClick={handlePlayMovie}  >
-                  <PlayArrowIcon className="sm-icon" />
-                </span>
+                <Tooltip title="Play" placement="top">
+                  <span className="spcl span" onClick={handlePlayMovie}>
+                    <PlayArrowIcon className="sm-icon" />
+                  </span>
                 </Tooltip>
                 <Tooltip
-              title={myListItem ? "Remove from MyList" : "Add to MyList"}
-              placement="top"
-            >
-                <span className="span" onClick={addToWatchlist}>
-                  {myListItem ? (
-                    <RemoveIcon className="sm-icon" />
+                  title={myListItem ? "Remove from MyList" : "Add to MyList"}
+                  placement="top"
+                >
+                  <span className="span" onClick={addToWatchlist}>
+                    {myListItem ? (
+                      <RemoveIcon className="sm-icon" />
                     ) : (
                       <AddIcon className="sm-icon" />
-                  )}
-                </span>
+                    )}
+                  </span>
                 </Tooltip>
                 <Tooltip title={like ? "Dislike" : "Like"} placement="top">
-                <span 
-                className={`span ${like && "like-span"}`}
-                onClick={() => setLike(!like)}
-                >
-                  <ThumbUpOffAltIcon
-                   className={`sm-icon ${like && "like-btn"}`}
+                  <span
+                    className={`span ${like && "like-span"}`}
+                    onClick={() => setLike(!like)}
+                  >
+                    <ThumbUpOffAltIcon
+                      className={`sm-icon ${like && "like-btn"}`}
                     />
-                </span>
+                  </span>
                 </Tooltip>
               </div>
               <div>
-              <Tooltip title="More Info" placement="top">
-                <span
-                  className="span"
-                  onClick={() => handleOpenModal(showId)}
-                >
-                  <KeyboardArrowDownIcon className="sm-icon" />
-                </span>
+                <Tooltip title="More Info" placement="top">
+                  <span
+                    className="span"
+                    onClick={() => handleOpenModal(showId)}
+                  >
+                    <KeyboardArrowDownIcon className="sm-icon" />
+                  </span>
                 </Tooltip>
                 {openModal && (
-                  <VedioModel 
-                  isOpen={openModal} 
-                   onClose={closeModal}
+                  <VedioModel
+                    isOpen={openModal}
+                    onClose={closeModal}
                     keywords={keywords}
                     showId={showId}
                     myListItem={myListItem}

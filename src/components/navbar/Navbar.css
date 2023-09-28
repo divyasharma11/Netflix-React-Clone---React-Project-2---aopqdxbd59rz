@@ -1,19 +1,18 @@
-
 .nav {
-  height: 13vh; 
+  height: 13vh;
   border-bottom: 1px solid rgb(221, 215, 215);
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-family: "lato", sans-serif;
-  padding: 0 2rem; 
+  padding: 0 2rem;
 }
 .logo-container .logoimg {
   width: 100px;
   margin-top: 10px;
 }
 .sign-link {
-  font-size: 1.2rem; 
+  font-size: 1.2rem;
 }
 
 .sign-link .link {
@@ -24,14 +23,13 @@
 /* Media Query for Responsive Design */
 @media screen and (max-width: 768px) {
   .nav {
-    height: 10vh; 
+    height: 10vh;
     padding: 0 1rem;
-   
   }
-  
+
   .sign-link {
-    padding: 1rem 0; 
+    padding: 1rem 0;
     font-size: 1rem;
-    text-align: center; 
+    text-align: center;
   }
 }

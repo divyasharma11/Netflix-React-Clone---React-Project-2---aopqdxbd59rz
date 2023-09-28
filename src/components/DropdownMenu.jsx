@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import { Dropdown } from "@mui/base/Dropdown";
 import { Menu } from "@mui/base/Menu";
 import { MenuButton } from "@mui/base/MenuButton";
@@ -8,74 +8,71 @@ import avatar from "./images/avatar.jpg";
 import ModeOutlinedIcon from "@mui/icons-material/ModeOutlined";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import SubscriptionsOutlinedIcon from "@mui/icons-material/SubscriptionsOutlined";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const DropdownMenu = () => {
-    const navigate = useNavigate();
-    const [userDetail, setUserDetail] = useState(null);
-    const [updatedImage, setUpdatedImage] = useState("");
-  
-    useEffect(() => {
-      const storedUserDetails = localStorage.getItem("userDetails");
-      const storedUpdateProfile = localStorage.getItem("updatedProfile");
-      // console.log("image", storedUpdateProfile);
-  
-      if (storedUserDetails) {
-        setUserDetail(JSON.parse(storedUserDetails));
-      }
-      if (storedUpdateProfile) {
-        setUpdatedImage(storedUpdateProfile);
-      }
-      if (storedUpdateProfile === "undefined" || storedUpdateProfile === "null") {
-        setUpdatedImage(avatar);
-      }
-    }, [updatedImage]);
+  const navigate = useNavigate();
+  const [userDetail, setUserDetail] = useState(null);
+  const [updatedImage, setUpdatedImage] = useState("");
 
-    const SignOut = () => {
-        toast.info("Logout successfully!", {
-          position: "top-center",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
-        setTimeout(() => {
-        localStorage.removeItem("Token");
-        localStorage.removeItem("userDetails");
-        localStorage.removeItem("updatedProfile");
-        navigate("/signin");
-      }, 3000);
-    };
+  useEffect(() => {
+    const storedUserDetails = localStorage.getItem("userDetails");
+    const storedUpdateProfile = localStorage.getItem("updatedProfile");
+    // console.log("image", storedUpdateProfile);
+
+    if (storedUserDetails) {
+      setUserDetail(JSON.parse(storedUserDetails));
+    }
+    if (storedUpdateProfile) {
+      setUpdatedImage(storedUpdateProfile);
+    }
+    if (storedUpdateProfile === "undefined" || storedUpdateProfile === "null") {
+      setUpdatedImage(avatar);
+    }
+  }, [updatedImage]);
+
+  const SignOut = () => {
+    toast.info("Logout successfully!", {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+    setTimeout(() => {
+      localStorage.removeItem("Token");
+      localStorage.removeItem("userDetails");
+      localStorage.removeItem("updatedProfile");
+      navigate("/signin");
+    }, 3000);
+  };
   return (
     <Dropdown>
-       <ToastContainer />
-    <TriggerButton className="nav-Dropdown">
-      <img src={avatar} alt="Avatar" className="avatar" />
-    </TriggerButton>
-    <Menu slots={{ listbox: StyledListbox }} className="menu-list">
-      <StyledMenuItem className="accountItems">
-        <div className="icon-text">
-          <img src={updatedImage} alt="Avatar" className="AvatarImg" />
-          <p className="icontxt">{userDetail?.userName}</p>
-        </div>
-      </StyledMenuItem>
-      <StyledMenuItem className="drop-items">
-        <div className="icon-text">
-          <ModeOutlinedIcon className="drop-icons" />
-          <p
-            className="icontxt"
-            onClick={() => navigate("/manage-profile")}
-          >
-            Manage Profiles
-          </p>
-        </div>
-      </StyledMenuItem>
-      {/* <StyledMenuItem className="accountItems">
+      <ToastContainer />
+      <TriggerButton className="nav-Dropdown">
+        <img src={avatar} alt="Avatar" className="avatar" />
+      </TriggerButton>
+      <Menu slots={{ listbox: StyledListbox }} className="menu-list">
+        <StyledMenuItem className="accountItems">
+          <div className="icon-text">
+            <img src={updatedImage} alt="Avatar" className="AvatarImg" />
+            <p className="icontxt">{userDetail?.userName}</p>
+          </div>
+        </StyledMenuItem>
+        <StyledMenuItem className="drop-items">
+          <div className="icon-text">
+            <ModeOutlinedIcon className="drop-icons" />
+            <p className="icontxt" onClick={() => navigate("/manage-profile")}>
+              Manage Profiles
+            </p>
+          </div>
+        </StyledMenuItem>
+        {/* <StyledMenuItem className="accountItems">
         <div className="icon-text">
           <AdminPanelSettingsOutlinedIcon className="drop-icons" />
           <p
@@ -86,15 +83,15 @@ const DropdownMenu = () => {
           </p>
         </div>
       </StyledMenuItem> */}
-      <StyledMenuItem className="accountItems">
-        <div className="icon-text">
-          <PermIdentityOutlinedIcon className="drop-icons" />
-          <p className="icontxt" onClick={() => navigate("/password")}>
-           Update Password
-          </p>
-        </div>
-      </StyledMenuItem>
-      {/* <StyledMenuItem className="accountItems">
+        <StyledMenuItem className="accountItems">
+          <div className="icon-text">
+            <PermIdentityOutlinedIcon className="drop-icons" />
+            <p className="icontxt" onClick={() => navigate("/password")}>
+              Update Password
+            </p>
+          </div>
+        </StyledMenuItem>
+        {/* <StyledMenuItem className="accountItems">
         <div className="icon-text">
           <HelpOutlineOutlinedIcon className="drop-icons" />
           <p
@@ -105,54 +102,51 @@ const DropdownMenu = () => {
           </p>
         </div>
       </StyledMenuItem> */}
-      <StyledMenuItem className="accountItems">
-        <div className="icon-text">
-          <SubscriptionsOutlinedIcon className="drop-icons" />
-          <p
-            className="icontxt"
-            onClick={() => navigate("/subscription")}
-          >
-            My Subscription
-          </p>
-        </div>
-      </StyledMenuItem>
-      <StyledMenuItem className="accountItems">
-        <div className="last-Icon">
-          <p className="icontxt" onClick={ SignOut}>
-            Sign out of Netflix
-          </p>
-        </div>
-      </StyledMenuItem>
-    </Menu>
-  </Dropdown>
-  )
-}
+        <StyledMenuItem className="accountItems">
+          <div className="icon-text">
+            <SubscriptionsOutlinedIcon className="drop-icons" />
+            <p className="icontxt" onClick={() => navigate("/subscription")}>
+              My Subscription
+            </p>
+          </div>
+        </StyledMenuItem>
+        <StyledMenuItem className="accountItems">
+          <div className="last-Icon">
+            <p className="icontxt" onClick={SignOut}>
+              Sign out of Netflix
+            </p>
+          </div>
+        </StyledMenuItem>
+      </Menu>
+    </Dropdown>
+  );
+};
 
 export default DropdownMenu;
 const blue = {
-    100: "#DAECFF",
-    200: "#99CCF3",
-    400: "#3399FF",
-    500: "#007FFF",
-    600: "#0072E5",
-    900: "#003A75",
-  };
-  
-  const grey = {
-    50: "#f6f8fa",
-    100: "#eaeef2",
-    200: "#d0d7de",
-    300: "#afb8c1",
-    400: "#8c959f",
-    500: "#6e7781",
-    600: "#57606a",
-    700: "#424a53",
-    800: "#32383f",
-    900: "#24292f",
-  };
-  
-  const StyledListbox = styled("ul")(
-    ({ theme }) => `
+  100: "#DAECFF",
+  200: "#99CCF3",
+  400: "#3399FF",
+  500: "#007FFF",
+  600: "#0072E5",
+  900: "#003A75",
+};
+
+const grey = {
+  50: "#f6f8fa",
+  100: "#eaeef2",
+  200: "#d0d7de",
+  300: "#afb8c1",
+  400: "#8c959f",
+  500: "#6e7781",
+  600: "#57606a",
+  700: "#424a53",
+  800: "#32383f",
+  900: "#24292f",
+};
+
+const StyledListbox = styled("ul")(
+  ({ theme }) => `
     font-family: IBM Plex Sans, sans-serif;
     font-size: 0.875rem;
     box-sizing: border-box;
@@ -161,10 +155,10 @@ const blue = {
     outline: 0px;
     z-index: 1;
     `
-  );
-  
-  const StyledMenuItem = styled(MenuItem)(
-    ({ theme }) => `
+);
+
+const StyledMenuItem = styled(MenuItem)(
+  ({ theme }) => `
     list-style: none;
     padding: 8px;
     border-radius: 8px;
@@ -176,8 +170,12 @@ const blue = {
     }
   
     &.${menuItemClasses.focusVisible} {
-      outline: 3px solid ${theme.palette.mode === "dark" ? blue[600] : blue[200]};
-      background-color: ${theme.palette.mode === "dark" ? grey[800] : grey[100]};
+      outline: 3px solid ${
+        theme.palette.mode === "dark" ? blue[600] : blue[200]
+      };
+      background-color: ${
+        theme.palette.mode === "dark" ? grey[800] : grey[100]
+      };
       color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};
     }
   
@@ -185,10 +183,10 @@ const blue = {
       color: ${theme.palette.mode === "dark" ? grey[700] : grey[400]};
     }
     `
-  );
-  
-  const TriggerButton = styled(MenuButton)(
-    ({ theme }) => `
+);
+
+const TriggerButton = styled(MenuButton)(
+  ({ theme }) => `
     font-family: IBM Plex Sans, sans-serif;
     font-size: 0.875rem;
     font-weight: 600;
@@ -212,7 +210,9 @@ const blue = {
   
     &:focus-visible {
       border-color: ${blue[400]};
-      outline: 3px solid ${theme.palette.mode === "dark" ? blue[500] : blue[200]};
+      outline: 3px solid ${
+        theme.palette.mode === "dark" ? blue[500] : blue[200]
+      };
     }
     `
-  );
+);

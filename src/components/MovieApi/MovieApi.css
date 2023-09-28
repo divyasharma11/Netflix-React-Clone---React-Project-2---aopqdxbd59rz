@@ -1,52 +1,51 @@
-
-.movie-container{
-padding: 0.1rem 1rem;
+.movie-container {
+  padding: 0.1rem 1rem;
 }
-.movie-container h2{
-    font-size: 25px;
-    text-transform: uppercase;
-    color: #fff;
-}
-
-.poster-content{
-margin: 20px 60px;
-display: flex;
-overflow: scroll;
-overflow-x: hidden;
-overflow-y: hidden;
+.movie-container h2 {
+  font-size: 25px;
+  text-transform: uppercase;
+  color: #fff;
 }
 
-.carts{
+.poster-content {
+  margin: 20px 60px;
+  display: flex;
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.carts {
   width: 202px;
   height: 232px;
-  margin: 20px ;
+  margin: 20px;
   border-radius: 8px;
   border: 1px solid gray;
 }
 
-.carts img{
+.carts img {
   width: 200px;
   height: 230px;
   border-radius: 8px;
 }
-.cord{
+.cord {
   transition: transform 0.4s;
 }
-.cord:hover{
+.cord:hover {
   transition: ease-in 0.3s;
-  transform: scale(1.1) translate(0,5%);
+  transform: scale(1.1) translate(0, 5%);
 }
 
-.hide-container{
- display: none;
- position:relative;
- width: 184px;
- height: fit-content;
- margin: 0px 29px;
- border-radius: 8px;
- border: 1px solid gray;
+.hide-container {
+  display: none;
+  position: relative;
+  width: 184px;
+  height: fit-content;
+  margin: 0px 29px;
+  border-radius: 8px;
+  border: 1px solid gray;
 }
-.hide-container span{
+.hide-container span {
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -55,78 +54,78 @@ overflow-y: hidden;
   padding: 2px;
   text-align: center;
 }
-.color{
+.color {
   margin-top: -40px;
-  background-color: rgba(0,0,0,0.9);
+  background-color: rgba(0, 0, 0, 0.9);
   padding: 20px;
   border-radius: 8px;
 }
- .first {
+.first {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  color:#fff;
+  color: #fff;
 }
-.first p{
+.first p {
   font-size: 15px;
   font-weight: bold;
 }
-.second{
+.second {
   display: flex;
   justify-content: space-between;
   color: #fff;
 }
- .spcl{
+.spcl {
   color: black !important;
   background-color: #fff;
 }
-.span{
-  margin:5px ;
+.span {
+  margin: 5px;
 }
-.hide-container .like-span{
+.hide-container .like-span {
   border: 1px solid rgb(161, 31, 31);
 }
-.like-btn{
+.like-btn {
   color: rgb(161, 31, 31);
 }
-.span .sm-icon{
-  font-size:x-large;
+.span .sm-icon {
+  font-size: x-large;
   position: relative;
-   top: 2px;
+  top: 2px;
   font-size: 15px;
 }
 
-.third{
-  color:green;
-  margin-top:8px ;
+.third {
+  color: green;
+  margin-top: 8px;
 }
- .fourth{
+.fourth {
   color: #fff;
-  margin-top:6px ;
+  margin-top: 6px;
 }
-   .cord:hover .hide-container{
-   display: block;
+.cord:hover .hide-container {
+  display: block;
   transition: ease-in 0.3s;
-  transform: scale(1.1) translate(0,-75%);
+  transform: scale(1.1) translate(0, -75%);
 }
- .paginationButtons{
+.paginationButtons {
   display: flex;
   justify-content: space-between;
   /* align-items: center; */
   margin: 0px 20px;
- }
- .paginationButtons .arrowIcon{
+}
+.paginationButtons .arrowIcon {
   color: white;
   position: absolute;
   margin-top: 10rem;
- }
- @media (max-width: 568px) {
-  .movie-container h2{
+}
+@media (max-width: 568px) {
+  .movie-container h2 {
     font-size: 18px;
   }
   .poster-content {
     margin: 20px 10px;
-  overflow: scroll;
+    overflow: scroll;
   }
 
   .carts {
@@ -134,49 +133,49 @@ overflow-y: hidden;
     height: 140px;
     margin: 10px;
   }
-   
-  .carts img{
+
+  .carts img {
     width: 148px;
     height: 158px;
   }
 
   .hide-container {
-    top: 100px; 
+    top: 100px;
     width: 150px;
     height: fit-content;
     margin: 10px;
   }
   .paginationButtons {
-    margin: 0px 5px; 
+    margin: 0px 5px;
   }
 
   .paginationButtons .arrowIcon {
-    margin-top: 5rem; 
+    margin-top: 5rem;
   }
-  
-  .hide-container span{
+
+  .hide-container span {
     width: 20px;
     height: 20px;
   }
-  .color{
+  .color {
     margin-top: -20px;
     padding: 10px;
   }
-   .spcl{
+  .spcl {
     color: black !important;
     background-color: #fff;
   }
-  .span{
-    margin:3px ;
+  .span {
+    margin: 3px;
   }
-  .span .sm-icon{
-    margin-top:10px;
+  .span .sm-icon {
+    margin-top: 10px;
     font-size: 15px;
-    }
-    .third{
-      font-size: 12px;
-    }
-     .fourth{
-     font-size: 12px;
-    }
+  }
+  .third {
+    font-size: 12px;
+  }
+  .fourth {
+    font-size: 12px;
+  }
 }

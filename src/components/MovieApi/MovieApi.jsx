@@ -50,10 +50,7 @@ const MovieApi = () => {
   };
   useEffect(() => {
     const originalFetch = async () => {
-      const originalData = await movieData(
-        { type: "tv show" },
-        originalSlice
-      );
+      const originalData = await movieData({ type: "tv show" }, originalSlice);
       setOriginal(originalData);
       setLoading(false);
     };
@@ -62,10 +59,7 @@ const MovieApi = () => {
 
   useEffect(() => {
     const trendingFetch = async () => {
-      const trendingData = await movieData(
-        { type: "movie" },
-        trendingSlice
-      );
+      const trendingData = await movieData({ type: "movie" }, trendingSlice);
       setTrending(trendingData);
       setLoading(false);
     };
@@ -86,10 +80,7 @@ const MovieApi = () => {
 
   useEffect(() => {
     const actionFetch = async () => {
-      const actionData = await movieData(
-        { type: "trailer" },
-         actionSlice
-         );
+      const actionData = await movieData({ type: "trailer" }, actionSlice);
       setAction(actionData);
       setLoading(false);
     };
@@ -157,275 +148,275 @@ const MovieApi = () => {
     <>
       {data && (
         <>
-         {loading ? (
-          <div className="loaderContainer">
-            <div className="loader"></div>
-          </div>
-        ) : (
-        <>
-            <div className="movie-container">
-              <h2>Netflix Originals</h2>
-              <div className="paginationButtons">
-                <div
-                  onClick={() => {
-                    handlSliceChange("original", -1); 
-                  }}
-                  disabled={originalSlice === 1}
-                >
-                  <ArrowBackIosIcon className="arrowIcon" />
+          {loading ? (
+            <div className="loaderContainer">
+              <div className="loader"></div>
+            </div>
+          ) : (
+            <>
+              <div className="movie-container">
+                <h2>Netflix Originals</h2>
+                <div className="paginationButtons">
+                  <div
+                    onClick={() => {
+                      handlSliceChange("original", -1);
+                    }}
+                    disabled={originalSlice === 1}
+                  >
+                    <ArrowBackIosIcon className="arrowIcon" />
+                  </div>
+                  <div
+                    onClick={() => {
+                      handlSliceChange("original", 1);
+                    }}
+                  >
+                    <ArrowForwardIosIcon className="arrowIcon" />
+                  </div>
                 </div>
-                <div
-                  onClick={() => {
-                    handlSliceChange("original", 1); 
-                  }}
-                >
-                  <ArrowForwardIosIcon className="arrowIcon" />
+                <div className="poster-content">
+                  {original.map((movie, index) => (
+                    <MovieCard
+                      thumbnail={movie.thumbnail}
+                      title={movie.title}
+                      keywords={movie.keywords}
+                      showId={movie._id}
+                      cast={movie.cast}
+                      director={movie.director}
+                      match="80% Match"
+                      key={index}
+                      className="movies"
+                      videoUrl={movie.video_url}
+                      description={movie.description}
+                    />
+                  ))}
                 </div>
               </div>
-              <div className="poster-content">
-              {original.map((movie, index) => (
-                  <MovieCard
-                    thumbnail={movie.thumbnail}
-                    title={movie.title}
-                    keywords={movie.keywords}
-                    showId={movie._id}
-                    cast={movie.cast}
-                    director={movie.director}
-                    match="80% Match"
-                    key={index}
-                    className="movies"
-                    videoUrl={movie.video_url}
-                    description={movie.description}
-                  />
-                  ))}
+              <div className="movie-container">
+                <h2>Trending</h2>
+                <div className="paginationButtons">
+                  <div
+                    onClick={() => {
+                      handlSliceChange("trending", -1);
+                    }}
+                    disabled={trendingSlice === 1}
+                  >
+                    <ArrowBackIosIcon className="arrowIcon" />
                   </div>
-            </div>
-            <div className="movie-container">
-              <h2>Trending</h2>
-              <div className="paginationButtons">
-                <div
-                  onClick={() => {
-                    handlSliceChange("trending", -1); 
-                  }}
-                  disabled={trendingSlice === 1}
-                >
-                  <ArrowBackIosIcon className="arrowIcon" />
+                  <div
+                    onClick={() => {
+                      handlSliceChange("trending", 1);
+                    }}
+                  >
+                    <ArrowForwardIosIcon className="arrowIcon" />
+                  </div>
                 </div>
-                <div
-                  onClick={() => {
-                    handlSliceChange("trending", 1); 
-                  }}
-                >
-                  <ArrowForwardIosIcon className="arrowIcon" />
+                <div className="poster-content">
+                  {trending.map((movie, index) => (
+                    <MovieCard
+                      thumbnail={movie.thumbnail}
+                      title={movie.title}
+                      keywords={movie.keywords}
+                      showId={movie._id}
+                      cast={movie.cast}
+                      director={movie.director}
+                      match="80% Match"
+                      key={index}
+                      className="movies"
+                      videoUrl={movie.video_url}
+                      description={movie.description}
+                    />
+                  ))}
                 </div>
               </div>
-              <div className="poster-content">
-              { trending.map((movie, index) => (
-                  <MovieCard
-                    thumbnail={movie.thumbnail}
-                    title={movie.title}
-                    keywords={movie.keywords}
-                    showId={movie._id}
-                    cast={movie.cast}
-                    director={movie.director}
-                    match="80% Match"
-                    key={index}
-                    className="movies"
-                    videoUrl={movie.video_url}
-                    description={movie.description}
-                  />
-                  ))}
+              <div className="movie-container">
+                <h2>Top Rated</h2>
+                <div className="paginationButtons">
+                  <div
+                    onClick={() => {
+                      handlSliceChange("top", -1);
+                    }}
+                    disabled={topRatedSlice === 1}
+                  >
+                    <ArrowBackIosIcon className="arrowIcon" />
                   </div>
-            </div>
-            <div className="movie-container">
-              <h2>Top Rated</h2>
-              <div className="paginationButtons">
-                <div
-                  onClick={() => {
-                    handlSliceChange("top", -1); 
-                  }}
-                  disabled={topRatedSlice === 1}
-                >
-                  <ArrowBackIosIcon className="arrowIcon" />
+                  <div
+                    onClick={() => {
+                      handlSliceChange("top", 1);
+                    }}
+                  >
+                    <ArrowForwardIosIcon className="arrowIcon" />
+                  </div>
                 </div>
-                <div
-                  onClick={() => {
-                    handlSliceChange("top", 1); 
-                  }}
-                >
-                  <ArrowForwardIosIcon className="arrowIcon" />
+                <div className="poster-content">
+                  {topRated.map((movie, index) => (
+                    <MovieCard
+                      thumbnail={movie.thumbnail}
+                      title={movie.title}
+                      keywords={movie.keywords}
+                      showId={movie._id}
+                      cast={movie.cast}
+                      director={movie.director}
+                      match="80% Match"
+                      key={index}
+                      className="movies"
+                      videoUrl={movie.video_url}
+                      description={movie.description}
+                    />
+                  ))}
                 </div>
               </div>
-              <div className="poster-content">
-              { topRated.map((movie, index) => (
-                  <MovieCard
-                    thumbnail={movie.thumbnail}
-                    title={movie.title}
-                    keywords={movie.keywords}
-                    showId={movie._id}
-                    cast={movie.cast}
-                    director={movie.director}
-                    match="80% Match"
-                    key={index}
-                    className="movies"
-                    videoUrl={movie.video_url}
-                    description={movie.description}
-                  />
-                  ))}
+              <div className="movie-container">
+                <h2>Action</h2>
+                <div className="paginationButtons">
+                  <div
+                    onClick={() => {
+                      handlSliceChange("action", -1);
+                    }}
+                    disabled={actionSlice === 1}
+                  >
+                    <ArrowBackIosIcon className="arrowIcon" />
                   </div>
-            </div>
-            <div className="movie-container">
-              <h2>Action</h2>
-              <div className="paginationButtons">
-                <div
-                  onClick={() => {
-                    handlSliceChange("action", -1); 
-                  }}
-                  disabled={actionSlice === 1}
-                >
-                  <ArrowBackIosIcon className="arrowIcon" />
+                  <div
+                    onClick={() => {
+                      handlSliceChange("action", 1);
+                    }}
+                  >
+                    <ArrowForwardIosIcon className="arrowIcon" />
+                  </div>
                 </div>
-                <div
-                  onClick={() => {
-                    handlSliceChange("action", 1); 
-                  }}
-                >
-                  <ArrowForwardIosIcon className="arrowIcon" />
+                <div className="poster-content">
+                  {action.map((movie, index) => (
+                    <MovieCard
+                      thumbnail={movie.thumbnail}
+                      title={movie.title}
+                      keywords={movie.keywords}
+                      showId={movie._id}
+                      cast={movie.cast}
+                      director={movie.director}
+                      match="80% Match"
+                      key={index}
+                      className="movies"
+                      videoUrl={movie.video_url}
+                      description={movie.description}
+                    />
+                  ))}
                 </div>
               </div>
-              <div className="poster-content">
-              { action.map((movie, index) => (
-                  <MovieCard
-                    thumbnail={movie.thumbnail}
-                    title={movie.title}
-                    keywords={movie.keywords}
-                    showId={movie._id}
-                    cast={movie.cast}
-                    director={movie.director}
-                    match="80% Match"
-                    key={index}
-                    className="movies"
-                    videoUrl={movie.video_url}
-                    description={movie.description}
-                  />
-                  ))}
+              <div className="movie-container">
+                <h2>Horror</h2>
+                <div className="paginationButtons">
+                  <div
+                    onClick={() => {
+                      handlSliceChange("horror", -1);
+                    }}
+                    disabled={horrorSlice === 1}
+                  >
+                    <ArrowBackIosIcon className="arrowIcon" />
                   </div>
-            </div>
-            <div className="movie-container">
-              <h2>Horror</h2>
-              <div className="paginationButtons">
-                <div
-                  onClick={() => {
-                    handlSliceChange("horror", -1);
-                  }}
-                  disabled={horrorSlice === 1}
-                >
-                  <ArrowBackIosIcon className="arrowIcon" />
+                  <div
+                    onClick={() => {
+                      handlSliceChange("horror", 1);
+                    }}
+                  >
+                    <ArrowForwardIosIcon className="arrowIcon" />
+                  </div>
                 </div>
-                <div
-                  onClick={() => {
-                    handlSliceChange("horror", 1); 
-                  }}
-                >
-                  <ArrowForwardIosIcon className="arrowIcon" />
+                <div className="poster-content">
+                  {horror.map((movie, index) => (
+                    <MovieCard
+                      thumbnail={movie.thumbnail}
+                      title={movie.title}
+                      keywords={movie.keywords}
+                      showId={movie._id}
+                      cast={movie.cast}
+                      director={movie.director}
+                      match="80% Match"
+                      key={index}
+                      className="movies"
+                      videoUrl={movie.video_url}
+                      description={movie.description}
+                    />
+                  ))}
                 </div>
               </div>
-              <div className="poster-content">
-              { horror.map((movie, index) => (
-                  <MovieCard
-                    thumbnail={movie.thumbnail}
-                    title={movie.title}
-                    keywords={movie.keywords}
-                    showId={movie._id}
-                    cast={movie.cast}
-                    director={movie.director}
-                    match="80% Match"
-                    key={index}
-                    className="movies"
-                    videoUrl={movie.video_url}
-                    description={movie.description}
-                  />
-                  ))}
+              <div className="movie-container">
+                <h2>Romance</h2>
+                <div className="paginationButtons">
+                  <div
+                    onClick={() => {
+                      handlSliceChange("romance", -1);
+                    }}
+                    disabled={romanceSlice === 1}
+                  >
+                    <ArrowBackIosIcon className="arrowIcon" />
                   </div>
-            </div>
-            <div className="movie-container">
-              <h2>Romance</h2>
-              <div className="paginationButtons">
-                <div
-                  onClick={() => {
-                    handlSliceChange("romance", -1); 
-                  }}
-                  disabled={romanceSlice === 1}
-                >
-                  <ArrowBackIosIcon className="arrowIcon" />
+                  <div
+                    onClick={() => {
+                      handlSliceChange("romance", 1);
+                    }}
+                  >
+                    <ArrowForwardIosIcon className="arrowIcon" />
+                  </div>
                 </div>
-                <div
-                  onClick={() => {
-                    handlSliceChange("romance", 1); 
-                  }}
-                >
-                  <ArrowForwardIosIcon className="arrowIcon" />
+                <div className="poster-content">
+                  {romance.map((movie, index) => (
+                    <MovieCard
+                      thumbnail={movie.thumbnail}
+                      title={movie.title}
+                      keywords={movie.keywords}
+                      showId={movie._id}
+                      cast={movie.cast}
+                      director={movie.director}
+                      match="80% Match"
+                      key={index}
+                      className="movies"
+                      videoUrl={movie.video_url}
+                      description={movie.description}
+                    />
+                  ))}
                 </div>
               </div>
-              <div className="poster-content">
-              { romance.map((movie, index) => (
-                  <MovieCard
-                    thumbnail={movie.thumbnail}
-                    title={movie.title}
-                    keywords={movie.keywords}
-                    showId={movie._id}
-                    cast={movie.cast}
-                    director={movie.director}
-                    match="80% Match"
-                    key={index}
-                    className="movies"
-                    videoUrl={movie.video_url}
-                    description={movie.description}
-                  />
-                  ))}
+              <div className="movie-container">
+                <h2>Documentary</h2>
+                <div className="paginationButtons">
+                  <div
+                    onClick={() => {
+                      handlSliceChange("documentary", -1);
+                    }}
+                    disabled={documentarySlice === 1}
+                  >
+                    <ArrowBackIosIcon className="arrowIcon" />
                   </div>
-            </div>
-            <div className="movie-container">
-              <h2>Documentary</h2>
-              <div className="paginationButtons">
-                <div
-                  onClick={() => {
-                    handlSliceChange("documentary", -1); 
-                  }}
-                  disabled={documentarySlice === 1}
-                >
-                  <ArrowBackIosIcon className="arrowIcon" />
+                  <div
+                    onClick={() => {
+                      handlSliceChange("documentary", 1);
+                    }}
+                  >
+                    <ArrowForwardIosIcon className="arrowIcon" />
+                  </div>
                 </div>
-                <div
-                  onClick={() => {
-                    handlSliceChange("documentary", 1);
-                  }}
-                >
-                  <ArrowForwardIosIcon className="arrowIcon" />
+                <div className="poster-content">
+                  {documentary.map((movie, index) => (
+                    <MovieCard
+                      thumbnail={movie.thumbnail}
+                      title={movie.title}
+                      keywords={movie.keywords}
+                      showId={movie._id}
+                      cast={movie.cast}
+                      director={movie.director}
+                      match="80% Match"
+                      key={index}
+                      className="movies"
+                      videoUrl={movie.video_url}
+                      description={movie.description}
+                    />
+                  ))}
                 </div>
               </div>
-              <div className="poster-content">
-              { documentary.map((movie, index) => (
-                  <MovieCard
-                    thumbnail={movie.thumbnail}
-                    title={movie.title}
-                    keywords={movie.keywords}
-                    showId={movie._id}
-                    cast={movie.cast}
-                    director={movie.director}
-                    match="80% Match"
-                    key={index}
-                    className="movies"
-                    videoUrl={movie.video_url}
-                    description={movie.description}
-                  />
-                  ))}
-                  </div>
-            </div>
             </>
-        )}
+          )}
         </>
-      )}    
+      )}
     </>
   );
 };

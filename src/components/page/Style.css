@@ -289,12 +289,12 @@
   top: 100px;
   flex-wrap: wrap;
 }
-.no_data{
+.no_data {
   position: absolute;
   top: 50%;
   left: 50%;
   font-size: 30px;
-  color:black;
+  color: black;
   display: none;
 }
 /* seacrch end */
@@ -540,9 +540,9 @@ h2 {
   padding: 5px;
 }
 .span .vd-icon {
-  font-size:x-large;
+  font-size: x-large;
   position: relative;
-   top: 3px;
+  top: 3px;
   font-size: medium;
 }
 .buton {
@@ -554,9 +554,9 @@ h2 {
   border-radius: 6px;
 }
 .buton .vd-icons {
-  font-size:x-large;
+  font-size: x-large;
   position: relative;
-   top: 8px;
+  top: 8px;
 }
 .vdo-more-container {
   display: flex;
@@ -566,10 +566,10 @@ h2 {
   display: flex;
   flex-wrap: wrap;
 }
-.like-span{
+.like-span {
   border: 1px solid rgb(161, 31, 31);
 }
-.like-btn{
+.like-btn {
   color: rgb(161, 31, 31);
 }
 .modal .modal_close {
@@ -579,7 +579,7 @@ h2 {
   right: 5px;
   top: 10px;
   display: none;
- cursor: pointer;
+  cursor: pointer;
 }
 @media screen and (max-width: 768px) {
   .vdo {
@@ -596,7 +596,7 @@ h2 {
   .modal .modal_close {
     display: block;
   }
-  .volume{
+  .volume {
     margin-top: 7px;
   }
 
@@ -618,10 +618,10 @@ h2 {
     text-align: center;
     padding: 5px;
   }
- .buton .vd-icons {
-  font-size:x-large;
-  position: relative;
-   top: 3px;
+  .buton .vd-icons {
+    font-size: x-large;
+    position: relative;
+    top: 3px;
   }
   .vdo-dis {
     padding: 0px 5px;

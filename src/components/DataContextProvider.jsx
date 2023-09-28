@@ -6,7 +6,7 @@ export const DataContextProvider = ({ children }) => {
   const [data, setData] = useState(true);
 
   return (
-    <DataContext.Provider value={{ data,setData }}>
+    <DataContext.Provider value={{ data, setData }}>
       {children}
     </DataContext.Provider>
   );

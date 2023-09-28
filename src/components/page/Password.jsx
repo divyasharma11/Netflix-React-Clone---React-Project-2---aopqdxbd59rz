@@ -1,22 +1,22 @@
-import React, { useState, useRef, useEffect } from 'react';
-import Nav from './Nav';
-import './Style.css';
-import Footer from '../footer/Footer';
-import axios from 'axios';
-import bcrypt from 'bcryptjs';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useRef, useEffect } from "react";
+import Nav from "./Nav";
+import "./Style.css";
+import Footer from "../footer/Footer";
+import axios from "axios";
+import bcrypt from "bcryptjs";
+import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const token = localStorage.getItem('Token');
+const token = localStorage.getItem("Token");
 
 const Password = () => {
   const navigate = useNavigate();
   const [passDetails, setPassDetails] = useState({
-    email: '',
-    currentPassword: '',
-    newPassword: '',
-    reNewPassword: '',
+    email: "",
+    currentPassword: "",
+    newPassword: "",
+    reNewPassword: "",
   });
   const [userData, setUserData] = useState({});
   const [update, setUpdate] = useState(false);
@@ -30,7 +30,7 @@ const Password = () => {
   const reNewPasswordRef = useRef(null);
 
   useEffect(() => {
-    const userInfo = localStorage.getItem('userDetails');
+    const userInfo = localStorage.getItem("userDetails");
     if (userInfo) {
       setUserData(JSON.parse(userInfo));
     }
@@ -47,14 +47,14 @@ const Password = () => {
       [name]: value,
     }));
 
-    if (name === 'email') {
-      emailRef.current.style.display = 'none';
-    } else if (name === 'currentPassword') {
-      passRef.current.style.display = 'none';
-    } else if (name === 'newPassword') {
-      newPassRef.current.style.display = 'none';
-    } else if (name === 'reNewPassword') {
-      reNewPasswordRef.current.style.display = 'none';
+    if (name === "email") {
+      emailRef.current.style.display = "none";
+    } else if (name === "currentPassword") {
+      passRef.current.style.display = "none";
+    } else if (name === "newPassword") {
+      newPassRef.current.style.display = "none";
+    } else if (name === "reNewPassword") {
+      reNewPasswordRef.current.style.display = "none";
     }
   };
 
@@ -66,23 +66,27 @@ const Password = () => {
     );
 
     if (!matchPassword) {
-      passRef.current.style.display = 'block';
+      passRef.current.style.display = "block";
       return;
     }
     if (email !== userData?.userEmail || !email.match(emailPattern)) {
-      emailRef.current.style.display = 'block';
+      emailRef.current.style.display = "block";
       return;
     }
-    if (newPassword.length < 3 || newPassword.length > 60 || newPassword === '') {
-      newPassRef.current.style.display = 'block';
+    if (
+      newPassword.length < 3 ||
+      newPassword.length > 60 ||
+      newPassword === ""
+    ) {
+      newPassRef.current.style.display = "block";
       return;
     }
-    if (newPassword !== reNewPassword || reNewPassword === '') {
-      reNewPasswordRef.current.style.display = 'block';
+    if (newPassword !== reNewPassword || reNewPassword === "") {
+      reNewPasswordRef.current.style.display = "block";
       return;
     }
 
-    if (currentPassword === newPassword && currentPassword !== '') {
+    if (currentPassword === newPassword && currentPassword !== "") {
       toast.info("Current password & new password should be different!.", {
         position: "top-right",
         autoClose: 2000,
@@ -96,7 +100,7 @@ const Password = () => {
       return;
     }
 
-    if (currentPassword === '' || newPassword === '' || reNewPassword === '') {
+    if (currentPassword === "" || newPassword === "" || reNewPassword === "") {
       toast.info("All fields are mandatory.", {
         position: "top-right",
         autoClose: 1500,
@@ -112,34 +116,36 @@ const Password = () => {
 
     if (
       matchPassword &&
-      (newPassword === reNewPassword || reNewPassword !== '' || newPassword !== '')
+      (newPassword === reNewPassword ||
+        reNewPassword !== "" ||
+        newPassword !== "")
     ) {
       try {
         const response = await axios.patch(
-          'https://academics.newtonschool.co/api/v1/user/updateMyPassword',
+          "https://academics.newtonschool.co/api/v1/user/updateMyPassword",
           {
             name: userData?.userName,
             email: userData?.userEmail,
             passwordCurrent: currentPassword,
             password: newPassword,
-            appType: 'ott',
+            appType: "ott",
           },
           {
             headers: {
               Authorization: `Bearer ${token}`,
-              projectId: 'aopqdxbd59rz',
+              projectId: "aopqdxbd59rz",
             },
           }
         );
 
         if (signOut) {
-          localStorage.removeItem('Token');
-          localStorage.removeItem('userDetails');
+          localStorage.removeItem("Token");
+          localStorage.removeItem("userDetails");
           setUpdate(true);
         }
 
         localStorage.setItem(
-          'userDetails',
+          "userDetails",
           JSON.stringify({
             ...userData,
             userPassword: newPassword,
@@ -156,15 +162,15 @@ const Password = () => {
           theme: "light",
         });
         setPassDetails({
-          email: '',
-          currentPassword: '',
-          newPassword: '',
-          reNewPassword: '',
+          email: "",
+          currentPassword: "",
+          newPassword: "",
+          reNewPassword: "",
         });
 
         setUpdate(true);
       } catch (error) {
-        console.error('Update password error:', error);
+        console.error("Update password error:", error);
         toast.error("Failed to update password.", {
           position: "top-right",
           autoClose: 1500,
@@ -183,9 +189,9 @@ const Password = () => {
     let timeoutId;
     if (update) {
       timeoutId = setTimeout(() => {
-        localStorage.removeItem('Token');
-        localStorage.removeItem('userDetails');
-        navigate('/');
+        localStorage.removeItem("Token");
+        localStorage.removeItem("userDetails");
+        navigate("/");
       }, 1000);
     }
     return () => {
@@ -197,49 +203,52 @@ const Password = () => {
     <>
       <Nav />
       <div className="password-container">
-      <ToastContainer />
+        <ToastContainer />
         <div>
           <h1>Change your password</h1>
-          <p>Protect your account with a unique password at least 6 characters long.</p>
-          <div className='pass-container'>
+          <p>
+            Protect your account with a unique password at least 6 characters
+            long.
+          </p>
+          <div className="pass-container">
             <input
-              className='pas-input'
-              type='email'
-              name='email'
+              className="pas-input"
+              type="email"
+              name="email"
               value={email}
               onChange={handlePasChange}
-              placeholder='Enter your email'
+              placeholder="Enter your email"
             />
             <p className="pass-ref" ref={emailRef}>
               Email didn't match.
             </p>
             <input
-              className='pas-input'
-              type='password'
-              name='currentPassword'
+              className="pas-input"
+              type="password"
+              name="currentPassword"
               value={currentPassword}
               onChange={handlePasChange}
-              placeholder='Enter current password'
+              placeholder="Enter current password"
             />
             <p className="pass-ref" ref={passRef}>
               Password didn't match.
             </p>
-            
+
             <input
-              className='pas-input'
-              type='password'
-              name='newPassword'
+              className="pas-input"
+              type="password"
+              name="newPassword"
               value={newPassword}
               onChange={handlePasChange}
-              placeholder='New Password (6-60 characters)'
+              placeholder="New Password (6-60 characters)"
             />
             <p className="pass-ref" ref={newPassRef}>
               Password should be between 3 and 60 characters long.
             </p>
             <input
-              className='pas-input'
-              type='password'
-              name='reNewPassword'
+              className="pas-input"
+              type="password"
+              name="reNewPassword"
               value={reNewPassword}
               onChange={handlePasChange}
               placeholder="Enter your password again"
@@ -248,14 +257,15 @@ const Password = () => {
               Must match your new password.
             </p>
           </div>
-          <div className='typecheck'>
-            <input type='checkbox'
+          <div className="typecheck">
+            <input
+              type="checkbox"
               checked={signOut}
               onChange={checkboxHandler}
             />
             <p>Sign out of all devices</p>
           </div>
-          <div className='save' onClick={handleUpdatePassword}>
+          <div className="save" onClick={handleUpdatePassword}>
             <button>Save</button>
           </div>
         </div>
@@ -263,6 +273,6 @@ const Password = () => {
       <Footer />
     </>
   );
-}
+};
 
 export default Password;

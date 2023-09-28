@@ -8,19 +8,19 @@ import DataContext from "../DataContextProvider";
 import { useContext } from "react";
 
 const Home = () => {
-  const {data} =useContext(DataContext);
+  const { data } = useContext(DataContext);
   return (
     <>
-    <Nav />
-    {data && 
-    <>
-      <Header />
-       <div className="movie-api">
-         <MovieApi /> 
-     </div> 
-    <Foot />
-    </>
-    }
+      <Nav />
+      {data && (
+        <>
+          <Header />
+          <div className="movie-api">
+            <MovieApi />
+          </div>
+          <Foot />
+        </>
+      )}
     </>
   );
 };

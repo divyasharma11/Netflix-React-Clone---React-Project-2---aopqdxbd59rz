@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import './Style.css';
-import EditIcon from '@mui/icons-material/Edit';
+import React, { useEffect, useState } from "react";
+import "./Style.css";
+import EditIcon from "@mui/icons-material/Edit";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import profile from "../images/profile.jpg";
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -41,11 +41,11 @@ const ManageProfile = () => {
       return;
     }
     const formData = new FormData();
-    formData.append("profileImage", accountImage); 
+    formData.append("profileImage", accountImage);
     try {
       const response = await axios.patch(
         "https://academics.newtonschool.co/api/v1/user/updateProfileImage",
-        formData,  
+        formData,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -84,14 +84,13 @@ const ManageProfile = () => {
   };
 
   return (
-  
-    <div className='profile-container'>
-       <ToastContainer />
-      <div className='profile-contents'>
-        <div className='profile-content'>
+    <div className="profile-container">
+      <ToastContainer />
+      <div className="profile-contents">
+        <div className="profile-content">
           <h1>Edit Profile</h1>
           <hr />
-          <div className='proimg'>
+          <div className="proimg">
             <div className="edit-proimg">
               <input
                 type="file"
@@ -105,43 +104,47 @@ const ManageProfile = () => {
                 </span>
               </label>
             </div>
-            <div >
+            <div>
               <img
-                src={accountImage ? URL.createObjectURL(accountImage) : updateImg}
-                alt='profile img'
+                src={
+                  accountImage ? URL.createObjectURL(accountImage) : updateImg
+                }
+                alt="profile img"
               />
             </div>
-            <div className='right'>
-              <div className='swrup'>Swarup</div>
+            <div className="right">
+              <div className="swrup">Swarup</div>
               <p>Language:</p>
-              <span className='eng'>English
-                <KeyboardArrowDownIcon className='keybrd' />
+              <span className="eng">
+                English
+                <KeyboardArrowDownIcon className="keybrd" />
               </span>
               <h3>Game Handle:</h3>
-              <p>Your handle is a unique name that'll be used for playing
-                with other Netflix members across all Netflix Games. Learn more..
+              <p>
+                Your handle is a unique name that'll be used for playing with
+                other Netflix members across all Netflix Games. Learn more..
               </p>
               <div>Create Game Handle</div>
               <hr />
               <h3>Maturity settings:</h3>
-              <span className='pro-span'>All Maturity Ratings</span>
+              <span className="pro-span">All Maturity Ratings</span>
               <p>Show titles of all maturity ratings for this profile.</p>
               {/* <span className='pro-span'>Edit</span> */}
               <hr />
               <h3>Autoplay controls</h3>
-              <div className='proinput'>
-                <input type='checkbox' />
+              <div className="proinput">
+                <input type="checkbox" />
                 <p>Autoplay next episode in a series on all devices.</p>
                 <br />
-                <input type='checkbox' />
+                <input type="checkbox" />
                 <p>Autoplay previous with browsing on all devices.</p>
               </div>
               <hr />
-              <div className='probtn'>
-                <button className='p-btn active' onClick={uploadProfile}>
+              <div className="probtn">
+                <button className="p-btn active" onClick={uploadProfile}>
                   Save
                 </button>
-                <button className='p-btn' onClick={() => navigate(-1)}>
+                <button className="p-btn" onClick={() => navigate(-1)}>
                   Cancel
                 </button>
               </div>
@@ -151,6 +154,6 @@ const ManageProfile = () => {
       </div>
     </div>
   );
-}
+};
 
 export default ManageProfile;

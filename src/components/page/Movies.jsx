@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from "react";
 import "./Style.css";
-import Nav from './Nav';
+import Nav from "./Nav";
 import DataContext from "../DataContextProvider";
-import axios from 'axios';
+import axios from "axios";
 import MovieCard from "../MovieApi/MovieCard";
 
 const Movies = () => {
@@ -11,37 +11,35 @@ const Movies = () => {
 
   const { data } = useContext(DataContext);
 
- 
-    const fetchMovies = async () => {
-      try {
-        setLoading(true);
-        const response = await axios.get(
-          "https://academics.newtonschool.co/api/v1/ott/show",
-          {
-            headers: {
-              projectId: "aopqdxbd59rz",
-            },
-            params: {
-              filter: JSON.stringify({ type: "movie" }),
-            },
-          }
-        );
-        setMovies(response.data.data);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error in fetching API:", error);
-        setLoading(false);
-      }
-    };
-    useEffect(() => {
+  const fetchMovies = async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get(
+        "https://academics.newtonschool.co/api/v1/ott/show",
+        {
+          headers: {
+            projectId: "aopqdxbd59rz",
+          },
+          params: {
+            filter: JSON.stringify({ type: "movie" }),
+          },
+        }
+      );
+      setMovies(response.data.data);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error in fetching API:", error);
+      setLoading(false);
+    }
+  };
+  useEffect(() => {
     fetchMovies();
   }, []);
- 
- 
+
   return (
-    < div className='bg'>
-    <Nav />
-    {data && (
+    <div className="bg">
+      <Nav />
+      {data && (
         <>
           {loading ? (
             <div className="loaderContainer">
@@ -63,9 +61,8 @@ const Movies = () => {
           )}
         </>
       )}
-       
     </div>
-  )
-}
+  );
+};
 
-export default Movies
+export default Movies;

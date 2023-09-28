@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Nav from "../page/Nav"
+import Nav from "../page/Nav";
 import CheckIcon from "@mui/icons-material/Check";
 import "./Subscription.css";
 import Footer from "../footer/Footer";
@@ -20,11 +20,9 @@ const SubscriptionStep = () => {
         <h5 style={{ color: "gray" }}>STEP 2 OF 3</h5>
         <h1>Choose the plan that’s right for you</h1>
         <div className="cartss">
-          <div 
-           className={`cart ${
-            selectedPlan === "premium" ? "selected" : ""
-          }`}
-          onClick={() => handleSelect("premium")}
+          <div
+            className={`cart ${selectedPlan === "premium" ? "selected" : ""}`}
+            onClick={() => handleSelect("premium")}
           >
             <div className="premium">
               <h2>Premium</h2>
@@ -77,11 +75,9 @@ const SubscriptionStep = () => {
               </div>
             </div>
           </div>
-          <div 
-           className={`cart ${
-            selectedPlan === "standard" ? "selected" : ""
-          }`}
-          onClick={() => handleSelect("standard")}
+          <div
+            className={`cart ${selectedPlan === "standard" ? "selected" : ""}`}
+            onClick={() => handleSelect("standard")}
           >
             <div className="premium">
               <h2>Standard</h2>
@@ -129,11 +125,9 @@ const SubscriptionStep = () => {
               </div>
             </div>
           </div>
-          <div 
-          className={`cart ${
-            selectedPlan === "basic" ? "selected" : ""
-          }`}
-          onClick={() => handleSelect("basic")}
+          <div
+            className={`cart ${selectedPlan === "basic" ? "selected" : ""}`}
+            onClick={() => handleSelect("basic")}
           >
             <div className="premium">
               <h2>Basic</h2>
@@ -181,11 +175,9 @@ const SubscriptionStep = () => {
               </div>
             </div>
           </div>
-          <div 
-          className={`cart ${
-            selectedPlan === "mobile" ? "selected" : ""
-          }`}
-          onClick={() => handleSelect("mobile")}
+          <div
+            className={`cart ${selectedPlan === "mobile" ? "selected" : ""}`}
+            onClick={() => handleSelect("mobile")}
           >
             <div className="premium">
               <h2>Mobile</h2>
@@ -242,8 +234,8 @@ const SubscriptionStep = () => {
           different devices at the same time with Premium, 2 with Standard, and
           1 with Basic and Mobile.
         </p>
-        <div className="next" onClick={()=>navigate('/payment-page')}>
-        <button >Next</button>
+        <div className="next" onClick={() => navigate("/payment-page")}>
+          <button>Next</button>
         </div>
       </div>
       <Footer />

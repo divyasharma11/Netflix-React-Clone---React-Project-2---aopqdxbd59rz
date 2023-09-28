@@ -1,22 +1,22 @@
 .hero-section {
-    top: 0;
-    display: flex;
-    justify-content: center;
-    flex-direction: column; 
-    align-items: center;
-    background-image: url("../images/login-bg.jpg");
-    color: rgb(255, 255, 255);
-    text-align: center;
-    padding: 50px 0;
-    min-height: 110vh;
-    background-size: cover;
-    background-position: center;
-    z-index: 1;
-    box-shadow: inset 0px 0px 250px 75px black;
-  }
-  
-  .login-nav{
-position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("../images/login-bg.jpg");
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 50px 0;
+  min-height: 110vh;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  box-shadow: inset 0px 0px 250px 75px black;
+}
+
+.login-nav {
+  position: absolute;
   top: 0;
   width: 100%;
   height: 10vh;
@@ -24,36 +24,35 @@ position: absolute;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  }
+}
 
-  .logo-container .logo {
-    position: absolute;
-    top: 0px !important;
-    width: 250px !important;
-    height: 100px !important;
-    left: 5rem ;
-  }
-  
+.logo-container .logo {
+  position: absolute;
+  top: 0px !important;
+  width: 250px !important;
+  height: 100px !important;
+  left: 5rem;
+}
 
-.sign-container{
-    width: 420px;
-    height: 500px;
-    background-color: rgba(0,0,0,0.8);
-  }
-  .sign-container h2{
-    font-size:x-large;
-    text-align: center;
-    font-weight: 800;
-    padding: 10px;
-    color: #fff;
-    padding-top: 50px;
-  }
- .login button{
+.sign-container {
+  width: 420px;
+  height: 500px;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.sign-container h2 {
+  font-size: x-large;
+  text-align: center;
+  font-weight: 800;
+  padding: 10px;
+  color: #fff;
+  padding-top: 50px;
+}
+.login button {
   margin: 10px 10px;
   border-radius: 5px;
- }
- 
- .inpt-txt{
+}
+
+.inpt-txt {
   height: 3rem;
   width: 300px;
   margin: 10px 10px;
@@ -62,52 +61,52 @@ position: absolute;
   border-radius: 3px;
   border-bottom: 2px solid red;
   /* background-color:rgb(92, 86, 86); */
- }
- .inpt-txt:focus{
+}
+.inpt-txt:focus {
   outline: none;
- }
- .inpt-txt::placeholder{
-  color:#494848 ;
- }
- .remember{
- margin: 20px;
+}
+.inpt-txt::placeholder {
+  color: #494848;
+}
+.remember {
+  margin: 20px;
   display: flex;
   justify-content: space-around;
   color: #494848;
- }
- #new{
+}
+#new {
   margin-top: 30px;
   color: #494848;
   float: left;
   font-size: medium;
   padding: 10px 70px;
- }
-  .link2{
+}
+.link2 {
   color: #fff;
   font-size: medium;
   text-decoration: none;
- }
- .link2:hover{
+}
+.link2:hover {
   text-decoration: underline;
- }
- .end p{
+}
+.end p {
   margin-top: 40px;
   font-size: small;
   color: #494848;
   padding: 10px 30px;
- }
- .learn-more{
+}
+.learn-more {
   color: blue;
- }
- .Toastify__toast-container{
+}
+.Toastify__toast-container {
   width: fit-content !important;
 }
-.Toastify__close-button{
+.Toastify__close-button {
   width: fit-content !important;
   padding-left: 10px !important;
-    padding-bottom: 15px !important;
+  padding-bottom: 15px !important;
 }
- .success-container{
+.success-container {
   position: absolute;
   top: 4rem;
   right: 4rem;
@@ -118,8 +117,8 @@ position: absolute;
   height: 50px;
   font-size: 1.2rem;
   border-bottom: 5px solid green;
- }
- .error-container{
+}
+.error-container {
   position: absolute;
   top: 4rem;
   right: 4rem;
@@ -129,44 +128,44 @@ position: absolute;
   width: 300px;
   height: 50px;
   border-bottom: 4px solid red;
- }
- .cross{
+}
+.cross {
   position: absolute;
- right: 4px;
- }
- @media only screen and (max-width: 568px) {
-    .logo-container .logo{
-        width: 150px !important;
-        height: 80px !important;
-        margin-top: .2rem !important;
-        margin-left: -5rem !important;
-    }
-      .login button{
-      width: 80%;
-        height: 40px;
-        font-size: small;
-        font-weight: bold;
-        margin-top: .1rem;
-      }
-    .hero-section {
-      padding: 30px 0;
-      height: 100vh;
-    }
-    .sign-container{
-        /* margin-top: 50px; */
-        width: fit-content;
-        margin:100px 30px 50px 30px;
-        height: fit-content;
-        background-color: rgba(0,0,0,0.8);
-    }
-    .sign-container h2{
-        font-size: large;
-    }
-    .inpt-txt{
-        height: 3rem;
-        width: 80%;
-    }
-    #new{
-        margin-top: 0px;
-    }
+  right: 4px;
+}
+@media only screen and (max-width: 568px) {
+  .logo-container .logo {
+    width: 150px !important;
+    height: 80px !important;
+    margin-top: 0.2rem !important;
+    margin-left: -5rem !important;
+  }
+  .login button {
+    width: 80%;
+    height: 40px;
+    font-size: small;
+    font-weight: bold;
+    margin-top: 0.1rem;
+  }
+  .hero-section {
+    padding: 30px 0;
+    height: 100vh;
+  }
+  .sign-container {
+    /* margin-top: 50px; */
+    width: fit-content;
+    margin: 100px 30px 50px 30px;
+    height: fit-content;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  .sign-container h2 {
+    font-size: large;
+  }
+  .inpt-txt {
+    height: 3rem;
+    width: 80%;
+  }
+  #new {
+    margin-top: 0px;
+  }
 }

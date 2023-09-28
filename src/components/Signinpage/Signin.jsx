@@ -72,7 +72,7 @@ const Signin = () => {
 
       localStorage.setItem("updatedProfile", img);
 
-      setIsLoggedIn({success:true,});
+      setIsLoggedIn({ success: true });
       toast.success("Signin Successfull.", {
         position: "top-right",
         autoClose: 1500,
@@ -119,7 +119,7 @@ const Signin = () => {
   };
 
   useEffect(() => {
-    if ( isLoggedIn.success) {
+    if (isLoggedIn.success) {
       setTimeout(() => {
         navigate("/home");
       }, 2500);
@@ -128,65 +128,66 @@ const Signin = () => {
   return (
     <>
       <nav className="login-nav">
-        <div className="logo-container" onClick={()=>navigate("/")}>
+        <div className="logo-container" onClick={() => navigate("/")}>
           <img src={logo} alt="Netflix Logo" className="logo" />
         </div>
       </nav>
       <div className="hero-section">
-          <div className="sign-container">
+        <div className="sign-container">
           <ToastContainer />
-            <h2>Sign In</h2>
-            <div>
-              <input
-                className="inpt-txt"
-                type="email"
-                id="email"
-                name="email"
-                placeholder="email"
-                value={formData.email}
-                onChange={handleOnChange}
-              />
-               <div className="errors" ref={emailErrorRef}>
+          <h2>Sign In</h2>
+          <div>
+            <input
+              className="inpt-txt"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="email"
+              value={formData.email}
+              onChange={handleOnChange}
+            />
+            <div className="errors" ref={emailErrorRef}>
               Please enter a valid email id.
             </div>
-              <input
-                className="inpt-txt"
-                type="password"
-                id="password"
-                name="password"
-                placeholder="password"
-                value={formData.password}
-                onChange={handleOnChange}
-              />
-               <div className="errors" ref={passwordErrorRef}>
-               Password must be at least 6 characters long.
+            <input
+              className="inpt-txt"
+              type="password"
+              id="password"
+              name="password"
+              placeholder="password"
+              value={formData.password}
+              onChange={handleOnChange}
+            />
+            <div className="errors" ref={passwordErrorRef}>
+              Password must be at least 6 characters long.
             </div>
-              <div className="login">
-                <button onClick={handleLogin}>Login</button>
-               </div>
-              <div className="remember">
-                <span>
+            <div className="login">
+              <button onClick={handleLogin}>Login</button>
+            </div>
+            <div className="remember">
+              <span>
                 <input type="checkbox" />
                 Remember me
-                </span>
-                <span>need help?</span>
-              </div>
-              <div id="new">
-                New to Netflix?{" "}
-                <Link to={"/signup "} className="link2">
-                  Sign up now
-                </Link>
-              </div>
-              <br />
+              </span>
+              <span>need help?</span>
             </div>
-              <div className="end">
-              <p>This page is protected by Google reCAPTCHA to
-              <br />
-              ensure you're not a bot. 
-              <span className="learn-more"> Learn more</span>
-              </p>
-              </div>
+            <div id="new">
+              New to Netflix?{" "}
+              <Link to={"/signup "} className="link2">
+                Sign up now
+              </Link>
+            </div>
+            <br />
           </div>
+          <div className="end">
+            <p>
+              This page is protected by Google reCAPTCHA to
+              <br />
+              ensure you're not a bot.
+              <span className="learn-more"> Learn more</span>
+            </p>
+          </div>
+        </div>
       </div>
     </>
   );

@@ -23,7 +23,6 @@ import DataContext from "../DataContextProvider";
 import MenuIcon from "@mui/icons-material/Menu";
 import DropdownMenu from "../DropdownMenu";
 
-
 const Nav = () => {
   const navigate = useNavigate();
   const [show, handleShow] = useState(false);
@@ -64,11 +63,11 @@ const Nav = () => {
       const searchData = searchingRef.current.filter((movie) =>
         movie.title.toLowerCase().includes(inputSearch.toLowerCase())
       );
-       setLoading(false)
+      setLoading(false);
       setSearching(searchData);
     } catch (error) {
       console.error("Error fetching data from search:", error);
-      setLoading(false)
+      setLoading(false);
     }
   };
 
@@ -89,14 +88,14 @@ const Nav = () => {
     setInputVisible(!inputVisible);
     searchRef.current.style.display = "none";
   };
-  
- const closeIconHandler=()=>{
-  setInputVisible(false);
-  searchRef.current.style.display = "block";
-  searchContentRef.current.style.display = "none";
-  setInputSearch("");
-  setData(true);
- }
+
+  const closeIconHandler = () => {
+    setInputVisible(false);
+    searchRef.current.style.display = "block";
+    searchContentRef.current.style.display = "none";
+    setInputSearch("");
+    setData(true);
+  };
   return (
     <>
       <nav className={`navbar ${show && "nav__black"} `}>
@@ -121,15 +120,15 @@ const Nav = () => {
               <MenuIcon className="menu-icon" />
             </div>
             <div class="dropdown-content">
-            <Link to="/my-list" className="mobile" title="my list">
-              My List
-            </Link>
-            <Link to="/movies" className="mobile" title="movies">
-              Movies
-            </Link>
-            <Link to="/tv-shows" className="mobile" title="tv shows">
-              TV Shows
-            </Link>
+              <Link to="/my-list" className="mobile" title="my list">
+                My List
+              </Link>
+              <Link to="/movies" className="mobile" title="movies">
+                Movies
+              </Link>
+              <Link to="/tv-shows" className="mobile" title="tv shows">
+                TV Shows
+              </Link>
             </div>
           </div>
         </div>
@@ -159,27 +158,27 @@ const Nav = () => {
         </div>
       </nav>
       <div className="search-container" ref={searchContentRef}>
-      {loading ? (
-            <div className="loaderContainer">
-              <div className="loader"></div>
-            </div>
-          ) : (
-        <div className="movies-container">
-          {searching.map((movie, index) => (
-            <MovieCard
-              thumbnail={movie.thumbnail}
-              title={movie.title}
-              showId={movie._id}
-              keywords={movie.keywords}
-              match="77%"
-              key={index}
-              videoUrl={movie.video_url}
-            />
-          ))}
-        </div>
-          )}
+        {loading ? (
+          <div className="loaderContainer">
+            <div className="loader"></div>
+          </div>
+        ) : (
+          <div className="movies-container">
+            {searching.map((movie, index) => (
+              <MovieCard
+                thumbnail={movie.thumbnail}
+                title={movie.title}
+                showId={movie._id}
+                keywords={movie.keywords}
+                match="77%"
+                key={index}
+                videoUrl={movie.video_url}
+              />
+            ))}
+          </div>
+        )}
       </div>
-        <p className="no_data">No movies here!!!</p>
+      <p className="no_data">No movies here!!!</p>
     </>
   );
 };

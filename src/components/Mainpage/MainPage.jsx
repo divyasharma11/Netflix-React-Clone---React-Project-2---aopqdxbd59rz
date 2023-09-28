@@ -10,16 +10,15 @@ import AddIcon from "@mui/icons-material/Add";
 import Modal from "react-modal";
 import LanguageIcon from "@mui/icons-material/Language";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 const MainPage = () => {
   const navigate = useNavigate(null);
 
   const handleSignIn = () => {
-   navigate("/signin");
+    navigate("/signin");
   };
-  
+
   return (
     <>
       <nav className="login-nav">
@@ -46,8 +45,10 @@ const MainPage = () => {
             membership.
           </p>
           <div className="div">
-          <button className="start-btn" onClick={() => navigate("/signup")}>Get Started</button>
-          <ChevronRightIcon className="ChevronRightIcon" />
+            <button className="start-btn" onClick={() => navigate("/signup")}>
+              Get Started
+            </button>
+            <ChevronRightIcon className="ChevronRightIcon" />
           </div>
         </div>
       </div>
@@ -190,7 +191,7 @@ const MainPage = () => {
           <div>
             <AddIcon />
           </div>
-          </div>
+        </div>
         <div className="cart-content">
           <div>How much does Netflix cost?</div>
           <div>
@@ -225,9 +226,11 @@ const MainPage = () => {
           Ready to watch? Enter your email to create or restart your membership.
         </h2>
         <div className="div">
-        <button className="start-btn" onClick={() => navigate("/signup")}>Get started</button>
-        <ChevronRightIcon className="ChevronRightIcon" />
-      </div>
+          <button className="start-btn" onClick={() => navigate("/signup")}>
+            Get started
+          </button>
+          <ChevronRightIcon className="ChevronRightIcon" />
+        </div>
       </div>
       <hr
         style={{

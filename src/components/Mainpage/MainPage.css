@@ -1,28 +1,28 @@
 /* General Styles */
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
-  
-  /* Hero Section */
-  .hero-section {
-    top: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url("../images/login-bg.jpg");
-    color: rgb(255, 255, 255);
-    text-align: center;
-    padding: 50px 0;
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    z-index: 1;
-    box-shadow: inset 0px 0px 250px 75px black;
-  }
-  
-  .login-nav{
-    position: absolute;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Hero Section */
+.hero-section {
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../images/login-bg.jpg");
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 50px 0;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  box-shadow: inset 0px 0px 250px 75px black;
+}
+
+.login-nav {
+  position: absolute;
   top: 0;
   width: 100%;
   height: 10vh;
@@ -30,353 +30,350 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+/* Logo */
+.logo-container .logo {
+  position: absolute;
+  top: 0px !important;
+  width: 250px !important;
+  height: 100px !important;
+  left: 5rem;
+}
+
+/* Login Button */
+.login-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+  margin-right: 10rem;
+}
+
+.login-btn button {
+  width: 90px !important;
+  border-radius: 2px;
+}
+
+/* Content */
+.content {
+  margin-top: 3rem;
+}
+
+.content h1 {
+  font-size: 2.8rem;
+  padding: 10px;
+}
+
+.content p {
+  font-size: 1.5rem;
+  padding: 5px;
+}
+
+/* Buttons*/
+button {
+  background-color: rgb(229, 9, 20);
+  color: rgb(255, 255, 255);
+  padding: 8px 0px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  border: none;
+  cursor: pointer;
+  width: 300px;
+  margin: auto;
+  margin-top: 20px;
+}
+.start-btn {
+  background-color: rgb(229, 9, 20);
+  color: rgb(255, 255, 255);
+  padding: 10px 0px;
+  border: none;
+  cursor: pointer;
+  width: 500px;
+  height: 50px;
+  margin: auto;
+  margin-top: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: x-large;
+}
+
+.start-btn:hover {
+  background-color: rgb(163, 9, 17);
+}
+.div .ChevronRightIcon {
+  position: relative;
+  right: 11rem;
+  top: 8px;
+  font-size: xx-large;
+}
+
+/* Movie Section */
+.movie-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: black;
+  color: #fff;
+  padding: 20px;
+  height: 90vh;
+}
+
+/* Movie Poster */
+.movie-poster {
+  width: 400px;
+  height: 450px;
+  margin: 0 auto;
+}
+
+.movie-poster img {
+  height: 100%;
+  width: 100%;
+}
+
+/* Movie Trailer */
+.movie-trailer {
+  width: 560px;
+  height: 315px;
+  margin: auto 15px;
+}
+
+.movie-trailer iframe {
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+}
+
+/* Movie Text */
+#movie-text {
+  line-height: 1.5;
+  padding-left: 6rem;
+}
+
+/* Movie Title */
+.movie-title {
+  font-size: 4.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Movie Description */
+.movie-description {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+/* Cart Container */
+.cart-Container {
+  background-color: black;
+  color: white;
+  padding: 50px 50px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-Container h1 {
+  font-size: 3rem;
+  margin: 2rem;
+}
+
+.cart-Container h2 {
+  margin-top: 2rem;
+}
+
+.cart-content {
+  width: 80%;
+  height: 5rem;
+  background-color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  font-size: 1.5rem;
+  margin: 3px;
+}
+
+.cart-content:hover {
+  background-color: #555;
+}
+.cart-description {
+  width: 80%;
+  background-color: #333;
+  margin-top: 0;
+  font-size: 18px;
+  line-height: 20px;
+  padding: 20px;
+}
+
+/* Footer */
+.footer-content {
+  padding: 60px;
+  background-color: black;
+  color: white;
+  min-height: 300px;
+}
+
+.footer-content .tagp {
+  margin-left: 8rem;
+}
+
+.footer {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.footer-links .foot {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  color: #fff;
+}
+
+.foot-btn {
+  width: 140px;
+  height: 35px;
+  display: flex;
+  margin-left: 13rem;
+  margin-right: 1rem;
+  margin-top: 1.3rem;
+  background: none;
+  border: 1px solid gray;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+}
+.foot-btn .language {
+  margin: 5px 15px;
+  color: #fff;
+}
+.foot-btn p {
+  color: #fff;
+  margin: 8px 0px;
+}
+.key {
+  margin-top: 5px;
+  color: #fff;
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 768px) {
+  .hero-section {
+    padding: 30px 0;
+    height: 70vh;
   }
-  /* Logo */
   .logo-container .logo {
-    position: absolute;
-    top: 0px !important;
-    width: 250px !important;
-    height: 100px !important;
-    left: 5rem ;
+    width: 150px !important;
+    height: 80px !important;
+    margin-top: 0.2rem !important;
+    margin-left: -5rem !important;
   }
-  
-  /* Login Button */
+
   .login-btn {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 0.5rem;
-    margin-right: 10rem;
+    margin-right: 2rem;
   }
-  
   .login-btn button {
-    width: 90px !important;
-    border-radius: 2px;
-  }
-  
-  /* Content */
-  .content {
-    margin-top: 3rem;
-  }
-  
-  .content h1 {
-    font-size: 2.8rem;
-    padding: 10px;
-  }
-  
-  .content p {
-    font-size: 1.5rem;
-    padding: 5px;
-  }
-  
-  /* Buttons*/
-  button{
-    background-color: rgb(229, 9, 20);
-    color: rgb(255, 255, 255);
-    padding: 8px 0px;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-    border:none;
-    cursor: pointer;
-    width: 300px;
-    margin: auto;
-    margin-top: 20px;
+    width: 60px !important;
+    height: 30px !important;
+    font-size: small !important;
+    font-weight: bold;
+    margin-top: 0.1rem;
   }
   .start-btn {
-    background-color: rgb(229, 9, 20);
-    color: rgb(255, 255, 255);
-    padding: 10px 0px;
-    border: none;
-    cursor: pointer;
-    width: 500px;
-    height: 50px;
-    margin: auto;
-    margin-top: 20px;
-    font-weight:700;
-    letter-spacing: 1px;
-    font-size: x-large;
-  }
-  
-  .start-btn:hover {
-    background-color: rgb(163, 9, 17);
-  }
-  .div .ChevronRightIcon{
-    position: relative;
-   right: 11rem;
-   top: 8px;
-   font-size: xx-large;
-  }
-  
-  /* Movie Section */
-  .movie-section {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    background-color: black;
-    color: #fff;
-    padding: 20px;
-    height: 90vh;
-  }
-  
-  /* Movie Poster */
-  .movie-poster {
-    width: 400px;
-    height: 450px;
-    margin: 0 auto;
-  }
-  
-  .movie-poster img {
-    height: 100%;
-    width: 100%;
-  }
-  
-  /* Movie Trailer */
-  .movie-trailer {
-    width: 560px;
-    height: 315px;
-    margin: auto 15px;
-  }
-  
-  .movie-trailer iframe {
-    height: 100%;
-    width: 100%;
-    padding: 10px;
-  }
-  
-  /* Movie Text */
-  #movie-text {
-    line-height: 1.5;
-    padding-left: 6rem;
-  }
-  
-  /* Movie Title */
-  .movie-title {
-    font-size: 4.5rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  /* Movie Description */
-  .movie-description {
-    font-size: 1.5rem;
-    margin-bottom: 8px;
-  }
-  
-  /* Cart Container */
-  .cart-Container {
-    background-color: black;
-    color: white;
-    padding: 50px 50px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .cart-Container h1 {
-    font-size: 3rem;
-    margin: 2rem;
-  }
-  
-  .cart-Container h2 {
-    margin-top: 2rem;
-  }
-  
-  .cart-content {
-    width: 80%;
-    height: 5rem;
-    background-color: #333;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem;
-    font-size: 1.5rem;
-    margin: 3px;
-  }
-  
-  .cart-content:hover {
-    background-color: #555;
-  }
-  .cart-description{
-    width: 80%;
-    background-color: #333;
-    margin-top: 0;
-   font-size: 18px;
-   line-height: 20px;
-   padding: 20px;
-  }
-  
-  /* Footer */
-  .footer-content {
-    padding: 60px;
-    background-color: black;
-    color: white;
-    min-height: 300px;
-  }
-  
-  .footer-content .tagp {
-    margin-left: 8rem;
-  }
-  
-  .footer {
-    margin-top: 3rem;
-    display: flex;
-    justify-content: space-evenly;
-  }
-  
-  .footer-links .foot {
-    display: flex;
-    flex-direction: row;
-    padding: 10px;
-    color: #fff;
-  }
-  
-  .foot-btn {
-    width: 140px;
+    width: 250px;
     height: 35px;
-    display: flex;
-    margin-left: 13rem;
-    margin-right: 1rem;
-    margin-top: 1.3rem;
-    background: none;
-    border: 1px solid gray;
-    background-color: rgba(0,0,0,0.4);
-    border-radius: 5px;
+    font-size: small;
   }
-  .foot-btn .language{
-    margin: 5px 15px;
-    color: #fff;
+  .div .ChevronRightIcon {
+    display: none;
   }
-  .foot-btn p{
-    color: #fff;
-    margin: 8px 0px;
-  }
-  .key{
-     margin-top: 5px;
-     color: #fff;
-    
-  }
-  
-  
-  /* Media Queries */
-  
-  @media only screen and (max-width: 768px) {
-    .hero-section {
-      padding: 30px 0;
-      height: 70vh;
-    }
-    .logo-container .logo{
-      width: 150px !important;
-      height: 80px !important;
-      margin-top: .2rem !important;
-      margin-left: -5rem !important;
-    }
 
-    .login-btn {
-      margin-right: 2rem;
-    }
-    .login-btn button{
-      width: 60px !important;
-      height: 30px !important;
-      font-size: small !important;
-      font-weight: bold;
-      margin-top: .1rem;
-    }
-    .start-btn {
-      width: 250px ;
-      height: 35px;
-      font-size: small;
-    }
-    .div .ChevronRightIcon{
-     display: none;
-    }
-    
-    .content h1 {
-      font-size: 18px;
-      padding: 2px;
-    }
-    
-    .content p {
-      font-size: 15px;
-      padding: 5px;
-    }
-    
-    .movie-section {
-      flex-direction: column;
-      height: auto;
-    }
-    
-    .movie-poster {
-      width: 70%;
-      height: auto;
-    }
-    
-    .movie-trailer {
-      width: 100%;
-      height: 240px;
-      margin: 15px 0;
-    }
-    
-    #movie-text {
-      padding-left: 0;
-      text-align: center;
-    }
-    
-    .movie-title {
-      font-size: 1.5rem;
-    }
-    
-    .movie-description {
-      font-size: 1rem;
-    }
-    .movie-release-date{
-      font-size: 10px;
-    }
-    .cart-Container {
-      padding: 30px 30px;
-    }
-    
-    .cart-Container h1 {
-      font-size: 2rem;
-    }
-    
-    .footer-content {
-      padding: 30px;
-      font-size: 10px;
-    }
-    
-    .footer-content p {
-      margin-left: 0;
-      text-align: center;
-    }
-    
-    .footer-links .foot {
-        font: 18px;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 10px;
-    }
-    
-    .foot-btn {
-      width: 90px;
-      height: fit-content;
-      margin-left: 1rem;
-      font-size: 12px;
-      padding: 0px 2px;
-      margin-top: .2rem;
-    }
-    .foot-btn .language{
-      margin: 5px 5px;
-     font-size: small;
-    }
-    .foot-btn p{
-      color: #fff;
-      margin: 5px 0px;
-    }
-    .foot-btn .key{
+  .content h1 {
+    font-size: 18px;
+    padding: 2px;
+  }
+
+  .content p {
+    font-size: 15px;
+    padding: 5px;
+  }
+
+  .movie-section {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .movie-poster {
+    width: 70%;
+    height: auto;
+  }
+
+  .movie-trailer {
+    width: 100%;
+    height: 240px;
+    margin: 15px 0;
+  }
+
+  #movie-text {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .movie-title {
+    font-size: 1.5rem;
+  }
+
+  .movie-description {
+    font-size: 1rem;
+  }
+  .movie-release-date {
+    font-size: 10px;
+  }
+  .cart-Container {
+    padding: 30px 30px;
+  }
+
+  .cart-Container h1 {
+    font-size: 2rem;
+  }
+
+  .footer-content {
+    padding: 30px;
+    font-size: 10px;
+  }
+
+  .footer-content p {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .footer-links .foot {
+    font: 18px;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .foot-btn {
+    width: 90px;
+    height: fit-content;
+    margin-left: 1rem;
+    font-size: 12px;
+    padding: 0px 2px;
+    margin-top: 0.2rem;
+  }
+  .foot-btn .language {
+    margin: 5px 5px;
+    font-size: small;
+  }
+  .foot-btn p {
+    color: #fff;
+    margin: 5px 0px;
+  }
+  .foot-btn .key {
     margin-top: 3px;
     font-size: 1.2rem;
-    }
   }
-  
+}

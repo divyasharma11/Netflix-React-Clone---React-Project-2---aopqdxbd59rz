@@ -2,7 +2,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import YouTubeIcon from "@mui/icons-material/YouTube";
-import './Style.css';
+import "./Style.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Foot = () => {
@@ -11,17 +11,19 @@ const Foot = () => {
   return (
     <footer className="footer-container">
       <div className="footer-section">
-        <Link to={"https://www.facebook.com/NetflixIN/?brand_redir=475822799216240"}>
-        <FacebookIcon className="footer-icon"/>
+        <Link
+          to={"https://www.facebook.com/NetflixIN/?brand_redir=475822799216240"}
+        >
+          <FacebookIcon className="footer-icon" />
         </Link>
         <Link to={"https://www.instagram.com/netflix/?hl=en"}>
-        <InstagramIcon className="footer-icon" />
+          <InstagramIcon className="footer-icon" />
         </Link>
         <Link to={"https://twitter.com/netflixindia?lang=en"}>
-        <TwitterIcon className="footer-icon" />
+          <TwitterIcon className="footer-icon" />
         </Link>
         <Link to={"https://www.youtube.com/@NetflixIndiaOfficial"}>
-        <YouTubeIcon className="footer-icon" />
+          <YouTubeIcon className="footer-icon" />
         </Link>
       </div>
       <div className="footer-sectionlist">

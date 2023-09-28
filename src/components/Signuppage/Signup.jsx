@@ -21,11 +21,11 @@ const Signup = () => {
   const [registered, setRegistered] = useState({
     success: false,
   });
-  
+
   const nameErrorRef = useRef(null);
   const emailErrorRef = useRef(null);
   const passwordErrorRef = useRef(null);
-  
+
   const handleSignup = (e) => {
     const { name, value } = e.target;
     setFormDetails((prevData) => ({
@@ -62,9 +62,9 @@ const Signup = () => {
           },
         }
       );
-    
+
       setRegistered({
-        success : true,
+        success: true,
       });
       toast.success("Account successfully Registered!", {
         position: "top-right",
@@ -83,7 +83,7 @@ const Signup = () => {
         error.response.data.message === "User already exists"
       ) {
         setRegistered({
-          success : false,
+          success: false,
         });
         toast.error("User with this email is already registered.", {
           position: "top-right",
@@ -97,7 +97,7 @@ const Signup = () => {
         });
       } else {
         setRegistered({
-          success : false,
+          success: false,
         });
         toast.error("Error in signing up. Please try again.", {
           position: "top-right",
@@ -121,10 +121,9 @@ const Signup = () => {
     }
   }, [registered]);
 
- 
   return (
     <>
-    <ToastContainer />
+      <ToastContainer />
       <Navbar />
       <div className="signup-container">
         <div className="content1">
@@ -146,7 +145,7 @@ const Signup = () => {
               required
             />
             <div className="errors" ref={nameErrorRef}>
-            name must be at least 3 characters.
+              name must be at least 3 characters.
             </div>
             <input
               className="input-text"
@@ -169,8 +168,8 @@ const Signup = () => {
               value={password}
               onChange={handleSignup}
             />
-             <div className="errors" ref={passwordErrorRef}>
-             Password must be at least 6 characters long.
+            <div className="errors" ref={passwordErrorRef}>
+              Password must be at least 6 characters long.
             </div>
             <button className="signup-btn" onClick={signUpHandler}>
               Sign up
@@ -189,7 +188,7 @@ const Signup = () => {
           </div>
         </div>
       </div>
-      
+
       <Footer />
     </>
   );

@@ -1,20 +1,20 @@
-import React from 'react'
+import React from "react";
 import "./Subscription.css";
-import comingsoon from '../images/coming-soon.png';
-import Footer from '../footer/Footer';
-import Nav from '../page/Nav';
+import comingsoon from "../images/coming-soon.png";
+import Footer from "../footer/Footer";
+import Nav from "../page/Nav";
 const Payment = () => {
   return (
     <>
-    <Nav />
-    <div className="signup-container">
-      <div className='payment-img'>
-          <img src={comingsoon} alt='payment' />
+      <Nav />
+      <div className="signup-container">
+        <div className="payment-img">
+          <img src={comingsoon} alt="payment" />
+        </div>
       </div>
-     </div>
-    <Footer />
+      <Footer />
     </>
-  )
-}
+  );
+};
 
 export default Payment;
