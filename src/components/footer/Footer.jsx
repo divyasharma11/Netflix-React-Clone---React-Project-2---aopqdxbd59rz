@@ -5,7 +5,8 @@ const Footer = (props) => {
 
   return (
     <div className="footer-content1" >
-        <p>Questions? Call 000-800-919-1694</p>
+        {/* <p>Questions? Call 000-800-919-1694</p> */}
+        <p>Netflix Clone By Divya</p>
         <div className="footerr">
         <div className="footer-link">
             <Link className="footr">FAQ</Link>

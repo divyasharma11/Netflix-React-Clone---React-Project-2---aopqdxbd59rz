@@ -157,6 +157,12 @@ const MovieApi = () => {
     <>
       {data && (
         <>
+         {loading ? (
+          <div className="loaderContainer">
+            <div className="loader"></div>
+          </div>
+        ) : (
+        <>
             <div className="movie-container">
               <h2>Netflix Originals</h2>
               <div className="paginationButtons">
@@ -416,8 +422,10 @@ const MovieApi = () => {
                   ))}
                   </div>
             </div>
+            </>
+        )}
         </>
-      )}
+      )}    
     </>
   );
 };

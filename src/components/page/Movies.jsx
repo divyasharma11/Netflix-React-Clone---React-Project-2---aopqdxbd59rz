@@ -3,7 +3,8 @@ import "./Style.css";
 import Nav from './Nav';
 import DataContext from "../DataContextProvider";
 import axios from 'axios';
-import MovieCard from "../MovieApi/MovieCard"
+import MovieCard from "../MovieApi/MovieCard";
+
 const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
