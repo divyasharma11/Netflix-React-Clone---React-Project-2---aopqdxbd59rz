@@ -6,12 +6,12 @@ import { MenuItem, menuItemClasses } from "@mui/base/MenuItem";
 import { styled } from "@mui/system";
 import avatar from "./images/avatar.jpg";
 import ModeOutlinedIcon from "@mui/icons-material/ModeOutlined";
-import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import SubscriptionsOutlinedIcon from "@mui/icons-material/SubscriptionsOutlined";
-import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
-import SignOut from "./SignOut";
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const DropdownMenu = () => {
     const navigate = useNavigate();
     const [userDetail, setUserDetail] = useState(null);
@@ -33,8 +33,27 @@ const DropdownMenu = () => {
       }
     }, [updatedImage]);
 
+    const SignOut = () => {
+        toast.info("Logout successfully!", {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        setTimeout(() => {
+        localStorage.removeItem("Token");
+        localStorage.removeItem("userDetails");
+        localStorage.removeItem("updatedProfile");
+        navigate("/signin");
+      }, 3000);
+    };
   return (
     <Dropdown>
+       <ToastContainer />
     <TriggerButton className="nav-Dropdown">
       <img src={avatar} alt="Avatar" className="avatar" />
     </TriggerButton>
@@ -99,7 +118,7 @@ const DropdownMenu = () => {
       </StyledMenuItem>
       <StyledMenuItem className="accountItems">
         <div className="last-Icon">
-          <p className="icontxt" onClick={() => SignOut(navigate)}>
+          <p className="icontxt" onClick={ SignOut}>
             Sign out of Netflix
           </p>
         </div>
