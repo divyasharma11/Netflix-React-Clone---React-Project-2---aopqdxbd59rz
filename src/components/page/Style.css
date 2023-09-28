@@ -280,8 +280,6 @@
 
 /* seacrch  */
 .search-container {
-  /* width: 100%; */
-  /* height: 100vh; */
   background-color: #111;
   padding-left: 3rem;
 }
@@ -542,17 +540,23 @@ h2 {
   padding: 5px;
 }
 .span .vd-icon {
+  font-size:x-large;
+  position: relative;
+   top: 3px;
   font-size: medium;
 }
 .buton {
   width: 100px;
   background-color: #fff;
   color: #111;
-  padding: 4px;
+  padding: 10px;
   margin-right: 10px;
+  border-radius: 6px;
 }
-.vd-icons {
-  padding-top: 8px;
+.buton .vd-icons {
+  font-size:x-large;
+  position: relative;
+   top: 8px;
 }
 .vdo-more-container {
   display: flex;

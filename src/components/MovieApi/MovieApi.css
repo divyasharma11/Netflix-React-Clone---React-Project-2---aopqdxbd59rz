@@ -18,8 +18,9 @@ overflow-y: hidden;
 
 .carts{
   width: 202px;
+  height: 232px;
   margin: 20px ;
-    border-radius: 8px;
+  border-radius: 8px;
   border: 1px solid gray;
 }
 
@@ -33,16 +34,17 @@ overflow-y: hidden;
 }
 .cord:hover{
   transition: ease-in 0.3s;
-  transform: scale(1.1) translate(0,-35%);
+  transform: scale(1.1) translate(0,5%);
 }
 
 .hide-container{
-  display: none;
- position:absolute;
- width: 202px;
+ display: none;
+ position:relative;
+ width: 184px;
  height: fit-content;
- margin: 0px 20px;
+ margin: 0px 29px;
  border-radius: 8px;
+ border: 1px solid gray;
 }
 .hide-container span{
   width: 30px;
@@ -55,8 +57,9 @@ overflow-y: hidden;
 }
 .color{
   margin-top: -40px;
-  background-color: #333;
+  background-color: rgba(0,0,0,0.9);
   padding: 20px;
+  border-radius: 8px;
 }
  .first {
   display: flex;
@@ -87,8 +90,10 @@ overflow-y: hidden;
   color: rgb(161, 31, 31);
 }
 .span .sm-icon{
-margin-top:10px;
-font-size: 15px;
+  font-size:x-large;
+  position: relative;
+   top: 2px;
+  font-size: 15px;
 }
 
 .third{
@@ -99,8 +104,10 @@ font-size: 15px;
   color: #fff;
   margin-top:6px ;
 }
-.cord:hover .hide-container{
-  display: block;
+   .cord:hover .hide-container{
+   display: block;
+  transition: ease-in 0.3s;
+  transform: scale(1.1) translate(0,-75%);
 }
  .paginationButtons{
   display: flex;

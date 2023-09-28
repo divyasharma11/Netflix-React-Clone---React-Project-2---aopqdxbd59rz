@@ -26,12 +26,13 @@ const customStyles = {
     border: "none",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
-    backgroundColor: "black",
+    backgroundColor: "rgba(0,0,0,0.8)",
     overflowY: "scroll", 
-  margin: "20px 0"
+      margin: "20px 0"
+
   },
   overlay: {
-    backgroundColor: "rgba(0,0,0,0.6)",
+    backgroundColor: "rgba(0,0,0,0.7)",
   },
 };
 
@@ -110,7 +111,7 @@ const VedioModel = ({ isOpen, onClose , myListItem,showId,onClick,}) => {
             src={videoContent.video_url}
             type="video/mp4"
             muted={isMute}
-            // controls
+            controls
             autoPlay
             className="vdo"
           />
