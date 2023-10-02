@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Nav from "../page/Nav";
 import CheckIcon from "@mui/icons-material/Check";
 import "./Subscription.css";
@@ -26,8 +26,9 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
-
+const token = localStorage.getItem("Token");
 const SubscriptionStep = () => {
+  const Divya =  localStorage.getItem(`subscriptionStatus-${token}`);
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState(649);
@@ -36,13 +37,8 @@ const SubscriptionStep = () => {
   const handleClose = () => setOpen(false);
   const [upiId, setUpiId] = useState('');
   const [inputFilled, setInputFilled] = useState(false);
-  // const [selectedOption, setSelectedOption] = useState('599');
   const [displayNone, setDisplayNone] = useState(true)
   const [subscriptionStatus, setSubscriptionStatus] = useState(null);
-  const [isAlertOpen1, setIsAlertOpen1] = useState(false);
-  const [isAlertOpen2, setIsAlertOpen2] = useState(false);
-  const [isAlertOpen3, setIsAlertOpen3] = useState(false);
-  const [isAlertOpen4, setIsAlertOpen4] = useState(false);
 
   const handleSelect = (plan) => {
     setSelectedPlan(plan);
@@ -56,41 +52,14 @@ const SubscriptionStep = () => {
     setInputFilled(true); 
   };
   const handlePayButtonClick = () => {
-    if(!subscriptionStatus) {
-      // handleClose();
-        toast.error("Please Select Plan.", {
-          position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
-      }else if(subscriptionStatus){
-        handleOpen();
-      }
+      handleOpen();
   }
-  // const handleCloseAlert1 = () => {
-  //   setIsAlertOpen1(false);
-  // };
-  // const handleCloseAlert2 = () => {
-  //   setIsAlertOpen2(false);
-  // };
-  const handleCloseAlert3 = () => {
-    setIsAlertOpen3(false);
-  };
-  const handleCloseAlert4 = () => {
-    setIsAlertOpen4(false);
-  };
-
+  
   const handlePaymentConfirm = () => {
     if (inputFilled && upiId.length > 6 && upiId.includes('@')) {
       setIsLoading(true);
-      setTimeout(() => {
+      setTimeout(() =>{
         setIsLoading(false);
-        // setIsAlertOpen1(true);
         toast.success("Payment Successfull.", {
           position: "top-right",
           autoClose: 1500,
@@ -101,24 +70,14 @@ const SubscriptionStep = () => {
           progress: undefined,
           theme: "light",
         });
+        setTimeout(() => {
+          handleClose();
+          },2000)
         setSubscriptionStatus(selectedPlan);
-        localStorage.setItem(`subscriptionStatus-${userEmail}`, selectedPlan);
-        setUpiId('')
-        handleClose();
-      }, 5000)
-    } else if(!selectedPlan) {
-      // setIsAlertOpen2(true);
-        toast.error("Please Select Plan.", {
-          position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
-      }
+        localStorage.setItem(`subscriptionStatus-${token}`, selectedPlan);
+        setUpiId('');
+      }, 5000)  
+    } 
     else{
       toast.error("length should be 6 and includes @!", {
         position: "top-right",
@@ -132,7 +91,21 @@ const SubscriptionStep = () => {
       });
     }
   }
-  const token = localStorage.getItem("Token");
+  useEffect(() => {
+    const savedSubscriptionStatus = localStorage.getItem(`subscriptionStatus-${token}`);
+    if (savedSubscriptionStatus) {
+      setSubscriptionStatus(savedSubscriptionStatus);
+      if (savedSubscriptionStatus === selectedPlan) {
+        setDisplayNone(false);
+      } else if (savedSubscriptionStatus > selectedPlan) {
+        setDisplayNone(false);
+      } else {
+        setDisplayNone(true);
+      }
+    } else {
+      setDisplayNone(true);
+    }
+  }, [selectedPlan]);
   return (
     <>
       <Nav />
@@ -382,40 +355,12 @@ const SubscriptionStep = () => {
           </Box>
         </Modal>
         <div className='payment_status'>
-          {subscriptionStatus && (
+          { Divya && (
             <div className='payment_status_description'>
-              <p>You are subscribed to: {subscriptionStatus} plan</p>
+              <p>You are subscribed to: { Divya} plan</p>
             </div>
           )}
         </div>
-        <Snackbar open={isAlertOpen1} autoHideDuration={6000} onClose={handleCloseAlert1}>
-          <Stack sx={{ width: '100%' }} spacing={2}>
-            <Alert severity="success" onClose={handleCloseAlert1}>
-              Payment Successful!
-            </Alert>
-          </Stack>
-        </Snackbar>
-        <Snackbar open={isAlertOpen2} autoHideDuration={6000} onClose={handleCloseAlert2}>
-          <Stack sx={{ width: '100%' }} spacing={2}>
-            <Alert severity="error" onClose={handleCloseAlert2}>
-              length should be 8 and includes @!
-            </Alert>
-          </Stack>
-        </Snackbar>
-        <Snackbar open={isAlertOpen3} autoHideDuration={6000} onClose={handleCloseAlert3}>
-          <Stack sx={{ width: '100%' }} spacing={2}>
-            <Alert severity="success" onClose={handleCloseAlert3}>
-              already subscribed!
-            </Alert>
-          </Stack>
-        </Snackbar>
-        <Snackbar open={isAlertOpen4} autoHideDuration={6000} onClose={handleCloseAlert4}>
-          <Stack sx={{ width: '100%' }} spacing={2}>
-            <Alert severity="error" onClose={handleCloseAlert4}>
-              Already Subscribed to a higher Plan!
-            </Alert>
-          </Stack>
-        </Snackbar>
         {isLoading && (
           <Box sx={{
             display: 'flex',
