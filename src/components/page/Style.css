@@ -517,8 +517,8 @@ h2 {
   object-fit: cover;
 }
 .vedio-container {
-  margin-left: 20px;
-  margin-top: 5px;
+  width: 100%;
+  padding: 20px;
   color: #fff;
 }
 .vdo-contents {
@@ -531,32 +531,37 @@ h2 {
 .vdo-dis {
   width: 300px;
 }
-.span {
-  width: 60px;
-  height: 60px;
+ .span_icon{
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   border: 1px solid gray;
   color: #fff;
-  padding: 5px;
+  padding: 10px;
+  margin-left: 20px;
 }
-.span .vd-icon {
+.span_icon .vd-icon {
   font-size: x-large;
   position: relative;
-  top: 3px;
-  font-size: medium;
+  top: 7px;
 }
 .buton {
-  width: 100px;
   background-color: #fff;
   color: #111;
   padding: 10px;
-  margin-right: 10px;
   border-radius: 6px;
+  cursor: pointer;
 }
 .buton .vd-icons {
   font-size: x-large;
   position: relative;
   top: 8px;
+}
+.two{
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
 }
 .vdo-more-container {
   display: flex;
@@ -572,36 +577,23 @@ h2 {
 .like-btn {
   color: rgb(161, 31, 31);
 }
-.modal .modal_close {
+ .modal_close {
   position: absolute;
   color: #fff;
   z-index: 1;
   right: 5px;
   top: 10px;
-  display: none;
   cursor: pointer;
 }
 @media screen and (max-width: 768px) {
+  .css-1bjax40 {
+    width: 90% !important;
+}
   .vdo {
-    width: 100%;
-    height: 40vh;
-  }
-  .modal {
-    position: absolute;
-    width: 350px !important;
-    height: 550px !important;
-    margin-top: 10px !important;
-    overflow-y: scroll !important;
-  }
-  .modal .modal_close {
-    display: block;
-  }
-  .volume {
-    margin-top: 7px;
+    height: 45vh;
   }
 
   .vedio-container h3 {
-    text-align: center;
     font-size: 15px;
   }
 
@@ -610,8 +602,13 @@ h2 {
     font-size: 16px;
     margin-top: 10;
   }
-  .span .vd-icon {
-    font-size: small;
+  .span_icon{
+    padding: 6px;
+    margin-left: 10px;
+  }
+  .span_icon .vd-icon {
+    font-size: medium;
+    top: 2px;
   }
   .buton {
     border-radius: 5px;
@@ -619,17 +616,22 @@ h2 {
     padding: 5px;
   }
   .buton .vd-icons {
-    font-size: x-large;
+    font-size: medium;
     position: relative;
     top: 3px;
   }
+  .two{
+    margin-top: 1px;
+  }
   .vdo-dis {
-    padding: 0px 5px;
+    padding-right: 10px;
     font-size: 12px;
+    margin: 10px;
   }
   .vdo-dis2 {
-    padding: 0px 1px;
-    font-size: 10px;
+    padding-left: 10px;
+    font-size: 12px;
+    margin: 10px;
   }
 
   .vdo-more-container {

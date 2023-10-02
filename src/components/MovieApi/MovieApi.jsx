@@ -38,7 +38,7 @@ const MovieApi = () => {
           params: {
             filter: JSON.stringify(filter),
             page: page,
-            limit: 5,
+            limit: 6,
           },
         }
       );
@@ -163,14 +163,14 @@ const MovieApi = () => {
                     }}
                     disabled={originalSlice === 1}
                   >
-                    <ArrowBackIosIcon className="arrowIcon" />
+                    <ArrowBackIosIcon className="arrowIcon1" />
                   </div>
                   <div
                     onClick={() => {
                       handlSliceChange("original", 1);
                     }}
                   >
-                    <ArrowForwardIosIcon className="arrowIcon" />
+                    <ArrowForwardIosIcon className="arrowIcon2" />
                   </div>
                 </div>
                 <div className="poster-content">
@@ -200,14 +200,14 @@ const MovieApi = () => {
                     }}
                     disabled={trendingSlice === 1}
                   >
-                    <ArrowBackIosIcon className="arrowIcon" />
+                    <ArrowBackIosIcon className="arrowIcon1" />
                   </div>
                   <div
                     onClick={() => {
                       handlSliceChange("trending", 1);
                     }}
                   >
-                    <ArrowForwardIosIcon className="arrowIcon" />
+                    <ArrowForwardIosIcon className="arrowIcon2" />
                   </div>
                 </div>
                 <div className="poster-content">
@@ -237,14 +237,14 @@ const MovieApi = () => {
                     }}
                     disabled={topRatedSlice === 1}
                   >
-                    <ArrowBackIosIcon className="arrowIcon" />
+                    <ArrowBackIosIcon className="arrowIcon1" />
                   </div>
                   <div
                     onClick={() => {
                       handlSliceChange("top", 1);
                     }}
                   >
-                    <ArrowForwardIosIcon className="arrowIcon" />
+                    <ArrowForwardIosIcon className="arrowIcon2" />
                   </div>
                 </div>
                 <div className="poster-content">
@@ -274,14 +274,14 @@ const MovieApi = () => {
                     }}
                     disabled={actionSlice === 1}
                   >
-                    <ArrowBackIosIcon className="arrowIcon" />
+                    <ArrowBackIosIcon className="arrowIcon1" />
                   </div>
                   <div
                     onClick={() => {
                       handlSliceChange("action", 1);
                     }}
                   >
-                    <ArrowForwardIosIcon className="arrowIcon" />
+                    <ArrowForwardIosIcon className="arrowIcon2" />
                   </div>
                 </div>
                 <div className="poster-content">
@@ -311,14 +311,14 @@ const MovieApi = () => {
                     }}
                     disabled={horrorSlice === 1}
                   >
-                    <ArrowBackIosIcon className="arrowIcon" />
+                    <ArrowBackIosIcon className="arrowIcon1" />
                   </div>
                   <div
                     onClick={() => {
                       handlSliceChange("horror", 1);
                     }}
                   >
-                    <ArrowForwardIosIcon className="arrowIcon" />
+                    <ArrowForwardIosIcon className="arrowIcon2" />
                   </div>
                 </div>
                 <div className="poster-content">
@@ -348,14 +348,14 @@ const MovieApi = () => {
                     }}
                     disabled={romanceSlice === 1}
                   >
-                    <ArrowBackIosIcon className="arrowIcon" />
+                    <ArrowBackIosIcon className="arrowIcon1" />
                   </div>
                   <div
                     onClick={() => {
                       handlSliceChange("romance", 1);
                     }}
                   >
-                    <ArrowForwardIosIcon className="arrowIcon" />
+                    <ArrowForwardIosIcon className="arrowIcon2" />
                   </div>
                 </div>
                 <div className="poster-content">
@@ -385,14 +385,14 @@ const MovieApi = () => {
                     }}
                     disabled={documentarySlice === 1}
                   >
-                    <ArrowBackIosIcon className="arrowIcon" />
+                    <ArrowBackIosIcon className="arrowIcon1" />
                   </div>
                   <div
                     onClick={() => {
                       handlSliceChange("documentary", 1);
                     }}
                   >
-                    <ArrowForwardIosIcon className="arrowIcon" />
+                    <ArrowForwardIosIcon className="arrowIcon2" />
                   </div>
                 </div>
                 <div className="poster-content">

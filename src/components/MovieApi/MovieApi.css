@@ -8,7 +8,7 @@
 }
 
 .poster-content {
-  margin: 20px 60px;
+  margin: 20px 30px;
   display: flex;
   overflow: scroll;
   overflow-x: hidden;
@@ -18,7 +18,7 @@
 .carts {
   width: 202px;
   height: 232px;
-  margin: 20px;
+  margin: 20px 10px;
   border-radius: 8px;
   border: 1px solid gray;
 }
@@ -39,11 +39,11 @@
 .hide-container {
   display: none;
   position: relative;
-  width: 184px;
+  width: 180px;
   height: fit-content;
-  margin: 0px 29px;
-  border-radius: 8px;
-  border: 1px solid gray;
+  margin: 0px 20px;
+  /* border-radius: 8px; */
+  /* border: 1px solid gray; */
 }
 .hide-container span {
   width: 30px;
@@ -55,10 +55,12 @@
   text-align: center;
 }
 .color {
-  margin-top: -40px;
+  position: relative;
+  /* margin-top: -40px; */
+  bottom: 40px;
   background-color: rgba(0, 0, 0, 0.9);
-  padding: 20px;
-  border-radius: 8px;
+  padding: 15px;
+  border-radius: 5px;
 }
 .first {
   display: flex;
@@ -114,51 +116,61 @@
   /* align-items: center; */
   margin: 0px 20px;
 }
-.paginationButtons .arrowIcon {
+.paginationButtons .arrowIcon1 ,.arrowIcon2 {
   color: white;
   position: absolute;
   margin-top: 10rem;
 }
+
 @media (max-width: 568px) {
   .movie-container h2 {
     font-size: 18px;
   }
   .poster-content {
-    margin: 20px 10px;
+    margin: 20px 0px;
     overflow: scroll;
+    overflow-x: scroll;
   }
 
   .carts {
-    width: 150px;
-    height: 140px;
+    /* width: 150px;
+    height: 140px; */
+    width: fit-content;
+    height: fit-content;
     margin: 10px;
   }
 
   .carts img {
-    width: 148px;
+    width: 130px;
     height: 158px;
+    overflow-clip-margin: content-box;
+    overflow: clip;
   }
 
   .hide-container {
-    top: 100px;
-    width: 150px;
+    top: 10px;
+    left: 5px;
+    width: 127px;
     height: fit-content;
-    margin: 10px;
+    margin: 12px;
   }
   .paginationButtons {
     margin: 0px 5px;
   }
 
-  .paginationButtons .arrowIcon {
-    margin-top: 5rem;
+  .paginationButtons .arrowIcon1 ,.arrowIcon2 {
+    margin-top: 6rem;
   }
-
+  .paginationButtons .arrowIcon2{
+    display: none;
+  }
   .hide-container span {
     width: 20px;
     height: 20px;
   }
   .color {
-    margin-top: -20px;
+    /* margin-top: -20px; */
+    /* bottom: 30px; */
     padding: 10px;
   }
   .spcl {
@@ -170,7 +182,7 @@
   }
   .span .sm-icon {
     margin-top: 10px;
-    font-size: 15px;
+    font-size: 13px;
   }
   .third {
     font-size: 12px;

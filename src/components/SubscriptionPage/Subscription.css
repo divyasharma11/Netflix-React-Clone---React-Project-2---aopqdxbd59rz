@@ -63,9 +63,10 @@
   border-radius: 20px;
   width: 300px;
   height: fit-content;
-  padding: 10px 10px;
-  margin: 25px 10px;
+  padding: 5px 5px;
+  margin: 25px 20px;
   transition: tranform(1.5s);
+  cursor: pointer;
 }
 /* .sub-container .cart:hover {
 transform: scale(1.1);
@@ -75,7 +76,8 @@ transform: scale(1.1);
   background-color: rgb(67, 133, 199);
   border-radius: 10px;
   height: 100px;
-  padding: 5px 10px;
+  margin: 2px 1px;
+  padding: 10px 10px;
 }
 /* .cart:hover .premium{
     background: rgb(68, 54, 140);
@@ -140,6 +142,9 @@ h4 {
   display: flex;
 }
 
+.cart.selected{
+  transform: scale(1.1);
+}
 .cart.selected .premium {
   background: rgb(68, 54, 140);
   background: linear-gradient(
@@ -220,4 +225,40 @@ h4 {
     width: 100%;
     height: auto;
   }
+}
+.payment_modal input{
+  margin-top: 10px;
+  width: 90%;
+  height: 40px;
+  outline: none;
+  border: none;
+  padding: 5px;
+  background-color: #ebe7e7;
+}
+.payment_modal input:focus{
+  border: 1px solid palevioletred;
+  box-shadow: 0px 0px 1px 1px rgb(187, 88, 88);
+}
+.payment_modal input::placeholder{
+  color: #000;
+}
+.payment_modal h1{
+  color: #fff;
+}
+.payment_close_icon{
+  position: absolute;
+  top: 10px;
+  right: 22px;
+  color: #fff;
+  cursor: pointer;
+}
+.payment_status{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.payment_status_description{
+  margin-top: 20px;
+  color: #000;
 }

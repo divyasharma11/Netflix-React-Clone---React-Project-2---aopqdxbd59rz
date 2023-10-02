@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./Style.css";
-import Modal from "react-modal";
-import { useSelector } from "react-redux";
+// import Modal from "react-modal";
+import Modal from '@mui/material/Modal';
+import Box from "@mui/material/Box";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
@@ -13,26 +14,19 @@ import MovieCard from "../MovieApi/MovieCard";
 import CloseIcon from "@mui/icons-material/Close";
 import { Tooltip } from "@mui/material";
 
-Modal.setAppElement("#root");
+const style = {
+  position: "absolute",
+  left: "50%",
+  transform: "translate(-50%)",
+  width: "65%",
+  bgcolor: "#181818",
+  boxShadow: 24,
+  border: "2px solid #000",
+};
+
 const customStyles = {
-  content: {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    width: "800px",
-    height: "600px",
-    border: "none",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-    backgroundColor: "rgba(0,0,0,0.8)",
-    overflowY: "scroll",
-    margin: "20px 0",
-  },
-  overlay: {
-    backgroundColor: "rgba(0,0,0,0.7)",
-  },
+  display: "flex",
+  flexDirection: "column",
 };
 
 const VedioModel = ({ isOpen, onClose, myListItem, showId, onClick }) => {
@@ -98,12 +92,13 @@ const VedioModel = ({ isOpen, onClose, myListItem, showId, onClick }) => {
 
   return (
     <Modal
-      isOpen={isOpen}
-      onRequestClose={onClose}
-      contentLabel="Video Modal"
-      style={customStyles}
-      className="modal"
+      open={isOpen}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        style={{ overflowY: "scroll", margin: "20px 0" }}
     >
+       <Box sx={style} className="modal">
+        <div style={customStyles}>
       <CloseIcon className="modal_close" onClick={onClose} />
       <video
         src={videoContent.video_url}
@@ -127,7 +122,7 @@ const VedioModel = ({ isOpen, onClose, myListItem, showId, onClick }) => {
               title={myListItem ? "Remove from MyList" : "Add to MyList"}
               placement="top"
             >
-              <span className="span" onClick={onClick}>
+              <span className="span_icon" onClick={onClick}>
                 {myListItem ? (
                   <RemoveIcon className="vd-icon" />
                 ) : (
@@ -137,7 +132,7 @@ const VedioModel = ({ isOpen, onClose, myListItem, showId, onClick }) => {
             </Tooltip>
             <Tooltip title={like ? "Dislike" : "Like"} placement="top">
               <span
-                className={`span ${like && "like-span"}`}
+                className={`span_icon ${like && "like-span"}`}
                 onClick={() => setLike(!like)}
               >
                 <ThumbUpOffAltIcon
@@ -149,7 +144,7 @@ const VedioModel = ({ isOpen, onClose, myListItem, showId, onClick }) => {
           <div className=" volume">
             {isMute ? (
               <Tooltip title="Unmute" placement="top">
-                <span className="span ">
+                <span className="span_icon ">
                   <VolumeOffIcon
                     className="vd-icon volumeOff"
                     onClick={volumeOffHandler}
@@ -158,7 +153,7 @@ const VedioModel = ({ isOpen, onClose, myListItem, showId, onClick }) => {
               </Tooltip>
             ) : (
               <Tooltip title="mute" placement="top">
-                <span className="span ">
+                <span className="span_icon ">
                   <VolumeUpIcon className="vd-icon" onClick={volumeOnHandler} />
                 </span>
               </Tooltip>
@@ -196,6 +191,8 @@ const VedioModel = ({ isOpen, onClose, myListItem, showId, onClick }) => {
           </div>
         )}
       </div>
+      </div>
+      </Box>
     </Modal>
   );
 };
