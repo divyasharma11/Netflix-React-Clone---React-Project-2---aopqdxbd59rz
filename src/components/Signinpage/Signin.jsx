@@ -184,7 +184,7 @@ const Signin = () => {
               This page is protected by Google reCAPTCHA to
               <br />
               ensure you're not a bot.
-              <span className="learn-more"> Learn more</span>
+              {/* <span className="learn-more"> Learn more</span> */}
             </p>
           </div>
         </div>
