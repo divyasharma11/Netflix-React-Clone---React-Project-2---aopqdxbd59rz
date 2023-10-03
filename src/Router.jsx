@@ -7,7 +7,6 @@ import Movies from './components/page/Movies'
 import TvShows from './components/page/TvShows'
 import Subscription from './components/SubscriptionPage/Subscription'
 import SubscriptionStep from './components/SubscriptionPage/SubscriptionStep'
-import Payment from './components/SubscriptionPage/Payment'
 import Account from './components/page/Account'
 import Password from './components/page/Password'
 import Header from './components/header/Header'
@@ -63,10 +62,6 @@ import PlayMovie from './components/playmovie/PlayMovie'
    {
      path: "/subscription-step2",
      element: <RouterProtector element={<SubscriptionStep />} />,
-   },
-   {
-     path: "/payment-page",
-     element: <RouterProtector element={<Payment />} />,
    },
    {
      path: "/my-list",

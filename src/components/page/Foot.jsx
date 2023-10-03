@@ -52,7 +52,7 @@ const Foot = () => {
         </ul>
       </div>
       <div className="service">Service Code</div>
-      <div className="copy-text">&copy;{"  "}2023 Netflix Clone.</div>
+      <div className="copy-text">&copy;{"  "}2023 Netflix Clone By Divya.</div>
     </footer>
   );
 };

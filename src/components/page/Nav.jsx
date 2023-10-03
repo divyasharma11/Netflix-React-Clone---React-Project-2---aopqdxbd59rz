@@ -132,7 +132,6 @@ const Nav = () => {
             </div>
           </div>
         </div>
-
         <div className="nav-right">
           {inputVisible && (
             <div class="search_Container">

@@ -153,7 +153,7 @@ const MovieApi = () => {
               <div className="loader"></div>
             </div>
           ) : (
-            <>
+            <div className="main_Container">
               <div className="movie-container">
                 <h2>Netflix Originals</h2>
                 <div className="paginationButtons">
@@ -413,7 +413,7 @@ const MovieApi = () => {
                   ))}
                 </div>
               </div>
-            </>
+            </div>
           )}
         </>
       )}
