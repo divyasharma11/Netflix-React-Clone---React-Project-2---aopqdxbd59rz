@@ -18,7 +18,7 @@ const MovieCard = ({
   inMyList = false,
   onMyListChange,
 }) => {
-  const [myListItem, setIsInMyListItem] = useState(inMyList);
+  const [myListItem, setMyListItem] = useState(inMyList);
   const [openModal, setOpenModal] = useState(false);
   const [like, setLike] = useState(false);
   const navigate = useNavigate();
@@ -44,8 +44,7 @@ const MovieCard = ({
           },
         }
       );
-
-      setIsInMyListItem((prevState) => !prevState);
+      setMyListItem((prevState) => !prevState);
       onMyListChange();
     } catch (error) {
       console.error("Error in Add/Remove API:", error);

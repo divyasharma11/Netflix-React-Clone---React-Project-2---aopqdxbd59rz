@@ -68,10 +68,7 @@ const MovieApi = () => {
 
   useEffect(() => {
     const topratedFetch = async () => {
-      const topratedData = await movieData(
-        { type: "short film" },
-        topRatedSlice
-      );
+      const topratedData = await movieData({ type: "short film" },topRatedSlice);
       setTopRated(topratedData);
       setLoading(false);
     };
@@ -163,14 +160,14 @@ const MovieApi = () => {
                     }}
                     disabled={originalSlice === 1}
                   >
-                    <ArrowBackIosIcon className="arrowIcon1" />
+                   <ArrowBackIosIcon className="arrowIcon1" />
                   </div>
                   <div
                     onClick={() => {
                       handlSliceChange("original", 1);
                     }}
                   >
-                    <ArrowForwardIosIcon className="arrowIcon2" />
+                   <ArrowForwardIosIcon className="arrowIcon2" />
                   </div>
                 </div>
                 <div className="poster-content">
